@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-home-manager switch --flake .#reikimann
+git add . && home-manager switch --flake .#reikimann
