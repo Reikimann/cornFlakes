@@ -64,7 +64,7 @@
     home-manager.enable = true;
 
     zsh = {
-      enable = false;
+      enable = true;
       autocd = true;
       defaultKeymap = "viins";
 

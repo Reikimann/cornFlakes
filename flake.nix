@@ -10,7 +10,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -19,9 +19,17 @@
           allowUnfree = true;
         };
       };
+      lib = nixpkgs.lib;
     in {
       defaultPackage.${system} =
         home-manager.defaultPackage.${system};
+
+      nixosConfigurations = {
+      	superiority = lib.nixosSystem {
+	  system = system;
+	  modules = [ ./configuration.nix ];
+	};
+      };
 
       homeConfigurations = {
       reikimann = home-manager.lib.homeManagerConfiguration {
