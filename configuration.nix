@@ -82,10 +82,15 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  environment.shells = with pkgs; [ zsh ];
+  users.defaultUserShell = pkgs.zsh;
+  programs.zsh.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.reikimann = {
     isNormalUser = true;
     description = "reikimann";
+    initialPassword = "NixOS";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
