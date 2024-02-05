@@ -9,16 +9,18 @@
   targets.genericLinux.enable = true;
   xdg.systemDirs.data = [ "${config.home.homeDirectory}/.nix-profile/share/applications" ];
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
+  nix = {
+    package = pkgs.nix;
+    settings.experimental-features = [ "nix-command" "flakes" ];
+  };
+
   home.packages = with pkgs; [
-    # Fun:
+    # Fun
     neo-cowsay
     lolcat
     fortune
     asciiquarium-transparent
     sl
-    hollywood
     neofetch
 
     # File management
@@ -74,21 +76,6 @@
     # '';
   };
 
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. If you don't want to manage your shell through Home
-  # Manager then you have to manually source 'hm-session-vars.sh' located at
-  # either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/reikimann/etc/profile.d/hm-session-vars.sh
-  #
   home.sessionVariables = {
     EDITOR = "nvim";
   };
@@ -106,6 +93,7 @@
       # TODO: Finish converting
       autocd = true;
       defaultKeymap = "viins";
+      shellAliases = (import ./modules/shells/aliases.nix).myAliases;
 
       syntaxHighlighting = {
         enable = true;
@@ -152,10 +140,5 @@
 
     # TODO:
     # btop
-  };
-
-  nix = {
-    package = pkgs.nix;
-    settings.experimental-features = [ "nix-command" "flakes" ];
   };
 }

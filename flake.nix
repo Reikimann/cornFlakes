@@ -25,10 +25,10 @@
         home-manager.defaultPackage.${system};
 
       nixosConfigurations = {
-      	superiority = lib.nixosSystem {
-	  system = system;
-	  modules = [ ./configuration.nix ];
-	};
+        superiority = lib.nixosSystem {
+          system = system;
+          modules = [ ./configuration.nix ];
+        };
       };
 
       homeConfigurations = {
