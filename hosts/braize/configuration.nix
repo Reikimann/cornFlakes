@@ -102,7 +102,7 @@
   environment.systemPackages = with pkgs; [
     wget
     curl
-    neovim
+    vim
     git
   ];
 

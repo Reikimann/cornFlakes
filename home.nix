@@ -89,7 +89,6 @@
       # TODO: Finish converting
       autocd = true;
       defaultKeymap = "viins";
-      # TODO: Fix error
       shellAliases = (import ./modules/shells/aliases.nix).myAliases;
 
       syntaxHighlighting = {
@@ -137,5 +136,13 @@
 
     # TODO:
     # btop
+
+    # https://github.com/KFearsoff/NixOS-config/blob/main/nixosModules/neovim/default.nix
+    neovim = {
+      enable = true;
+      extraPackages = with pkgs; [
+        gcc # needed for nvim-treesitter
+      ];
+    };
   };
 }
