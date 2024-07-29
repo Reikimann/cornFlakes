@@ -1,7 +1,6 @@
 {
   # My shell aliases
   myAliases = {
-    ls = "eza --icons -l -T -L=1";
     matrix="unimatrix -l cCaGgkr -s 98 -a -f";
     c="clear && zsh";
     C="clear && bash";

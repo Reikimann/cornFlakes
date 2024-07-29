@@ -10,8 +10,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "superiority"; # Define your hostname.
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # Hostname-scheme is Cosmere planets
+  networking.hostName = "braize"; # Define your hostname.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -20,10 +21,7 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
   time.timeZone = "Europe/Copenhagen";
-
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_DK.UTF-8";
 
   i18n.extraLocaleSettings = {
@@ -46,20 +44,20 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "dk";
-    xkbVariant = "winkeys";
-    xkbOptions = "ctrl:swapcaps";
+    variant = "winkeys";
+    options = "ctrl:swapcaps";
   };
 
   # Configure console keymap
+  #console.keyMap = "dk-latin1";
   console.useXkbConfig = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -78,10 +76,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  environment.shells = with pkgs; [ zsh ];
-  users.defaultUserShell = pkgs.zsh;
-  programs.zsh.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.reikimann = {
     isNormalUser = true;
@@ -90,12 +84,17 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
-      home-manager
-    #  thunderbird
+      kitty
+      signal-desktop
+      yazi
+    #  home-manager
     ];
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  # Install firefox.
+  programs.firefox.enable = true;
+
+  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
@@ -106,8 +105,6 @@
     neovim
     git
   ];
-
-  # environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -128,22 +125,24 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  xdg = {
-    enable = true;
-    userDirs = {
-      enable = true;
-      createDirectories = true;
-      documents = "${config.home.homeDirectory}/dox";
-      desktop = "${config.home.homeDirectory}/"; # Should this be null?
-      download = "${config.home.homeDirectory}/dl";
-      music = "${config.home.homeDirectory}/music";
-      pictures = "${config.home.homeDirectory}/pix";
-      videos = "${config.home.homeDirectory}/vids";
-      templates = "${config.home.homeDirectory}/"; # Should this be null?
-      publicShare = "${config.home.homeDirectory}/"; # Should this be null?
-    };
-  };
+  #xdg = {
+  #  enable = true;
+  #  userDirs = {
+  #    enable = true;
+  #    createDirectories = true;
+  #    documents = "${config.home.homeDirectory}/dox";
+  #    desktop = "${config.home.homeDirectory}/"; # Should this be null?
+  #    download = "${config.home.homeDirectory}/dl";
+  #    music = "${config.home.homeDirectory}/music";
+  #    pictures = "${config.home.homeDirectory}/pix";
+  #    videos = "${config.home.homeDirectory}/vids";
+  #    templates = "${config.home.homeDirectory}/"; # Should this be null?
+  #    publicShare = "${config.home.homeDirectory}/"; # Should this be null?
+  #  };
+  #};
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Before changing this value read (man configuration.nix or https://nixos.org/nixos/options.html)
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.05";
 }

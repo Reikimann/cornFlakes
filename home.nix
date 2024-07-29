@@ -4,7 +4,7 @@
   home.username = "reikimann";
   home.homeDirectory = "/home/reikimann";
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
 
   targets.genericLinux.enable = true;
   xdg.systemDirs.data = [ "${config.home.homeDirectory}/.nix-profile/share/applications" ];
@@ -33,10 +33,6 @@
     yt-dlp
     bat
     eza
-
-    # School
-    teams-for-linux
-    minder
 
     # Sysops
     rpi-imager
@@ -93,12 +89,13 @@
       # TODO: Finish converting
       autocd = true;
       defaultKeymap = "viins";
+      # TODO: Fix error
       shellAliases = (import ./modules/shells/aliases.nix).myAliases;
 
       syntaxHighlighting = {
         enable = true;
       };
-      enableAutosuggestions = true;
+      autosuggestion.enable = true;
       enableCompletion = true;
 
       history = {
@@ -111,15 +108,15 @@
 
     # TODO: Don't want to include email, but its not working otherwise.
     # Setup ssh instead.
-    git = {
-      enable = true;
-      userName = "Reikimann";
-      extraConfig = {
-        init.defaultBranch = "main";
-        credential.helper = "store --file ~/.config/git/.git-credentials";
-        safe.directory = "/opt/flutter";
-      };
-    };
+    #git = {
+    #  enable = true;
+    #  userName = "Reikimann";
+    #  extraConfig = {
+    #    init.defaultBranch = "main";
+    #    credential.helper = "store --file ~/.config/git/.git-credentials";
+    #    safe.directory = "/opt/flutter";
+    #  };
+    #};
 
     zoxide = {
       enable = true;
