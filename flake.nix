@@ -11,11 +11,11 @@
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
+      inherit (self) outputs;
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
         config = import ./nix/config.nix;
-        overlays = self.overlays;
       };
       lib = nixpkgs.lib;
     in {
@@ -36,17 +36,9 @@
 
       nixosConfigurations = {
         braize = lib.nixosSystem {
+          specialArgs = { inherit outputs; };
           system = system;
-          modules = [
-            (
-              { inputs, ... }: {
-                nixpkgs = { 
-                  overlays = self.overlays;
-                };
-              }
-            )
-            ./hosts/braize/configuration.nix
-          ];
+          modules = [ ./hosts/braize/configuration.nix ];
         };
       };
 

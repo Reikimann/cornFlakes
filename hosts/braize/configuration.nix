@@ -1,9 +1,10 @@
-{ inputs, config, pkgs, ... }:
+{ inputs, config, pkgs, outputs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../common
     ];
 
   # Bootloader.
@@ -35,6 +36,11 @@
     LC_TELEPHONE = "da_DK.UTF-8";
     LC_TIME = "da_DK.UTF-8";
   };
+
+  #nixpkgs = {
+  #  overlays = outputs.overlays;
+  #  config.allowUnfree = true;
+  #};
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -94,12 +100,6 @@
     sf-mono-liga-bin
   ];
 
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -128,8 +128,6 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Before changing this value read (man configuration.nix or https://nixos.org/nixos/options.html)
   system.stateVersion = "24.05";
