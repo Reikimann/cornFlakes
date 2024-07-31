@@ -12,7 +12,6 @@
     fzff="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'";
     yolo="git commit -m '$(curl -s http://whatthecommit.com/index.txt)'";
     standalone="convert -density 300 -alpha remove";
-    lv="NVIM_APPNAME=nvimLazy nvim";
 
     # Dev
     # TODO: Make git aliases instead

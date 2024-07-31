@@ -1,4 +1,4 @@
-[
-  ./bash
-  ./zsh
-]
+{ ... }:
+{
+  imports = [ ./bash ./zsh ];
+}

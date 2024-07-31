@@ -13,7 +13,7 @@
 
       shellAliases = (import ../aliases.nix).myAliases;
 
-      enableAutosuggestions = true;
+      autosuggestion.enable = true;
       enableCompletion = true;
 
       history = {

@@ -91,8 +91,12 @@
     ];
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
+  fonts.packages = with pkgs; [
+    sf-mono-liga-bin
+  ];
+
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -104,6 +108,7 @@
     curl
     vim
     git
+    wl-clipboard
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -124,22 +129,6 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  #xdg = {
-  #  enable = true;
-  #  userDirs = {
-  #    enable = true;
-  #    createDirectories = true;
-  #    documents = "${config.home.homeDirectory}/dox";
-  #    desktop = "${config.home.homeDirectory}/"; # Should this be null?
-  #    download = "${config.home.homeDirectory}/dl";
-  #    music = "${config.home.homeDirectory}/music";
-  #    pictures = "${config.home.homeDirectory}/pix";
-  #    videos = "${config.home.homeDirectory}/vids";
-  #    templates = "${config.home.homeDirectory}/"; # Should this be null?
-  #    publicShare = "${config.home.homeDirectory}/"; # Should this be null?
-  #  };
-  #};
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
