@@ -5,5 +5,5 @@
 #  additions = final: _prev: import ../pkgs final.pkgs;
 #}
 [
-  # (import ./bla)
+  (import ./flameshot)
 ]
