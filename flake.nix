@@ -15,14 +15,12 @@
       pkgs = import nixpkgs {
         inherit system;
         config = import ./nix/config.nix;
-        overlays = [ self.overlays ];
+        overlays = self.overlays;
       };
       lib = nixpkgs.lib;
     in {
 
       # https://github.com/EdenEast/nyx/blob/0da99bed4058d655e1b11a3bfe68c9c9d0222e46/flake.nix#L67C18-L67C31
-      #packages = import ./nix/pkgs pkgs;
-      #pkgsOverlay = _final: _prev: self.packages;
       #pkgsOverlay = [ (import ./nix/pkgs).overlay ];
       pkgsOverlay = import ./nix/pkgs { inherit pkgs; };
       overlays = let
@@ -32,7 +30,6 @@
         [
           (self.pkgsOverlay)
         ] ++ ovs;
-
 
       nixosConfigurations = {
         braize = lib.nixosSystem {
