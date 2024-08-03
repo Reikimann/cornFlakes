@@ -87,7 +87,7 @@
   };
 
   imports = [
-    ./modules/shells
+    ./home/modules
   ];
 
   programs = {
@@ -136,22 +136,6 @@
         tab_bar_style = "powerline";
         confirm_os_window_close = 0;
       };
-    };
-  };
-
-  xdg = {
-    enable = true;
-    userDirs = {
-      enable = true;
-      createDirectories = true;
-      documents = "${config.home.homeDirectory}/dox";
-      download = "${config.home.homeDirectory}/dl";
-      music = "${config.home.homeDirectory}/music";
-      pictures = "${config.home.homeDirectory}/pix";
-      videos = "${config.home.homeDirectory}/vids";
-      desktop = null;
-      templates = null;
-      publicShare = null;
     };
   };
 }
