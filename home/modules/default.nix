@@ -5,5 +5,6 @@
   ./shell
   ./cli
   ./editors
+  ./programs
   ];
 }

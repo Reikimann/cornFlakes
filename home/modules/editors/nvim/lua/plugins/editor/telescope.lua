@@ -6,7 +6,7 @@ return {
       'nvim-lua/plenary.nvim',
       {
         'nvim-telescope/telescope-fzf-native.nvim',
-        build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
+        build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release'
       }
     },
     config = function()
@@ -38,7 +38,8 @@ return {
         },
       }
       require("telescope").load_extension("noice")
-      require("telescope").load_extension("fzf")
+      -- TODO: Make this work with Nix home-manager
+      -- require("telescope").load_extension("fzf")
     end,
   },
 }

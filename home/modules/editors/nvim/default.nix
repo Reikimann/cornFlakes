@@ -11,6 +11,7 @@
       gcc # needed for nvim-treesitter
       cmake # for telescope
       ripgrep # for telescope
+      fzf # for telescope
     ];
   };
 
