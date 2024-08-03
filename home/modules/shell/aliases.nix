@@ -1,5 +1,4 @@
 {
-  # My shell aliases
   myAliases = {
     matrix="unimatrix -l cCaGgkr -s 98 -a -f";
     c="clear && zsh";

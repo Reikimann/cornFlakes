@@ -3,21 +3,12 @@ path=(~/.local/bin $path)
 export PATH
 
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
-export HISTFILE="${XDG_STATE_HOME}/history"
-
-export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
-export XDG_STATE_HOME=${XDG_STATE_HOME:="$HOME/.local/state"}
-export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
-export XDG_CACHE_HOME=${XDG_CACHE_HOME:="$HOME/.cache"}
-
-export CHEMAXON_LICENSE_SERVER_KEY="lk_c8a5f3c6bb3540d9884b2532a72fea9a"
 
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
 export TERMINAL="kitty"
 export BROWSER="waterfox-g4"
 export READER="zathura"
-export RANGER_LOAD_DEFAULT_RC=FALSE
 export LC_ALL=en_DK.UTF-8
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --info=inline --cycle'
 

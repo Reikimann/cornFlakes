@@ -5,6 +5,7 @@
     lolcat
     fortune
     asciiquarium-transparent
+    unimatrix
     sl
   ];
 }
