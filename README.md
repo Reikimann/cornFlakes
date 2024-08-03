@@ -17,3 +17,4 @@
 - [ ] Add a module system
     - https://nixos-and-flakes.thiscute.world/other-usage-of-flakes/module-system
     - Example: https://github.com/EdenEast/nyx/blob/0da99bed4058d655e1b11a3bfe68c9c9d0222e46/home/modules/shell/xdg.nix
+- [ ] Checkout nix-output-manager

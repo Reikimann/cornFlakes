@@ -15,14 +15,6 @@
   };
 
   home.packages = with pkgs; [
-    # Fun
-    neo-cowsay
-    lolcat
-    fortune
-    asciiquarium-transparent
-    sl
-    neofetch
-
     # File management
     gdu
     duf
@@ -41,10 +33,6 @@
     # Networking
     nmap
 
-    # Other
-    rofi-wayland
-    spotify
-
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -59,13 +47,13 @@
     # '')
   ];
 
-  home.sessionVariables = {
-    # EDITOR = "nvim";
-  };
-
   i18n.glibcLocales = pkgs.glibcLocales.override {
       allLocales = false;
       locales = [ "en_DK.UTF-8/UTF-8" ];
+  };
+
+  home.sessionVariables = {
+    LOCALES_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
   };
 
   imports = [
@@ -86,12 +74,6 @@
     #    safe.directory = "/opt/flutter";
     #  };
     #};
-
-    # Config not done
-    # rofi = {
-    #   enable = true;
-    #   package = pkgs.rofi-wayland;
-    # };
 
     # TODO:
     # btop

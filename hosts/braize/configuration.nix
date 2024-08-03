@@ -37,11 +37,6 @@
     LC_TIME = "da_DK.UTF-8";
   };
 
-  #nixpkgs = {
-  #  overlays = outputs.overlays;
-  #  config.allowUnfree = true;
-  #};
-
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -88,12 +83,7 @@
     description = "reikimann";
     initialPassword = "NixOS";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-      signal-desktop
-      yazi
-    #  home-manager
-    ];
+    packages = with pkgs; [ ];
   };
 
   fonts.packages = with pkgs; [
