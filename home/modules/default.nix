@@ -1,5 +1,9 @@
 { ... }:
 
 {
-  imports = [ ./shell ./cli ];
+  imports = [
+  ./shell
+  ./cli
+  ./editors
+  ];
 }

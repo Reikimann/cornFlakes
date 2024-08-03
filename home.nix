@@ -115,15 +115,6 @@
     # btop
 
     # https://github.com/KFearsoff/NixOS-config/blob/main/nixosModules/neovim/default.nix
-    neovim = {
-      enable = true;
-      extraPackages = with pkgs; [
-        gcc # needed for nvim-treesitter
-        cmake # for telescope
-        ripgrep # for telescope
-      ];
-    };
-
     kitty = {
       enable = true;
       font = {

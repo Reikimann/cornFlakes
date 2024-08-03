@@ -11,6 +11,7 @@
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
+  # TODO: Why doesn't less pick these up? Does it (see the less help)?
   programs.less = {
     enable = true;
     envVariables = {

@@ -2,6 +2,6 @@
 
 {
   imports = [
-    #./less.nix
+    #./git.nix
   ];
 }
