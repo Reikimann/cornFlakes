@@ -12,6 +12,6 @@
     };
   };
 
-  home.file."./config/yazi/init.lua".source = ./init.lua;
-  home.file."./config/yazi/theme.toml".source = ./theme.toml;
+  home.file.".config/yazi/theme.toml".source = ./theme.toml;
+  home.file.".config/yazi/init.lua".source = ./init.lua;
 }
