@@ -42,7 +42,13 @@ in
         "~/.config/hypr/input.conf"
       ];
 
-      monitor = ",preferred,auto,1";
+      # TODO: Make this work on laptop also
+      monitor = [
+        "DP-2,2560x1440@240,auto,1"
+        "Unknown-1,disabled"
+      ];
+
+      #monitor = ",preferred,auto,1";
 
       general = {
         layout = "master"; # master|dwindle
