@@ -2,7 +2,7 @@
 
 {
   programs.wofi = {
-    enable = true;
+    enable = false;
     settings = {
       stylesheet = "style.css";
       show = "drun";
