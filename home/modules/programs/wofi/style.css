@@ -18,7 +18,7 @@
   font-family: "Liga SFMono Nerd Font";
   font-size: 16px;
   background: rgb(30,30,46);
-  background: linear-gradient(90deg, rgba(30,30,46,1) 26%, rgba(26,24,38,1) 55%, rgba(22,19,32,1) 91%); 
+  background: linear-gradient(90deg, rgba(30,30,46,1) 26%, rgba(26,24,38,1) 55%, rgba(22,19,32,1) 91%);
 }
 
 #input {
@@ -27,12 +27,12 @@
   border-radius: 10px;
   color: @fg;
   background: rgb(30,30,46);
-  background: linear-gradient(90deg, rgba(30,30,46,1) 43%, rgba(26,24,38,1) 82%, rgba(22,19,32,1) 91%); 
+  background: linear-gradient(90deg, rgba(30,30,46,1) 43%, rgba(26,24,38,1) 82%, rgba(22,19,32,1) 91%);
 }
 
 #input:focus {
   background: rgb(48,45,65);
-  background: linear-gradient(90deg, rgba(48,45,65,1) 19%, rgba(30,30,46,1) 77%, rgba(26,24,38,1) 100%); 
+  background: linear-gradient(90deg, rgba(48,45,65,1) 19%, rgba(30,30,46,1) 77%, rgba(26,24,38,1) 100%);
 }
 
 #input:focus image {
@@ -40,7 +40,7 @@
 }
 
 #input image {
-	color: @lavender;
+  color: @lavender;
 }
 
 #inner-box {
@@ -68,16 +68,16 @@
   margin: 5px;
   border: none;
   color: @fg;
-} 
+}
 
 #entry:selected {
-	border-radius: 10px;
+  border-radius: 10px;
   background: rgb(201,203,255);
-  background: linear-gradient(90deg, rgba(201,203,255,1) 28%, rgba(245,224,220,1) 85%, rgba(242,205,205,1) 100%); 
+  background: linear-gradient(90deg, rgba(201,203,255,1) 28%, rgba(245,224,220,1) 85%, rgba(242,205,205,1) 100%);
 }
 
 #text:selected {
-	background-color: inherit;
-	color: @dark-fg;
-	font-weight: normal;
+  background-color: inherit;
+  color: @dark-fg;
+  font-weight: normal;
 }

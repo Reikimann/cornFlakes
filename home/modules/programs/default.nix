@@ -10,5 +10,6 @@
     ./rofi
     ./firefox
     ./wlogout
+    ./wofi
   ];
 }
