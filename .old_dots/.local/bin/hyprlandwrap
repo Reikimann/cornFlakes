@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+# TODO: Ensure that these envvars are set.
 cd ~
 
 # XDG Specifications
