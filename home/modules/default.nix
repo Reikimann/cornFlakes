@@ -7,6 +7,5 @@
   ./editors
   ./programs
   ./shell
-  ./shellPrograms
   ];
 }
