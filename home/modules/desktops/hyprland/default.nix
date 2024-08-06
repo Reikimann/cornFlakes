@@ -21,17 +21,11 @@ let
     # Start Waybar
     waybar &
 
-    # Stars Dunst
-    dunst &
-
-    # Starts the NetworkManager applet
+    # Starts the NetworkManager applet (This should only be done on laptop. Use modules to fix...)
     nm-applet 2>&1 > /dev/null &
 
     # Manage Lockscreen
     ~/.local/bin/lockidle &
-
-    # Manage Nightlight
-    wlsunset -S 7:50 -s 19:30 &
 
     # Manage Clipboard
     wl-paste -t text --watch clipman store --no-persist &

@@ -7,6 +7,7 @@
     ./discord.nix
     ./dunst.nix
     ./signal-desktop.nix
+    ./wlsunset.nix
     ./rofi
     ./firefox
   ];
