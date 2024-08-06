@@ -11,7 +11,4 @@ Those are needed to be installed, if unsure, run `grimblast check`
 Waybar-hyprland: Highly customizable Wayland bar for Sway and Wlroots based compositors
 
 waybar-hyprland-git
-
-wlogout
-
-Hyprland
+swayidle

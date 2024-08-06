@@ -11,5 +11,6 @@
     ./swaylock
     ./rofi
     ./firefox
+    ./wlogout
   ];
 }

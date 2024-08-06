@@ -70,6 +70,10 @@ in
         apply_sens_to_raw=0; # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
       };
 
+      # Blurs
+      # layerrule = "blur,gtk-layer-shell";
+      layerrule = "blur,logout_dialog";
+
       decoration = {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
         rounding = 5;
@@ -130,10 +134,6 @@ in
         # col.group_border = 0x9B59B6ff
         "col.border_active" = "0xaaaa81ff";
       };
-
-      # Blurs
-      # blurls = waybar
-      blurls = "gtk-layer-shell";
 
       dwindle = {
         pseudotile = true; # Bound to mainMod + P
