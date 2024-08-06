@@ -45,6 +45,7 @@ in
       # TODO: Make this work on laptop also
       monitor = [
         "DP-2,2560x1440@240,auto,1"
+        # https://wiki.hyprland.org/FAQ/#workspaces-or-clients-are-disappearing-or-monitor-related-dispatchers-cause-crashes
         "Unknown-1,disabled"
       ];
 
