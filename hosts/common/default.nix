@@ -11,21 +11,29 @@
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
-  # TODO: Why doesn't less pick these up? Does it (see the less help)?
+  # TODO: How to correctly set these variables?
   programs.less = {
     enable = true;
     envVariables = {
       # TODO: Does it recognise this? lib.exe printf maybe
       #LESSOPEN="| '${lib.getBin pkgs.bat}/bin/bat -f %s 2>/dev/null";
-      LESS = "-R";
+      LESS = "iR";
       #LESS=iFMRSX
-      LESS_TERMCAP_mb = "$(printf '%b' '[1;31m')";
-      LESS_TERMCAP_md = "$(printf '%b' '[1;36m')";
-      LESS_TERMCAP_me = "$(printf '%b' '[0m')";
-      LESS_TERMCAP_so = "$(printf '%b' '[01;44;33m')";
-      LESS_TERMCAP_se = "$(printf '%b' '[0m')";
-      LESS_TERMCAP_us = "$(printf '%b' '[1;32m')";
-      LESS_TERMCAP_ue = "$(printf '%b' '[0m')";
+      #LESS_TERMCAP_mb = "$(printf '%b' '[1;31m')";
+      #LESS_TERMCAP_md = "$(printf '%b' '[1;36m')";
+      #LESS_TERMCAP_me = "$(printf '%b' '[0m')";
+      #LESS_TERMCAP_so = "$(printf '%b' '[01;44;33m')";
+      #LESS_TERMCAP_se = "$(printf '%b' '[0m')";
+      #LESS_TERMCAP_us = "$(printf '%b' '[1;32m')";
+      #LESS_TERMCAP_ue = "$(printf '%b' '[0m')";
+
+      #LESS_TERMCAP_mb = "$'\E[01;31m'";
+      #LESS_TERMCAP_md = "$'\E[01;38;5;208m'";
+      #LESS_TERMCAP_me = "$'\E[0m'";
+      #LESS_TERMCAP_so = "$'\E[01;44;33m'";
+      #LESS_TERMCAP_se = "$'\E[0m'";
+      #LESS_TERMCAP_us = "$'\E[04;38;5;111m'";
+      #LESS_TERMCAP_ue = "$'\E[0m'";
     };
   };
 

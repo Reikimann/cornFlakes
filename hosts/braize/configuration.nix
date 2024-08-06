@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, outputs, ... }:
+{ config, pkgs, outputs, ... }:
 
 {
   imports =
@@ -23,18 +23,20 @@
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Copenhagen";
-  i18n.defaultLocale = "en_DK.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "da_DK.UTF-8";
-    LC_IDENTIFICATION = "da_DK.UTF-8";
-    LC_MEASUREMENT = "da_DK.UTF-8";
-    LC_MONETARY = "da_DK.UTF-8";
-    LC_NAME = "da_DK.UTF-8";
-    LC_NUMERIC = "da_DK.UTF-8";
-    LC_PAPER = "da_DK.UTF-8";
-    LC_TELEPHONE = "da_DK.UTF-8";
-    LC_TIME = "da_DK.UTF-8";
+  i18n = {
+    defaultLocale = "en_DK.UTF-8";
+    extraLocaleSettings = {
+      LC_CTYPE="en_DK.UTF-8";
+      LC_ADDRESS = "en_DK.UTF-8";
+      LC_IDENTIFICATION = "en_DK.UTF-8";
+      LC_MEASUREMENT = "en_DK.UTF-8";
+      LC_MONETARY = "en_DK.UTF-8";
+      LC_NAME = "en_DK.UTF-8";
+      LC_NUMERIC = "en_DK.UTF-8";
+      LC_PAPER = "en_DK.UTF-8";
+      LC_TELEPHONE = "en_DK.UTF-8";
+      LC_TIME = "en_DK.UTF-8";
+    };
   };
 
   # Enable the X11 windowing system.
@@ -43,6 +45,9 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+
+  programs.hyprland.enable = true;
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -99,6 +104,25 @@
     git
     wl-clipboard
   ];
+
+  # enabling OpenGL and GPU drivers
+  hardware.opengl = {
+    enable = true;
+    driSupport32Bit = true;
+  };
+  services.xserver.videoDrivers = ["nvidia"];
+  hardware.nvidia.modesetting.enable = true;
+
+
+  programs.steam.enable = true;
+  # TODO: Figure out why and how to use:
+  #programs.steam.gamescopeSession.enable = true;
+
+  #home.packages = with pkgs; [
+  #  mangohud
+  #];
+  #programs.gamemode.enable = true;
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

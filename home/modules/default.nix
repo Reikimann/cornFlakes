@@ -2,10 +2,11 @@
 
 {
   imports = [
-  ./shell
-  ./shellPrograms
   ./cli
+  ./desktops
   ./editors
   ./programs
+  ./shell
+  ./shellPrograms
   ];
 }
