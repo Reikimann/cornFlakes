@@ -12,8 +12,6 @@ Waybar-hyprland: Highly customizable Wayland bar for Sway and Wlroots based comp
 
 waybar-hyprland-git
 
-swaylock-effects-git
-
 wlogout
 
 Hyprland

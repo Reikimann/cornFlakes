@@ -66,6 +66,8 @@
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
+  # TODO: Make this into a module and make it toggleable
+  security.pam.services.swaylock = { };
   services.pipewire = {
     enable = true;
     alsa.enable = true;

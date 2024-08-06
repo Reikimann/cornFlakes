@@ -8,6 +8,7 @@
     ./dunst.nix
     ./signal-desktop.nix
     ./wlsunset.nix
+    ./swaylock
     ./rofi
     ./firefox
   ];
