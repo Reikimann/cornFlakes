@@ -8,8 +8,7 @@ let
     # Starts Wallpaper Deamon
     # swww init
 
-    # Randomizes wallpapers (This now inits daemon)
-    ~/.config/swww/swww_randomize.sh $RICE_WALL_DIR &
+    # Randomizes wallpapers (This now inits daemon) ~/.config/swww/swww_randomize.sh $RICE_WALL_DIR &
 
     # Sets Cursor Theme
     hyprctl setcursor Breeze_Snow 16
@@ -161,7 +160,8 @@ in
       };
 
       #exec-once = ''${startupScript}/bin/autostart'';
-      exec-once = ''${pkgs.waybar}/bin/waybar &'';
+      # TODO: Nixify the choice between desktopBar and laptopBar
+      exec-once = ''${pkgs.waybar}/bin/waybar -b desktopBar &'';
     };
   };
 
