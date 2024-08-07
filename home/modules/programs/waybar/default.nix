@@ -4,214 +4,216 @@
   # TODO: Download font awesome for some of the icons
   programs.waybar = {
     enable = true;
-    settings = [{
-      layer = "top"; # Waybar at top layer
-      position = "top"; # Waybar position (top|bottom|left|right)
-      exclusive = true;
-      height = 40; # Waybar height (to be removed for auto height)
-      # width = 1280; # Waybar width
-      spacing = 4; # Gaps between modules (4px)
+    settings = [
+      mainbar = {
+        layer = "top"; # Waybar at top layer
+        position = "top"; # Waybar position (top|bottom|left|right)
+        exclusive = true;
+        height = 40; # Waybar height (to be removed for auto height)
+        # width = 1280; # Waybar width
+        spacing = 4; # Gaps between modules (4px)
 
-      modules-left = [
-        "custom/launcher"
-        "hyprland/workspaces"
-        "cpu"
-        "memory"
-        # "temperature"
-        "custom/media"
-        "custom/updates"
-      ];
-      modules-center = [ "clock" ];
-      modules-right = [
-        "tray"
-        "backlight"
-        #"pulseaudio"
-        #"pulseaudio#microphone"
-        "wireplumber"
-        "network"
-        "custom/swww"
-        "battery"
-      ];
-      tray = {
-        icon-size = 18;
-        spacing = 10;
-      };
-      "hyprland/workspaces" = {
-        disable-scroll = true;
-        all-outputs = true;
-        on-click = "activate";
-        format = "{icon}";
-        format-icons = {
-          urgent = "";
-          active = "";
-          default = "";
-          /*    */
+        modules-left = [
+          "custom/launcher"
+          "hyprland/workspaces"
+          "cpu"
+          "memory"
+          # "temperature"
+          "custom/media"
+          "custom/updates"
+        ];
+        modules-center = [ "clock" ];
+        modules-right = [
+          "tray"
+          "backlight"
+          #"pulseaudio"
+          #"pulseaudio#microphone"
+          "wireplumber"
+          "network"
+          "custom/swww"
+          "battery"
+        ];
+        tray = {
+          icon-size = 18;
+          spacing = 10;
         };
-        sort-by-number = true;
-      };
-      "hyprland/window" = {
-        format = "{}";
-      };
-      keyboard-state = {
-        numlock = true;
-        capslock = true;
-        format = "{name} {icon}";
-        format-icons = {
-          locked = "";
-          unlocked = "";
+        "hyprland/workspaces" = {
+          disable-scroll = true;
+          all-outputs = true;
+          on-click = "activate";
+          format = "{icon}";
+          format-icons = {
+            urgent = "";
+            active = "";
+            default = "";
+            /*    */
+          };
+          sort-by-number = true;
         };
-      };
-      "sway/scratchpad" = {
-        format = "{icon} {count}";
-        show-empty = false;
-        format-icons = [ "" "" ];
-        tooltip = true;
-        tooltip-format = "{app}: {title}";
-      };
-      mpd = {
-        format = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ";
-        format-disconnected = "Disconnected ";
-        format-stopped = "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ";
-        unknown-tag = "N/A";
-        interval = 2;
-        consume-icons = {
-          on = " ";
+        "hyprland/window" = {
+          format = "{}";
         };
-        random-icons = {
-          off = "<span color='#f53c3c'></span> ";
-          on = " ";
+        keyboard-state = {
+          numlock = true;
+          capslock = true;
+          format = "{name} {icon}";
+          format-icons = {
+            locked = "";
+            unlocked = "";
+          };
         };
-        repeat-icons = {
-          on = " ";
+        "sway/scratchpad" = {
+          format = "{icon} {count}";
+          show-empty = false;
+          format-icons = [ "" "" ];
+          tooltip = true;
+          tooltip-format = "{app}: {title}";
         };
-        single-icons = {
-          on = " ";
+        mpd = {
+          format = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ";
+          format-disconnected = "Disconnected ";
+          format-stopped = "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ";
+          unknown-tag = "N/A";
+          interval = 2;
+          consume-icons = {
+            on = " ";
+          };
+          random-icons = {
+            off = "<span color='#f53c3c'></span> ";
+            on = " ";
+          };
+          repeat-icons = {
+            on = " ";
+          };
+          single-icons = {
+            on = " ";
+          };
+          state-icons = {
+            paused = "";
+            playing = "";
+          };
+          tooltip-format = "MPD (connected)";
+          tooltip-format-disconnected = "MPD (disconnected)";
         };
-        state-icons = {
-          paused = "";
-          playing = "";
+        idle_inhibitor = {
+          format = "{icon}";
+          format-icons = {
+            activated = "";
+            deactivated = "";
+          };
         };
-        tooltip-format = "MPD (connected)";
-        tooltip-format-disconnected = "MPD (disconnected)";
-      };
-      idle_inhibitor = {
-        format = "{icon}";
-        format-icons = {
-          activated = "";
-          deactivated = "";
+        clock = {
+          timezone = "Europe/Copenhagen";
+          format = " {:%R }";
+          # format = "{: %R   }";
+          format-alt = " {:%d/%m }";
+          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
         };
-      };
-      clock = {
-        timezone = "Europe/Copenhagen";
-        format = " {:%R }";
-        # format = "{: %R   }";
-        format-alt = " {:%d/%m }";
-        tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-      };
-      cpu = {
-        format = " {usage}%";
-        tooltip = false;
-        /*   */
-      };
-      memory = {
-        format = " {}%";
-        /*  */
-      };
-      temperature = {
-        # "thermal-zone": 2,
-        # "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        critical-threshold = 80;
-        # "format-critical": "{temperatureC}°C {icon}",
-        format = "{icon} {temperatureC}°C";
-        format-icons = ["" "" ""];
-      };
-      backlight = {
-        # "device": "acpi_video1",
-        format = "{icon} {percent}%";
-        format-icons = ["" "" ""];
-        # "format-icons": ["", "", "", "", "", "", "", "", ""],
-      };
-      battery = {
-        states = {
-          good = 95;
-          warning = 30;
-          critical = 15;
+        cpu = {
+          format = " {usage}%";
+          tooltip = false;
+          /*   */
         };
-        format = "{icon} {capacity}%";
-        format-charging = " {capacity}%";
-        format-plugged = " {capacity}%";
-        format-alt = "{icon} {time}";
-        format-icons = ["" "" "" "" ""];
-      };
-      network = {
-        format-wifi = " {signalStrength}%";
-        format-ethernet = "{ipaddr}/{cidr} ";
-        tooltip-format = "{essid} - {ifname} via {gwaddr} ";
-        format-linked = "{ifname} (No IP) ";
-        format-disconnected = "Disconnected ⚠";
-        format-alt = "{ifname}:{essid} {ipaddr}/{cidr}";
-        on-click = "nm-connection-editor";
-      };
-      wireplumber = {
-        format = "{icon} {volume}%";
-        format-muted = "";
-        #on-click = "helvum";
-        scroll-step = 0.2;
-        format-icons = [ "" "" "" ];
-      };
-      pulseaudio = {
-        format = "{icon} {volume}%";
-        tooltip = false;
-        format-muted = " Muted";
-        on-click = "pamixer -t";
-        on-scroll-up = "pamixer -i 5";
-        on-scroll-down = "pamixer -d 5";
-        scroll-step = 5;
-        format-icons = {
-          headphone = "";
-          hands-free = "";
-          headset = "";
-          phone = "";
-          portable = "";
-          car = "";
-          default = ["" "" ""];
+        memory = {
+          format = " {}%";
+          /*  */
         };
-        # TODO: Which on-click function do I really use?
-        # on-click = "pavucontrol";
-      };
-      "pulseaudio#microphone" = {
-        format = "{format_source}";
-        format-source = " {volume}%"; # 
-        format-source-muted = " Muted"; # 
-        on-click = "pamixer --default-source -t";
-        on-scroll-up = "pamixer --default-source -i 5";
-        on-scroll-down = "pamixer --default-source -d 5";
-        scroll-step = 5;
-      };
-      "custom/launcher" = {
-        format = "{icon}";
-        format-icons = {
-          default = "";
+        temperature = {
+          # "thermal-zone": 2,
+          # "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+          critical-threshold = 80;
+          # "format-critical": "{temperatureC}°C {icon}",
+          format = "{icon} {temperatureC}°C";
+          format-icons = ["" "" ""];
         };
-        tooltip = false;
-        on-click = "rofi -show combi";
-      };
-      "custom/updates" = {
-        format = " {}";
-        exec = "~/.local/bin/checkupdate";
-        exec-if = "exit 0";
-        interval = 3600;
-        on-click = "kitty -e paru";
-      };
-      "custom/swww" = {
-        format = "{icon}";
-        format-icons = {
-          default = "";
+        backlight = {
+          # "device": "acpi_video1",
+          format = "{icon} {percent}%";
+          format-icons = ["" "" ""];
+          # "format-icons": ["", "", "", "", "", "", "", "", ""],
         };
-        tooltip = false;
-        on-click = "~/.config/swww/swww_changebg.sh";
-      };
-    }];
+        battery = {
+          states = {
+            good = 95;
+            warning = 30;
+            critical = 15;
+          };
+          format = "{icon} {capacity}%";
+          format-charging = " {capacity}%";
+          format-plugged = " {capacity}%";
+          format-alt = "{icon} {time}";
+          format-icons = ["" "" "" "" ""];
+        };
+        network = {
+          format-wifi = " {signalStrength}%";
+          format-ethernet = "{ipaddr}/{cidr} ";
+          tooltip-format = "{essid} - {ifname} via {gwaddr} ";
+          format-linked = "{ifname} (No IP) ";
+          format-disconnected = "Disconnected ⚠";
+          format-alt = "{ifname}:{essid} {ipaddr}/{cidr}";
+          on-click = "nm-connection-editor";
+        };
+        wireplumber = {
+          format = "{icon} {volume}%";
+          format-muted = "";
+          #on-click = "helvum";
+          scroll-step = 5;
+          format-icons = [ "" "" "" ];
+        };
+        pulseaudio = {
+          format = "{icon} {volume}%";
+          tooltip = false;
+          format-muted = " Muted";
+          on-click = "pamixer -t";
+          on-scroll-up = "pamixer -i 5";
+          on-scroll-down = "pamixer -d 5";
+          scroll-step = 5;
+          format-icons = {
+            headphone = "";
+            hands-free = "";
+            headset = "";
+            phone = "";
+            portable = "";
+            car = "";
+            default = ["" "" ""];
+          };
+          # TODO: Which on-click function do I really use?
+          # on-click = "pavucontrol";
+        };
+        "pulseaudio#microphone" = {
+          format = "{format_source}";
+          format-source = " {volume}%"; # 
+          format-source-muted = " Muted"; # 
+          on-click = "pamixer --default-source -t";
+          on-scroll-up = "pamixer --default-source -i 5";
+          on-scroll-down = "pamixer --default-source -d 5";
+          scroll-step = 5;
+        };
+        "custom/launcher" = {
+          format = "{icon}";
+          format-icons = {
+            default = "";
+          };
+          tooltip = false;
+          on-click = "rofi -show combi";
+        };
+        "custom/updates" = {
+          format = " {}";
+          exec = "~/.local/bin/checkupdate";
+          exec-if = "exit 0";
+          interval = 3600;
+          on-click = "kitty -e paru";
+        };
+        "custom/swww" = {
+          format = "{icon}";
+          format-icons = {
+            default = "";
+          };
+          tooltip = false;
+          on-click = "~/.config/swww/swww_changebg.sh";
+        };
+      }
+    ];
   };
 
   home.file.".config/waybar/colors.css".source = ./colors.css;
