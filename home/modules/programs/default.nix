@@ -9,6 +9,7 @@
     ./swaylock
     ./rofi
     ./firefox
+    ./waybar
     ./wlogout
     ./wofi
   ];
