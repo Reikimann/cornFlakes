@@ -8,8 +8,16 @@
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+      timeout = 1;
+    };
+    #kernelParams = [
+    #  "quiet"
+    #];
+  };
 
   # Hostname-scheme is Cosmere planets
   networking.hostName = "braize"; # Define your hostname.
@@ -95,6 +103,7 @@
 
   fonts.packages = with pkgs; [
     sf-mono-liga-bin
+    font-awesome
   ];
 
   # List packages installed in system profile. To search, run:
@@ -105,6 +114,10 @@
     vim
     git
     wl-clipboard
+    libnotify
+    wlr-randr
+    wev
+    cinnamon.nemo
   ];
 
   # enabling OpenGL and GPU drivers

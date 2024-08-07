@@ -161,6 +161,7 @@ in
       };
 
       #exec-once = ''${startupScript}/bin/autostart'';
+      exec-once = ''${pkgs.waybar}/bin/waybar &'';
     };
   };
 

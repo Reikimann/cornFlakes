@@ -209,6 +209,13 @@ label:focus {
   box-shadow: inset 0px -2px 1px @secondary;
 }
 
+#wireplumber {
+  border-radius: 10px;
+  background-color: @base;
+  color: @foreground;
+  box-shadow: inset 0px -2px 1px @secondary;
+}
+
 #temperature {
   border-radius: 10px;
   background-color: @base;

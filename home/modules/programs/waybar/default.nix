@@ -25,8 +25,9 @@
       modules-right = [
         "tray"
         "backlight"
-        "pulseaudio"
-        "pulseaudio#microphone"
+        #"pulseaudio"
+        #"pulseaudio#microphone"
+        "wireplumber"
         "network"
         "custom/swww"
         "battery"
@@ -151,6 +152,13 @@
         format-alt = "{ifname}:{essid} {ipaddr}/{cidr}";
         on-click = "nm-connection-editor";
       };
+      wireplumber = {
+        format = "{icon} {volume}%";
+        format-muted = "";
+        #on-click = "helvum";
+        scroll-step = 0.2;
+        format-icons = [ "" "" "" ];
+      };
       pulseaudio = {
         format = "{icon} {volume}%";
         tooltip = false;
@@ -187,13 +195,6 @@
         };
         tooltip = false;
         on-click = "rofi -show combi";
-      };
-      "custom/weather" = {
-        tooltip = true;
-        format = "{}";
-        interval = 30;
-        exec = "~/.config/waybar/scripts/waybar-wttr.py";
-        return-type = "json";
       };
       "custom/updates" = {
         format = " {}";

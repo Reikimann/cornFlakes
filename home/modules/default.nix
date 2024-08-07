@@ -6,6 +6,7 @@
   ./desktops
   ./editors
   ./programs
+  ./services
   ./shell
   ];
 }
