@@ -2,7 +2,7 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
       ../common
     ];
@@ -21,14 +21,8 @@
 
   # Hostname-scheme is Cosmere planets
   networking.hostName = "braize"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
   networking.networkmanager.enable = true;
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   time.timeZone = "Europe/Copenhagen";
   i18n = {
@@ -89,15 +83,25 @@
     #media-session.enable = true;
   };
 
+  services.kanata = {
+    enable = true;
+    keyboards = {
+      logitechKeyboard = {
+        configFile = ./config.kbd;
+      };
+    };
+  };
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.groups.uinput = {}; # Uinput for kanata
   users.users.reikimann = {
     isNormalUser = true;
     description = "reikimann";
     initialPassword = "NixOS";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "input" "uinput" ];
     packages = with pkgs; [ ];
   };
 
@@ -118,6 +122,7 @@
     wlr-randr
     wev
     cinnamon.nemo
+    kanata
   ];
 
   # enabling OpenGL and GPU drivers
