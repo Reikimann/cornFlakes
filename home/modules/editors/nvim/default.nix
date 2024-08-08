@@ -1,11 +1,13 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, pkgs-unstable, config, lib, ... }:
 {
+  # TODO: Setup https://github.com/stevearc/conform.nvim
   programs.neovim = {
     enable = true;
+    #package = pkgs-unstable.neovim;
     defaultEditor = true;
     viAlias = true;
     # If needed in the future (prop for lang servers)
-    withPython3 = false;
+    withPython3 = true;
     withNodeJs = false;
     extraPackages = with pkgs; [
       gcc # needed for nvim-treesitter

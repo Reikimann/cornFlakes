@@ -7,8 +7,10 @@
 )
 
 (defvar
-  tap-time 150
+  tap-time 190
   hold-time 200
+  weak-tap-time 240
+  weak-hold-time 250
 )
 
 ;; 102d means ><
@@ -22,14 +24,14 @@
 )
 
 (defalias
-  a (tap-hold $tap-time $hold-time a lalt)
-  s (tap-hold $tap-time $hold-time s lmet)
+  a (tap-hold $weak-tap-time $hold-time a lalt)
+  s (tap-hold $weak-tap-time $hold-time s lmet)
   d (tap-hold $tap-time $hold-time d lctl)
   f (tap-hold $tap-time $hold-time f lsft)
   j (tap-hold $tap-time $hold-time j lsft)
   k (tap-hold $tap-time $hold-time k lctl)
-  l (tap-hold $tap-time $hold-time l lmet)
-  ; (tap-hold $tap-time $hold-time ; lalt)
+  l (tap-hold $weak-tap-time $hold-time l lmet)
+  ; (tap-hold $weak-tap-time $hold-time ; lalt)
 )
 
 ;; XX means no operation

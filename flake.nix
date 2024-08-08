@@ -2,9 +2,11 @@
   description = "Home Manager configuration of reikimann";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-24.05";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+    #nixpkgs.url = "nixpkgs/nixos-24.05";
+    #nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -17,6 +19,7 @@
         inherit system;
         config = import ./nix/config.nix;
       };
+      #pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
       lib = nixpkgs.lib;
     in {
 
@@ -45,13 +48,15 @@
       homeConfigurations = {
         reikimann = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
+          #inherit pkgs-unstable;
 
           # Specify your home configuration modules here, for example,
           # the path to your home.nix.
           modules = [ ./home.nix ];
 
-          # Optionally use extraSpecialArgs
-          # to pass through arguments to home.nix
+          #extraSpecialArgs = {
+          #  inherit pkgs-unstable;
+          #};
         };
       };
     };

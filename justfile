@@ -16,9 +16,17 @@ _default:
 update:
   nix flake update
 
-# Deploys flake config using current system hostname
+# Rebuild and active system from flake using current hostname
 deploy:
   sudo nixos-rebuild switch --flake .
+
+# Rebuild system from flake using current hostname (Changes applied after reboot)
+deploy-boot:
+  sudo nixos-rebuild boot --flake .
+
+# Revert to and deploy system from previous generation
+rollback:
+  sudo nixos-rebuild --rollback switch
 
 # List alle generations of system profile
 history:
@@ -29,5 +37,5 @@ deploy-home:
   home-manager switch --flake .
 
 
-# TODO: Add cmds for garbage collect and profiel generation clean
+# TODO: Add cmds for garbage collect and profile generation clean
 # https://github.com/ryan4yin/nix-config/blob/main/Justfile

@@ -115,14 +115,14 @@
     libnotify
     wlr-randr
     wev
-    cinnamon.nemo
+    nemo
     kanata
   ];
 
   # enabling OpenGL and GPU drivers
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia.modesetting.enable = true;
