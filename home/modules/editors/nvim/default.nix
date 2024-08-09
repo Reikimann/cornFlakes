@@ -1,6 +1,8 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, ... }:
 {
   # TODO: Setup https://github.com/stevearc/conform.nvim
+  # TODO: Setup https://github.com/kevinhwang91/nvim-ufo
+  # TODO: Try nil lang server instead
   programs.neovim = {
     enable = true;
     #package = pkgs-unstable.neovim;
