@@ -6,6 +6,7 @@
     settings = {
       manager = {
         show_hidden = false;
+        show_symlink = false; # This is handled by the function in init.lua
         ratio = [ 2 3 5 ];
         linemode = "size";
         scrolloff = 15;
