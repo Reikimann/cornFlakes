@@ -13,5 +13,6 @@
   };
 
   home.file.".config/yazi/theme.toml".source = ./theme.toml;
+  home.file.".config/yazi/plugins".source = ./plugins;
   home.file.".config/yazi/init.lua".source = ./init.lua;
 }
