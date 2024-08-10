@@ -1,6 +1,6 @@
 { pkgs ? import <nixpkgs> {}, }: {
   sf-mono-liga-bin = pkgs.callPackage ./sf-mono-liga-bin {};
-  anytype = pkgs.callPackage ./anytype-no-wayland {};
+  anytype = pkgs.callPackage ./anytype-no-wayland { enableWayland = false; };
 }
 
 # TODO: Make this work: or something similar
