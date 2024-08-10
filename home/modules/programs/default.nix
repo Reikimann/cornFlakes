@@ -16,7 +16,7 @@
 
   # Not sorted yet
   home.packages = with pkgs; [
-    anytype # TODO: Does not work
+    anytype
     keepassxc
   ];
 }

@@ -1,5 +1,6 @@
 { pkgs ? import <nixpkgs> {}, }: {
   sf-mono-liga-bin = pkgs.callPackage ./sf-mono-liga-bin {};
+  anytype = pkgs.callPackage ./anytype-no-wayland {};
 }
 
 # TODO: Make this work: or something similar

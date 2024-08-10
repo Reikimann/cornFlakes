@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, outputs, ... }:
 
 {
   imports = [
@@ -24,6 +24,11 @@
 
   targets.genericLinux.enable = true;
   xdg.systemDirs.data = [ "${config.home.homeDirectory}/.nix-profile/share/applications" ];
+
+  nixpkgs = {
+    overlays = outputs.overlays;
+    config.allowUnfree = true;
+  };
 
   nix = {
     package = pkgs.nix;
