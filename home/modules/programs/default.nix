@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -12,5 +12,11 @@
     ./waybar
     ./wlogout
     ./wofi
+  ];
+
+  # Not sorted yet
+  home.packages = with pkgs; [
+    anytype # TODO: Does not work
+    keepassxc
   ];
 }
