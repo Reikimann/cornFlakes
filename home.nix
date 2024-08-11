@@ -27,7 +27,7 @@
 
   nixpkgs = {
     overlays = outputs.overlays;
-    config.allowUnfree = true;
+    config = import ./nix/config.nix;
   };
 
   nix = {
