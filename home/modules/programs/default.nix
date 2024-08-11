@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./anytype.nix
     ./kitty.nix
     ./spotify.nix
     ./discord.nix
@@ -16,7 +17,6 @@
 
   # Not sorted yet
   home.packages = [
-    pkgs.anytype
     pkgs.keepassxc
   ];
 }
