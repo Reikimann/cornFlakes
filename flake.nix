@@ -37,6 +37,8 @@
           (self.overlay)
         ] ++ ovs;
 
+      formatter.${system} = pkgs.nixfmt-rfc-style;
+
       nixosConfigurations = {
         braize = lib.nixosSystem {
           specialArgs = { inherit outputs; };

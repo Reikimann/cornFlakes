@@ -6,4 +6,9 @@
 #}
 [
 #  (import ./flameshot)
+  (self: super: {
+    anytype = super.anytype.override {
+      enableWayland = false;
+    };
+  })
 ]

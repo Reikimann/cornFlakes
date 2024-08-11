@@ -15,8 +15,8 @@
   ];
 
   # Not sorted yet
-  home.packages = with pkgs; [
-    anytype
-    keepassxc
+  home.packages = [
+    pkgs.anytype
+    pkgs.keepassxc
   ];
 }
