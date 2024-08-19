@@ -101,6 +101,8 @@
 
   fonts.packages = with pkgs; [
     sf-mono-liga-bin
+    libertine
+    libertinus
     font-awesome
   ];
 
