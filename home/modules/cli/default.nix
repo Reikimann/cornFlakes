@@ -17,6 +17,7 @@
     yt-dlp
     bat
     eza
+    fd
 
     # Development tools
     rpi-imager

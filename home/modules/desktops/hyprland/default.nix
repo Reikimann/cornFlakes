@@ -1,24 +1,12 @@
 { pkgs, config, lib, ... }:
 let
   startupScript = pkgs.pkgs.writeShellScriptBin "autostart" ''
-    # TODO: Move this envvar to someplace else
-    # Set wallpaper dir
-    export RICE_WALL_DIR=~/pix/rices/tokyonight
-
-    # Starts Wallpaper Deamon
-    # swww init
-
-    # Randomizes wallpapers (This now inits daemon) ~/.config/swww/swww_randomize.sh $RICE_WALL_DIR &
-
     # Sets Cursor Theme
     hyprctl setcursor Breeze_Snow 16
 
     # https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland
     # Sets cursor theme in gtk apps
     gsettings set org.gnome.desktop.interface cursor-theme "$(grep 'gtk-cursor-theme-name' ~/.config/gtk-3.0/settings.ini | sed 's/.*\s*=\s*//')"
-
-    # Start Waybar
-    waybar &
 
     # Starts the NetworkManager applet (This should only be done on laptop. Use modules to fix...)
     nm-applet 2>&1 > /dev/null &
@@ -161,7 +149,11 @@ in
 
       #exec-once = ''${startupScript}/bin/autostart'';
       # TODO: Nixify the choice between desktopBar and laptopBar
-      exec-once = ''${pkgs.waybar}/bin/waybar -b desktopBar &'';
+      exec-once = [
+        ''${pkgs.waybar}/bin/waybar -b desktopBar &''
+        "swww-daemon &"
+        "~/.config/swww/swww_randomize.sh $RICE_WALL_DIR &"
+      ];
     };
   };
 

@@ -11,6 +11,7 @@
     ./swaylock
     ./rofi
     ./firefox
+    ./swww
     ./waybar
     ./wlogout
     ./wofi

@@ -10,9 +10,11 @@
     homeDirectory = "/home/reikimann";
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     stateVersion = "24.05";
+    preferXdgDirectories = true;
 
     sessionVariables = {
       LOCALES_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
+      RICE_WALL_DIR = "${config.xdg.userDirs.pictures}/wallpapers/rices/tokyonight";
     };
 
     file."pix/wallpapers".source = ./wallpapers;
