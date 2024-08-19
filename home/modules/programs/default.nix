@@ -7,6 +7,7 @@
     ./spotify.nix
     ./discord.nix
     ./signal-desktop.nix
+    ./zathura.nix
     ./swaylock
     ./rofi
     ./firefox
