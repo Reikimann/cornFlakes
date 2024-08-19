@@ -11,6 +11,8 @@
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
+  environment.systemPackages = [ pkgs.killall ];
+
   # TODO: How to correctly set these variables?
   programs.less = {
     enable = true;

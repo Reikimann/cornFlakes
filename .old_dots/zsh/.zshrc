@@ -170,11 +170,6 @@ alias nvidia-settings="nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settin
 
 ################################################
 
-eval "$(zoxide init zsh)"
-eval "$(starship init zsh)"
-# neofetch
-
-
 source ~/.local/bin/change_pwd.sh
 
 source /usr/share/fzf/key-bindings.zsh

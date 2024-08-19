@@ -35,7 +35,7 @@
             default = "";
           };
           tooltip = false;
-          on-click = "~/.config/swww/swww_changebg.sh";
+          on-click = "swww_changebg";
         };
       }
       {

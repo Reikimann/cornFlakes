@@ -150,7 +150,7 @@ in
       #exec-once = ''${startupScript}/bin/autostart'';
       # TODO: Nixify the choice between desktopBar and laptopBar
       exec-once = [
-        ''${pkgs.waybar}/bin/waybar -b desktopBar &''
+        ''waybar -b desktopBar &''
         "swww-daemon &"
         "~/.config/swww/swww_randomize.sh $RICE_WALL_DIR &"
       ];
