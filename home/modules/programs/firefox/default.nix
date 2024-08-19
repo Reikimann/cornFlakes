@@ -1,7 +1,11 @@
-{ pkgs, config, lib, ... }:
+{ ... }:
 
 {
   programs.firefox = {
     enable = true;
+  };
+
+  home.sessionVariables = {
+    BROWSER = "firefox";
   };
 }

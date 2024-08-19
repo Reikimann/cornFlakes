@@ -1,6 +1,10 @@
 { ... }:
 
 {
+  home.sessionVariables = {
+    READER = "zathura";
+  };
+
   programs.zathura = {
     enable = true;
     options = {

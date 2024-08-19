@@ -2,7 +2,8 @@
 
 {
   imports = [
-    ./go
     ./latex
+    ./go.nix
+    ./rust.nix
   ];
 }

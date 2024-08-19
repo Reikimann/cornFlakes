@@ -23,12 +23,15 @@
   home.packages = with pkgs; [
     nixd
     pyright
-    rust-analyzer
     gopls
     lua-language-server
     nodePackages_latest.vscode-langservers-extracted
     nodePackages_latest.typescript-language-server
   ];
+
+  home.sessionVariables = {
+    VISUAL = "nvim";
+  };
 
   home.file.".config/nvim/init.lua".source = ./init.lua;
   home.file.".config/nvim/lua".source = ./lua;

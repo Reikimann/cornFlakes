@@ -6,8 +6,9 @@
     ./yazi
     ./btop.nix
     ./file_management.nix
-    #./git.nix  TODO: Fix git
     ./fun.nix
+    ./fzf.nix
+    #./git.nix  TODO: Fix git
   ];
 
   # Not sorted
