@@ -20,5 +20,6 @@
   # Not sorted yet
   home.packages = [
     pkgs.keepassxc
+    pkgs.kicad
   ];
 }

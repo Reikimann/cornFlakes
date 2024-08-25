@@ -166,10 +166,6 @@ bindkey -s '^s' 'school\n'
 
 ################################################
 
-alias nvidia-settings="nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings"
-
-################################################
-
 source ~/.local/bin/change_pwd.sh
 
 source /usr/share/fzf/key-bindings.zsh

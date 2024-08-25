@@ -12,6 +12,9 @@
     yolo="git commit -m '$(curl -s http://whatthecommit.com/index.txt)'";
     standalone="convert -density 300 -alpha remove";
 
+    # TODO: Figure out how to add ${config.xdg.configHome} to this alias
+    nvidia-settings="nvidia-settings --config=\"$XDG_CONFIG_HOME\"/nvidia/settings";
+
     # Dev
     # TODO: Make git aliases instead
     gits="git status";
