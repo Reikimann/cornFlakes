@@ -77,6 +77,7 @@ return {
         },
         formatting = {
           format = require("lspkind").cmp_format({
+            before = require("tailwind-tools.cmp").lspkind_format,
             -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
             mode = 'symbol_text', -- show only symbol annotations
             maxwidth = 50,

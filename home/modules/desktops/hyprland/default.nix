@@ -140,7 +140,7 @@ in
 
       # See https://wiki.hyprland.org/Configuring/Keywords/#executing for more
       misc = {
-        disable_hyprland_logo = false;
+        disable_hyprland_logo = true;
         disable_splash_rendering = true;
         # enable_swallow = true;
         # swallow_regex = ^(kitty)$

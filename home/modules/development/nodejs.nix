@@ -7,7 +7,7 @@ let
 in
 {
   home = {
-    packages = with pkgs; [ nodejs yarn ];
+    packages = with pkgs; [ nodejs corepack ]; # Corepack to install pkgmanagers
 
     sessionVariables = {
       NPM_CONFIG_USERCONFIG = "${configHome}/npm/npmrc";

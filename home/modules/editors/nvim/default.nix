@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
-  # TODO: Setup https://github.com/stevearc/conform.nvim
+  # TODO: Setup https://github.com/stevearc/conform.nvim (eslint issues?) eller
+  # https://github.com/nvimtools/none-ls.nvim (nok mest conform?)
   # TODO: Setup https://github.com/kevinhwang91/nvim-ufo
   # TODO: Try nil lang server instead
   programs.neovim = {
@@ -25,6 +26,8 @@
     pyright
     gopls
     lua-language-server
+    astro-language-server
+    tailwindcss-language-server
     nodePackages_latest.vscode-langservers-extracted
     nodePackages_latest.typescript-language-server
   ];

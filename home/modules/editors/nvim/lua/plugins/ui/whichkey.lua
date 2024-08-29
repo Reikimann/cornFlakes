@@ -62,6 +62,7 @@ return {
         r = {":Telescope live_grep<CR>", "Telescope Live Grep"},
         c = {":Telescope colorscheme<CR>", "Telescope Colorscheme"},
         b = {":ToggleTerm<cr>", "Split Below"},
+        t = {":TailwindConcealToggle<cr>", "Conceal Tailwind"},
         f = {toggle_float, "Floating Terminal"},
         g = {toggle_lazygit, "LazyGit"},
       },

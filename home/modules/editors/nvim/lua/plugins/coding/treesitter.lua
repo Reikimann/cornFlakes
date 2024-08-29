@@ -5,6 +5,7 @@ return {
     event = "VeryLazy",
     opts = {
       ensure_installed = {
+        "astro",
         "bash",
         "diff",
         "html",
@@ -35,10 +36,6 @@ return {
           max_file_lines = nil, -- Do not enable for files with more than n lines, int
       },
       indent = { enable = true },
-      autotag = {
-          enable = true,
-          --filetypes = { "html" , "xml" },
-      },
     },
     config = function(_, opts)
       if type(opts.ensure_installed) == "table" then
@@ -62,7 +59,12 @@ return {
   },
   {
     "windwp/nvim-ts-autotag",
-    event = "VeryLazy",
     dependencies = "nvim-treesitter/nvim-treesitter",
+    opts = {
+      disable_filetype = { "TelescopePrompt" },
+    },
+    config = function(_, opts)
+      require("nvim-ts-autotag").setup(opts)
+    end
   }
 }
