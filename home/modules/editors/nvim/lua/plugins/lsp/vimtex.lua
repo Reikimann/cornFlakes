@@ -9,7 +9,6 @@ return {
 
       -- Most VimTeX mappings rely on localleader and this can be changed with the
       -- following line. The default is usually fine and is the symbol "".
-      vim.g.maplocalleader = ","
       vim.g.vimtex_fold_enabled = 1
       vim.g.vimtex_view_forward_search_on_start = 0 -- Stops highlighting changes in zathura on start
       vim.g.vimtex_syntax_conceal = {        -- enable or disable specific conceals
