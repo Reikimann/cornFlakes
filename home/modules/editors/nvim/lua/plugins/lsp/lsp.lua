@@ -70,7 +70,7 @@ return {
         cmd = { "vscode-css-language-server", "--stdio" },
       })
 
-      nvim_lsp.tsserver.setup({
+      nvim_lsp.ts_ls.setup({
         capabilities = capabilities,
         cmd = { "typescript-language-server", "--stdio" },
       })

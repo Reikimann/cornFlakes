@@ -19,6 +19,8 @@
       ripgrep # for telescope
       fzf # for telescope
       python3
+      tree-sitter
+      tree-sitter-grammars.tree-sitter-latex
     ];
   };
   home.packages = with pkgs; [
