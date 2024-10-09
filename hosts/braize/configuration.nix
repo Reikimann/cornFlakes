@@ -122,6 +122,9 @@
     wev
     nemo
     kanata
+
+    heroic
+    vial
   ];
 
   # enabling OpenGL and GPU drivers
