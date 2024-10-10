@@ -62,7 +62,6 @@
   };
 
   # Configure console keymap
-  #console.keyMap = "dk-latin1";
   console.useXkbConfig = true;
 
   # Enable CUPS to print documents.
@@ -126,6 +125,9 @@
     heroic
     vial
   ];
+
+  services.udev.packages = [ pkgs.vial ];
+  hardware.keyboard.qmk.enable = true;
 
   # enabling OpenGL and GPU drivers
   hardware.graphics = {
