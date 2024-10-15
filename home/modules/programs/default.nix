@@ -18,8 +18,11 @@
   ];
 
   # Not sorted yet
-  home.packages = [
-    pkgs.keepassxc
+  home.packages = with pkgs; [
+    keepassxc
+    brightnessctl
+    gscreenshot
+    playerctl
     # pkgs.kicad
   ];
 }
