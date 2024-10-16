@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, config, ... }:
 let
   startupScript = pkgs.pkgs.writeShellScriptBin "autostart" ''
     # Sets Cursor Theme
@@ -157,7 +157,16 @@ in
     };
   };
 
-  home.file.".config/hypr/binds.conf".source = ./binds.conf;
-  home.file.".config/hypr/input.conf".source = ./input.conf;
-  home.file.".config/hypr/windowrules.conf".source = ./windowrules.conf;
+  home.file.".config/hypr/binds.conf".source = ./configs/binds.conf;
+  home.file.".config/hypr/input.conf".source = ./configs/input.conf;
+  home.file.".config/hypr/windowrules.conf".source = ./configs/windowrules.conf;
+
+  home.packages = with pkgs; [
+    hyprshot
+    hyprpicker
+  ];
+
+  home.sessionVariables = {
+    HYPRSHOT_DIR = "${config.xdg.userDirs.pictures}/screenshots";
+  };
 }

@@ -21,8 +21,8 @@
   home.packages = with pkgs; [
     keepassxc
     brightnessctl
-    gscreenshot
     playerctl
+    hyprpicker
     # pkgs.kicad
   ];
 }
