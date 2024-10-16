@@ -163,7 +163,6 @@ in
 
   home.packages = with pkgs; [
     hyprshot
-    hyprpicker
   ];
 
   home.sessionVariables = {
