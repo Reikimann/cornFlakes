@@ -1,4 +1,4 @@
-{ config, pkgs, outputs, ... }:
+{ pkgs, ... }:
 
 {
   imports =
@@ -79,27 +79,16 @@
     pulse.enable = true;
   };
 
-  services.kanata = {
-    enable = true;
-    keyboards = {
-      logitechKeyboard = {
-        devices = [ "/dev/input/by-id/usb-Logitech_Gaming_Keyboard_G910_0A7234663735-event-kbd" ];
-        configFile = ./config.kbd;
-      };
-    };
-  };
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.groups.uinput = {}; # Uinput for kanata
   users.users.reikimann = {
     isNormalUser = true;
     description = "reikimann";
     initialPassword = "NixOS";
-    extraGroups = [ "networkmanager" "wheel" "input" "uinput" ];
-    packages = with pkgs; [ ];
+    extraGroups = [ "networkmanager" "wheel" "input" ];
+    #packages = with pkgs; [ ];
   };
 
   fonts.packages = with pkgs; [
@@ -121,9 +110,10 @@
     wlr-randr
     wev
     nemo
-    kanata
 
     heroic
+
+    qmk
     vial
   ];
 
