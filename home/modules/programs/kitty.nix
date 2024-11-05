@@ -11,7 +11,7 @@
       name = "Liga SFMono Nerd Font";
       size = 14.0;
     };
-    theme = "Tokyo Night";
+    themeFile = "tokyo_night_night";
     settings = {
       enable_audio_bell = false;
       tab_bar_style = "powerline";
