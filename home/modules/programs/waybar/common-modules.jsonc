@@ -183,7 +183,7 @@
   "custom/launcher": {
     "format": "{icon}",
     "format-icons": {
-      "default": ""
+      "default": "" // 
     },
     "tooltip": false,
     "on-click": "rofi -show combi"
