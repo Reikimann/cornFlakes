@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   # TODO: Download font awesome for some of the icons
@@ -15,19 +15,20 @@
         # width = 1280; # Waybar width
         spacing = 4; # Gaps between modules (4px)
 
-        include = [ ".config/waybar/common-modules.jsonc" ];
+        include = [ "~/.config/waybar/common-modules.jsonc" ];
 
         modules-left = [
           "custom/launcher"
           "hyprland/workspaces"
-          "cpu"
-          "memory"
+          "group/system-container"
         ];
         modules-center = [ "clock" ];
         modules-right = [
           "tray"
+          "backlight"
           "wireplumber"
           "custom/swww"
+          "battery"
         ];
         "custom/swww" = {
           format = "{icon}";
@@ -38,6 +39,8 @@
           on-click = "swww_changebg";
         };
       }
+      # TODO: Is this really needed? If the module doesn't work on desktop it's disabled.
+      # MAYBE: Remove after laptop is converted to nix (custom/updates)
       {
         id = "laptopBar";
         output = "eDP-1";
@@ -48,14 +51,12 @@
         # width = 1280; # Waybar width
         spacing = 4; # Gaps between modules (4px)
 
-        include = [ ".config/waybar/common-modules.jsonc" ];
+        include = [ "~/.config/waybar/common-modules.jsonc" ];
 
         modules-left = [
           "custom/launcher"
           "hyprland/workspaces"
-          "cpu"
-          "memory"
-          # "temperature"
+          "group/system-container"
           "custom/media"
           "custom/updates"
         ];

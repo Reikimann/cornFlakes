@@ -9,9 +9,8 @@
   "modules-left": [
     "custom/launcher",
     "hyprland/workspaces",
-    "cpu",
+    "group/system-container",
     "memory",
-    // "temperature",
     "custom/media",
     "custom/updates"
   ],
@@ -33,11 +32,12 @@
     "disable-scroll": true,
     "all-outputs": true,
     "on-click": "activate",
-    "format": "{icon}",
+    "format": "<span rise='5500'>{icon}</span>",
+    //"format": "<span size='13000'>{icon}</span>",
     "format-icons": {
       "urgent": "",
       "active": "",
-      "default": "" 
+      "default": ""
       /*    */
     },
     "sort-by-number": true
@@ -101,13 +101,20 @@
     "format-alt":" {:%d/%m }",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
+  "group/system-container": {
+    "orientation": "horizontal",
+    "modules": [
+      "cpu",
+      "memory"
+    ]
+  },
   "cpu": {
-    "format": " {usage}%",
-    "tooltip": false
+    "format": " {usage}%"
+    // "tooltip": false
     /*   */
   },
   "memory": {
-    "format": " {}%"
+    "format": " {}%"
     /*  */
   },
   "temperature": {
