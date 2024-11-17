@@ -8,6 +8,7 @@
     font = "Liga SFMono Nerd Font 13";
     extraConfig = {
       modi = "window,drun,ssh,combi,run";
+      show-icons = true;
       matching = "regex";
       combi-modi = "drun,run";
 

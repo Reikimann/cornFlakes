@@ -20,8 +20,8 @@ configuration {
     text-color: @fg;
 }
 
-window { 
-    width: 40%; 
+window {
+    width: 25%;
     border-radius: @rad;
 }
 
@@ -29,7 +29,7 @@ mainbox { children: [ inputbar, listview ]; }
 
 inputbar {
     children: [ entry ];
-    padding: 6em 12em 2em 2em;
+    padding: 6em 2em 2em 2em;
     border-radius: 0 0 8px 8px;
     background-image: url("img/cherry.png");
 }
@@ -43,16 +43,19 @@ entry {
 listview {
     lines: 5;
     cycle: true;
-    padding: 2em 12em 2em 2em;
+    padding: 2em 2em 2em 2em;
 }
 
 element {
     padding: 1.5% 3%;
     border-radius: @rad;
+    children: [ element-icon, element-text ];
+    spacing: 10px;
 }
 
 element-icon {
     size: 1.5em;
+    background-color: transparent;
 }
 
 element-text, entry { vertical-align: 0.5; }

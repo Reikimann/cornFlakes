@@ -114,10 +114,14 @@ in
       };
 
       group = {
-        # HEX RRGGBBAA
-        "col.border_inactive" = "0xaaaa81bb";
-        # col.group_border = 0x9B59B6ff
-        "col.border_active" = "0xaaaa81ff";
+        "col.border_active" = "rgba(5d00baff) rgba(5E172Aff) rgba(7d40efff) 45deg"; # #5d00ba #bb9af7 #7d40ef
+        "col.border_inactive" = "rgba(33333311)"; # #333333
+        groupbar = {
+          height = 3;
+          render_titles = false;
+          "col.active" = "rgba(5d00baff)";
+          "col.inactive" = "rgba(7d40ef66)";
+        };
       };
 
       dwindle = {
@@ -143,6 +147,7 @@ in
         # enable_swallow = true;
         # swallow_regex = ^(kitty)$
         close_special_on_empty = true;
+        font_family = "Liga SFMono Nerd Font";
       };
 
       #exec-once = ''${startupScript}/bin/autostart'';
