@@ -104,6 +104,7 @@
     wget
     curl
     vim
+    imagemagick
     git
     wl-clipboard
     libnotify
