@@ -1,13 +1,8 @@
 { pkgs, config, ... }:
 let
+  pointer = config.home.pointerCursor;
+
   startupScript = pkgs.pkgs.writeShellScriptBin "autostart" ''
-    # Sets Cursor Theme
-    hyprctl setcursor Breeze_Snow 16
-
-    # https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland
-    # Sets cursor theme in gtk apps
-    gsettings set org.gnome.desktop.interface cursor-theme "$(grep 'gtk-cursor-theme-name' ~/.config/gtk-3.0/settings.ini | sed 's/.*\s*=\s*//')"
-
     # Starts the NetworkManager applet (This should only be done on laptop. Use modules to fix...)
     nm-applet 2>&1 > /dev/null &
 
@@ -19,7 +14,6 @@ let
   '';
 in
 {
-  # TODO: Setup hyprpicker https://github.com/hyprwm/hyprpicker
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -31,7 +25,7 @@ in
 
       # TODO: Make this work on laptop also
       monitor = [
-        "DP-2,2560x1440@240,auto,1"
+        "DP-1,2560x1440@240,auto,1"
         # https://wiki.hyprland.org/FAQ/#workspaces-or-clients-are-disappearing-or-monitor-related-dispatchers-cause-crashes
         "Unknown-1,disabled"
       ];
@@ -153,9 +147,10 @@ in
       #exec-once = ''${startupScript}/bin/autostart'';
       # TODO: Nixify the choice between desktopBar and laptopBar
       exec-once = [
-        ''waybar -b desktopBar &''
+        "waybar -b desktopBar &"
         "swww-daemon &"
         "~/.config/swww/swww_randomize.sh $RICE_WALL_DIR &"
+        "hyprctl setcursor ${toString pointer.name} ${toString pointer.size}"
       ];
     };
   };

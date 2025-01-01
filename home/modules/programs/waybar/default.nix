@@ -7,7 +7,7 @@
     settings = [
       {
         id = "desktopBar";
-        output = "DP-2";
+        output = "DP-1";
         layer = "top"; # Waybar at top layer
         position = "top"; # Waybar position (top|bottom|left|right)
         exclusive = true;
@@ -25,7 +25,6 @@
         modules-center = [ "clock" ];
         modules-right = [
           "tray"
-          "backlight"
           "wireplumber"
           "custom/swww"
           "battery"

@@ -1,11 +1,10 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ../common
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ../common
+  ];
 
   # Bootloader.
   boot = {
@@ -96,6 +95,8 @@
     libertine
     libertinus
     font-awesome
+    corefonts
+    vistafonts
   ];
 
   # List packages installed in system profile. To search, run:

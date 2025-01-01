@@ -1,6 +1,11 @@
 { outputs, pkgs, ... }:
 
 {
+
+  imports = [
+    ./productivity.nix
+  ];
+
   nixpkgs = {
     overlays = outputs.overlays;
     config = import ../../nix/config.nix;
