@@ -150,7 +150,7 @@ in
         "waybar -b desktopBar &"
         "swww-daemon &"
         "~/.config/swww/swww_randomize.sh $RICE_WALL_DIR &"
-        "hyprctl setcursor ${toString pointer.name} ${toString pointer.size}"
+        ''hyprctl setcursor ${toString pointer.name} ${toString pointer.size}''
       ];
     };
   };
