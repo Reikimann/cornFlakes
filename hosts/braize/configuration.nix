@@ -67,7 +67,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   # TODO: Make this into a module and make it toggleable
   security.pam.services.swaylock = { };
@@ -113,8 +113,6 @@
     wev
     nemo
 
-    heroic
-
     qmk
     vial
   ];
@@ -130,16 +128,6 @@
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia.modesetting.enable = true;
   hardware.nvidia.open = false;
-
-
-  programs.steam.enable = true;
-  # TODO: Figure out why and how to use:
-  #programs.steam.gamescopeSession.enable = true;
-
-  #home.packages = with pkgs; [
-  #  mangohud
-  #];
-  #programs.gamemode.enable = true;
 
 
   # Some programs need SUID wrappers, can be configured further or are

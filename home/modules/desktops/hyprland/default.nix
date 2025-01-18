@@ -69,10 +69,12 @@ in
         inactive_opacity = 1.0;
         fullscreen_opacity = 1.0;
 
-        drop_shadow = false;
-        shadow_range = 10;
-        shadow_render_power = 3;
-        "col.shadow" = "rgba(1a1a1aee)";
+        shadow = {
+          enabled = false;
+          color = "rgba(1a1a1aee)";
+          range = 10;
+          render_power = 3;
+        };
       };
 
       #animation=NAME,ONOFF,SPEED,CURVE,(STYLE)
@@ -122,14 +124,12 @@ in
         pseudotile = true; # Bound to mainMod + P
         preserve_split = true; # You probably want this
         smart_split = true;
-        no_gaps_when_only = false;
         special_scale_factor = 0.95; # Scale of special workspaces
       };
 
       master = {
         new_status = "master"; # could also use slave or inherit
         new_on_top = true;
-        no_gaps_when_only = false;
         special_scale_factor = 0.95; # Scale of special workspaces
         mfact = 0.50;
       };
