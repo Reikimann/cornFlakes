@@ -23,7 +23,7 @@ in
         "~/.config/hypr/input.conf"
       ];
 
-      # TODO: Make this work on laptop also
+      # TODO: Make this work on laptop also (by nixifying monitors (vimjoyer has a video on this))
       monitor = [
         "DP-1,2560x1440@240,auto,1"
         # https://wiki.hyprland.org/FAQ/#workspaces-or-clients-are-disappearing-or-monitor-related-dispatchers-cause-crashes
