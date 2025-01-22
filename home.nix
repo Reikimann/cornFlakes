@@ -18,6 +18,7 @@
       discord.enable = true;
       kitty.enable = true;
       signal-desktop.enable = true;
+      spotify.enable = true;
     };
   };
 
