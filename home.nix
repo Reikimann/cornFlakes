@@ -15,6 +15,7 @@
         enable = true;
         disableWayland = true;
       };
+      discord.enable = true;
     };
   };
 
