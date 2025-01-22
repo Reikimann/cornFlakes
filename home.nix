@@ -11,12 +11,13 @@
       dunst.enable = true;
     };
     programs = {
+      kitty.enable = true;
+      zathura.enable = true;
       anytype = {
         enable = true;
         disableWayland = true;
       };
       discord.enable = true;
-      kitty.enable = true;
       signal-desktop.enable = true;
       spotify.enable = true;
     };
