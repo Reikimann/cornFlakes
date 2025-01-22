@@ -13,7 +13,7 @@ in
       type = types.str;
     };
     fontSize = mkOption {
-      description = "Override notification size";
+      description = "Override notification font size";
       default = 12;
       type = types.int;
     };
