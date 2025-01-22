@@ -12,6 +12,7 @@
     };
     programs = {
       kitty.enable = true;
+      rofi.enable = true;
       firefox.enable = true;
       zathura.enable = true;
       anytype = {

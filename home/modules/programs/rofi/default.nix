@@ -1,22 +1,43 @@
 { pkgs, config, lib, ... }:
-{
-  # TODO: Doesn't work because of NixOS Locales
-  programs.rofi = {
-    enable = true;
-    package = pkgs.rofi-wayland;
-    theme = "themes/cherry";
-    font = "Liga SFMono Nerd Font 13";
-    extraConfig = {
-      modi = "window,drun,ssh,combi,run";
-      show-icons = true;
-      matching = "regex";
-      combi-modi = "drun,run";
 
-      kb-row-up = "Control+k";
-      kb-row-down = "Control+j";
-      kb-remove-to-eol = "";
-      kb-accept-entry = "Control+m,Return,KP_Enter";
+with lib;
+let
+  cfg = config.reiki.modules.programs.rofi;
+in
+{
+  options.reiki.modules.programs.rofi = {
+    enable = mkEnableOption "Rofi configuration";
+    font = mkOption {
+      description = "Override font";
+      default = "Liga SFMono Nerd Font";
+      type = types.str;
+    };
+    fontSize = mkOption {
+      description = "Override font size";
+      default = 13;
+      type = types.int;
     };
   };
-  home.file.".config/rofi/themes".source = ./themes;
+
+  config = mkIf cfg.enable {
+    # TODO: Doesn't work because of NixOS Locales
+    programs.rofi = {
+      enable = true;
+      package = pkgs.rofi-wayland;
+      theme = "themes/cherry";
+      font = "${cfg.font} ${toString cfg.fontSize}";
+      extraConfig = {
+        modi = "window,drun,ssh,combi,run";
+        show-icons = true;
+        matching = "regex";
+        combi-modi = "drun,run";
+
+        kb-row-up = "Control+k";
+        kb-row-down = "Control+j";
+        kb-remove-to-eol = "";
+        kb-accept-entry = "Control+m,Return,KP_Enter";
+      };
+    };
+    home.file.".config/rofi/themes".source = ./themes;
+  };
 }
