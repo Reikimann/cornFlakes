@@ -7,6 +7,7 @@
 
   reiki.modules = {
     services.wlsunset.enable = true;
+    services.dunst.enable = true;
   };
 
   home = {
