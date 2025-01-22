@@ -20,7 +20,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    # TODO: Doesn't work because of NixOS Locales
     programs.rofi = {
       enable = true;
       package = pkgs.rofi-wayland;
