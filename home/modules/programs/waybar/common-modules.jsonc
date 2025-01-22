@@ -159,6 +159,7 @@
     "scroll-step": 5,
     "format-icons": [ "", "", "" ]
   },
+  // TODO: Chose an on-click program
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "tooltip": false,
