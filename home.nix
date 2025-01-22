@@ -16,6 +16,7 @@
         disableWayland = true;
       };
       discord.enable = true;
+      kitty.enable = true;
     };
   };
 
