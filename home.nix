@@ -5,6 +5,10 @@
     ./home/modules
   ];
 
+  reiki.modules = {
+    services.wlsunset.enable = true;
+  };
+
   home = {
     username = "reikimann";
     homeDirectory = "/home/reikimann";
