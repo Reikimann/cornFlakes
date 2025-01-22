@@ -31,8 +31,8 @@ in
         matching = "regex";
         combi-modi = "drun,run";
 
-        kb-row-up = "Control+k";
-        kb-row-down = "Control+j";
+        kb-row-up = "Control+k,Up";
+        kb-row-down = "Control+j,Down";
         kb-remove-to-eol = "";
         kb-accept-entry = "Control+m,Return,KP_Enter";
       };
