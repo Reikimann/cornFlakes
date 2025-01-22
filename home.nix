@@ -17,6 +17,8 @@
         enable = true;
         outputScreen = "DP-1";
       };
+      wlogout.enable = true;
+      wofi.enable = false; # Just for remembering adding to profiles
       kitty.enable = true;
       rofi.enable = true;
       firefox.enable = true;
