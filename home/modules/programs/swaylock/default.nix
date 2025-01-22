@@ -1,48 +1,59 @@
 { pkgs, config, lib, ... }:
 
+with lib;
+let
+  cfg = config.reiki.modules.programs.swaylock;
+in
 {
-  programs.swaylock = {
-    enable = true;
-    package = pkgs.swaylock-effects;
-    settings = {
-      clock = true;
-      datestr = "%d/%m";
-      screenshots = true;
-      daemonize = true;
-      fade-in = 0.1;
+  # TODO: Maybe make a folder for desktop stuff (not /home/desktops) like bars and lockscreens
+  options.reiki.modules.programs.swaylock = {
+    enable = mkEnableOption "Swaylock configuration";
+  };
 
-      grace = 2;
-      grace-no-mouse = true;
-      grace-no-touch = true;
-      ignore-empty-password = true;
+  config = mkIf cfg.enable {
+    programs.swaylock = {
+      enable = true;
+      package = pkgs.swaylock-effects;
+      settings = {
+        clock = true;
+        datestr = "%d/%m";
+        screenshots = true;
+        daemonize = true;
+        fade-in = 0.1;
 
-      indicator = true;
-      indicator-radius = 180;
-      indicator-thickness = 18;
+        grace = 2;
+        grace-no-mouse = true;
+        grace-no-touch = true;
+        ignore-empty-password = true;
 
-      effect-blur = "9x9";
-      effect-vignette = "0.5:0.5";
+        indicator = true;
+        indicator-radius = 180;
+        indicator-thickness = 18;
 
-      ring-color = "3C4360";
-      line-color = "00000000";
-      inside-color = "00000088";
-      separator-color = "00000000";
+        effect-blur = "9x9";
+        effect-vignette = "0.5:0.5";
 
-      text-color = "cdd6f4";
-      #text-color=5D00BA
-      key-hl-color = "5D00BA";
-      bs-hl-color = "880033";
+        ring-color = "3C4360";
+        line-color = "00000000";
+        inside-color = "00000088";
+        separator-color = "00000000";
 
-      ring-ver-color = "90BC61";
-      inside-ver-color = "90BC61";
+        text-color = "cdd6f4";
+        #text-color=5D00BA
+        key-hl-color = "5D00BA";
+        bs-hl-color = "880033";
 
-      ring-wrong-color = "880033";
-      inside-wrong-color = "880033";
+        ring-ver-color = "90BC61";
+        inside-ver-color = "90BC61";
 
-      text-caps-lock-color = "880033";
+        ring-wrong-color = "880033";
+        inside-wrong-color = "880033";
 
-      ring-clear-color = "E7905C";
-      inside-clear-color = "E7905C";
+        text-caps-lock-color = "880033";
+
+        ring-clear-color = "E7905C";
+        inside-clear-color = "E7905C";
+      };
     };
   };
 }

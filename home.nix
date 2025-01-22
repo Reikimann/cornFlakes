@@ -11,6 +11,8 @@
       dunst.enable = true;
     };
     programs = {
+      swaylock.enable = true;
+      swww.enable = true;
       kitty.enable = true;
       rofi.enable = true;
       firefox.enable = true;
