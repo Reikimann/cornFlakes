@@ -13,6 +13,7 @@
     programs = {
       swaylock.enable = true;
       swww.enable = true;
+      waybar.enable = true;
       kitty.enable = true;
       rofi.enable = true;
       firefox.enable = true;
