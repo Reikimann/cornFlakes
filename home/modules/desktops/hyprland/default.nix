@@ -146,7 +146,6 @@ in
       };
 
       exec-once = [
-        "waybar &"
         "swww-daemon &"
         "~/.config/swww/swww_randomize.sh $RICE_WALL_DIR &"
         ''hyprctl setcursor ${toString pointer.name} ${toString pointer.size}''

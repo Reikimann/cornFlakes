@@ -51,7 +51,7 @@
         reikimann = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           # NOTE: ./home/modules : /modules may need to be removed to EdenEast/nyx how he handles it (regarding profiles)
-          modules = [ ./home.nix ./home/modules ];
+          modules = [ ./hosts/braize/home.nix ./home/modules ];
           extraSpecialArgs = { inherit outputs; };
         };
       };

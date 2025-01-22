@@ -2,9 +2,10 @@
 
 {
   imports = [
-    ./home/modules
+    ../../home/modules
   ];
 
+  # TODO: Move to profiles
   reiki.modules = {
     services = {
       wlsunset.enable = true;
@@ -45,7 +46,7 @@
       RICE_WALL_DIR = "${config.xdg.userDirs.pictures}/wallpapers/rices/tokyonight";
     };
 
-    file."pix/wallpapers".source = ./wallpapers;
+    file."pix/wallpapers".source = ../../wallpapers;
   };
 
   programs = {
@@ -57,7 +58,7 @@
 
   nixpkgs = {
     overlays = outputs.overlays;
-    config = import ./nix/config.nix;
+    config = import ../../nix/config.nix;
   };
 
   nix = {

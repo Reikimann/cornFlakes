@@ -5,6 +5,7 @@
     ./hyprland
   ];
 
+  # TODO: Move to some other module place
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
