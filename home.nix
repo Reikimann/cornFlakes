@@ -38,7 +38,7 @@
   };
 
   i18n.glibcLocales = pkgs.glibcLocales.override {
-      allLocales = false;
-      locales = [ "en_DK.UTF-8/UTF-8" ];
+    allLocales = false;
+    locales = [ "en_DK.UTF-8/UTF-8" ];
   };
 }
