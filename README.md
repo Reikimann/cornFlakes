@@ -24,6 +24,7 @@ REMEMBER a laptop option
     - [ ] To NixOS in /system/profiles/
 - [ ] Add ~home-manager/hosts~ home.nix files to /hosts/
 - [ ] Setup garbage collection
+- [ ] After NixOS installation on laptop add makeUserHome and mkHome functions to lib (see EdenEast/nyx)
 - [ ] Checkout nix-output-manager
 - [ ] Checkout config.lib.file.mkOutOfStoreSymlink
 - Wayland:
