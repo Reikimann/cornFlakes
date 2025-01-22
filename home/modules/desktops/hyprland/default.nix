@@ -6,6 +6,7 @@ let
     # Starts the NetworkManager applet (This should only be done on laptop. Use modules to fix...)
     nm-applet 2>&1 > /dev/null &
 
+    # TODO: Use the hyprland utilities for lockscreen and idling
     # Manage Lockscreen
     ~/.local/bin/lockidle &
 
@@ -144,10 +145,8 @@ in
         font_family = "Liga SFMono Nerd Font";
       };
 
-      #exec-once = ''${startupScript}/bin/autostart'';
-      # TODO: Nixify the choice between desktopBar and laptopBar
       exec-once = [
-        "waybar -b desktopBar &"
+        "waybar &"
         "swww-daemon &"
         "~/.config/swww/swww_randomize.sh $RICE_WALL_DIR &"
         ''hyprctl setcursor ${toString pointer.name} ${toString pointer.size}''

@@ -8,6 +8,16 @@ in
   # TODO: Maybe make a folder for desktop stuff (not /home/desktops) like bars and lockscreens
   options.reiki.modules.programs.waybar = {
     enable = mkEnableOption "Waybar configuration";
+    isLaptop = mkOption {
+      description = "Switch for adding laptop modules";
+      default = false;
+      type = types.bool;
+    };
+    outputScreen = mkOption {
+      description = "Output screen";
+      default = "eDP-1"; # Laptop screen
+      type = types.str;
+    };
   };
 
   config = mkIf cfg.enable {
@@ -15,8 +25,7 @@ in
       enable = true;
       settings = [
         {
-          id = "desktopBar";
-          output = "DP-1";
+          output = cfg.outputScreen;
           layer = "top"; # Waybar at top layer
           position = "top"; # Waybar position (top|bottom|left|right)
           exclusive = true;
@@ -25,19 +34,6 @@ in
           spacing = 4; # Gaps between modules (4px)
 
           include = [ "~/.config/waybar/common-modules.jsonc" ];
-
-          modules-left = [
-            "custom/launcher"
-            "hyprland/workspaces"
-            "group/system-container"
-          ];
-          modules-center = [ "clock" ];
-          modules-right = [
-            "tray"
-            "wireplumber"
-            "custom/swww"
-            "battery"
-          ];
           "custom/swww" = {
             format = "{icon}";
             format-icons = {
@@ -46,54 +42,33 @@ in
             tooltip = false;
             on-click = "swww_changebg";
           };
-        }
-        # TODO: Is this really needed? If the module doesn't work on desktop it's disabled.
-        # MAYBE: Remove after laptop is converted to nix (custom/updates)
-        {
-          id = "laptopBar";
-          output = "eDP-1";
-          layer = "top"; # Waybar at top layer
-          position = "top"; # Waybar position (top|bottom|left|right)
-          exclusive = true;
-          height = 40; # Waybar height (to be removed for auto height)
-          # width = 1280; # Waybar width
-          spacing = 4; # Gaps between modules (4px)
-
-          include = [ "~/.config/waybar/common-modules.jsonc" ];
 
           modules-left = [
             "custom/launcher"
             "hyprland/workspaces"
             "group/system-container"
-            "custom/media"
-            "custom/updates"
-          ];
+          ] ++ (if cfg.isLaptop then [
+            "custom/updates" # FIX: This should be removed when the laptop doesn't have arch
+          ] else []);
+
           modules-center = [ "clock" ];
+
           modules-right = [
             "tray"
+            "wireplumber"
+          ] ++ (if cfg.isLaptop then [
             "backlight"
-            "pulseaudio"
-            "pulseaudio#microphone"
             "network"
-            "custom/swww"
             "battery"
+          ] else []) ++ [
+            "custom/swww"
           ];
-          "custom/swww" = {
-            format = "{icon}";
-            format-icons = {
-              default = "";
-            };
-            tooltip = false;
-            on-click = "~/.config/swww/swww_changebg.sh";
-          };
         }
       ];
     };
 
     home.file.".config/waybar/colors.css".source = ./colors.css;
     home.file.".config/waybar/style.css".source = ./style.css;
-    # TODO: This is not how the scripts should be written. Use nix :)
-    home.file.".config/waybar/mediaplayer.py".source = ./mediaplayer.py;
     home.file.".config/waybar/common-modules.jsonc".source = ./common-modules.jsonc;
   };
 }

@@ -13,7 +13,10 @@
     programs = {
       swaylock.enable = true;
       swww.enable = true;
-      waybar.enable = true;
+      waybar = {
+        enable = true;
+        outputScreen = "DP-1";
+      };
       kitty.enable = true;
       rofi.enable = true;
       firefox.enable = true;
