@@ -6,8 +6,16 @@
   ];
 
   reiki.modules = {
-    services.wlsunset.enable = true;
-    services.dunst.enable = true;
+    services = {
+      wlsunset.enable = true;
+      dunst.enable = true;
+    };
+    programs = {
+      anytype = {
+        enable = true;
+        disableWayland = true;
+      };
+    };
   };
 
   home = {
