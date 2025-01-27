@@ -39,6 +39,7 @@ return {
           mappings = {
             n = {
               ["q"] = actions.close,
+              ["o"] = actions.select_default,
             },
             i = {
               ["<C-k>"] = actions.move_selection_previous,

@@ -7,7 +7,8 @@ return {
     "rcarriga/nvim-notify",
   },
   keys = {
-    {"<leader>nd", "<cmd>NoiceDismiss<CR>", desc = "Dismiss Noice Messages"}
+    { "<leader>n", "", desc = "Notifications" },
+    { "<leader>ns", "<cmd>Telescope noice<CR>", desc = "Select Notifications" },
   },
   opts = {
     lsp = {

@@ -10,6 +10,10 @@ map('n', '<C-k>', '<C-w>k', opts)
 map('i', 'jk', '<ESC>', opts)
 map('i', 'kj', '<ESC>', opts)
 
+-- Better buffer navigation
+map("n", "<BS>", "<c-^>", opts)
+map("n", "<leader>b", ":ls<cr>:b<space>", opts)
+
 map('v', '<', '<gv', opts)
 map('v', '>', '>gv', opts)
 

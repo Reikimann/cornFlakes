@@ -6,16 +6,13 @@ return {
     vim.o.timeoutlen = 300
   end,
   opts = {
+    preset = "helix",
     spec = {
+      { "<leader>s", ":w<CR>", desc = "Save File" },
       { "<leader>q", ":q<CR>", desc = "Quit" },
       { "<leader>Q", ":wq<CR>", desc = "Save & Quit" },
 
-      { "<leader>b", group = "Buffers" },
-      { "<leader>bd", ":bdelete<CR>", desc = "Delete" },
-
-      { "<leader>f", group = "File" },
-      { "<leader>fS", ":so %<CR>", desc = "Source" },
-      { "<leader>fs", ":w<CR>", desc = "Save" },
+      { "<leader>nm", ":messages<CR>", desc = "Show Messages" },
 
       { "<leader>l", group = "LSP" },
       { "<leader>li", ":LspInfo<cr>", desc = "Connected Language Servers" },
@@ -53,7 +50,6 @@ return {
         desc = "LazyGit"
       },
       { "<leader>tj", ":Telescope find_files<CR>", desc = "Telescope Find Files" },
-      { "<leader>tm", ":Telescope noice<CR>", desc = "Telescope Messages" },
       { "<leader>to", ":Telescope oldfiles<CR>", desc = "Telescope Recent Files" },
       { "<leader>tr", ":Telescope live_grep<CR>", desc = "Telescope Live Grep" },
 
