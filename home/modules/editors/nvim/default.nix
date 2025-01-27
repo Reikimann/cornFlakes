@@ -6,7 +6,7 @@ let
 in
 {
   options.reiki.modules.editors.nvim = {
-    enable = mkEnableOption "NVim configuration";
+    enable = mkEnableOption "Neovim configuration";
   };
 
   # TODO: Setup https://github.com/stevearc/conform.nvim (eslint issues?) eller
