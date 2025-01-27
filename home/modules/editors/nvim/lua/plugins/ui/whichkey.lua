@@ -6,77 +6,58 @@ return {
     vim.o.timeoutlen = 300
   end,
   opts = {
-    prefix = '<leader>'
-  },
-  config = function(_, opts)
-    local wk = require("which-key")
-    local Terminal = require("toggleterm.terminal").Terminal
-    local toggle_float = function ()
-      local float = Terminal:new({direction = "float"})
-      return float:toggle()
-    end
-    local toggle_lazygit = function ()
-      local lazygit = Terminal:new({cmd = "lazygit", direction = "float"})
-      return lazygit:toggle()
-    end
+    spec = {
+      { "<leader>q", ":q<CR>", desc = "Quit" },
+      { "<leader>Q", ":wq<CR>", desc = "Save & Quit" },
 
-    local mappings = {
-      q = {":q<CR>", "Quit"},
-      Q = {":wq<CR>", "Save & Quit"},
-      b = {
-        name = "Buffers",
-        d = {":bdelete<CR>", "Delete"},
+      { "<leader>b", group = "Buffers" },
+      { "<leader>bd", ":bdelete<CR>", desc = "Delete" },
+
+      { "<leader>f", group = "File" },
+      { "<leader>fS", ":so %<CR>", desc = "Source" },
+      { "<leader>fs", ":w<CR>", desc = "Save" },
+
+      { "<leader>l", group = "LSP" },
+      { "<leader>li", ":LspInfo<cr>", desc = "Connected Language Servers" },
+      { "<leader>lk", "<cmd>lua vim.lsp.buf.signature_help()<cr>", desc = "Signature Help" },
+      { "<leader>lw", "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", desc = "Add Workspace Folder" },
+      { "<leader>lW", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>", desc = "Remove Workspace Folder" },
+      { "<leader>ll", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>", desc = "List Workspace Folders" },
+      { "<leader>lr", "<cmd>lua vim.lsp.buf.references()<cr>", desc = "References" },
+      { "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<cr>", desc = "Type Definition" },
+      { "<leader>ld", "<cmd>lua vim.lsp.buf.definition()<cr>", desc = "Go To Definition" },
+      { "<leader>lD", "<cmd>lua vim.lsp.buf.declaration()<cr>", desc = "Go To Declaration" },
+
+      { "<leader>o", group = "Operations" },
+      { "<leader>ox", "<cmd>silent !chmod +x %<CR>", desc = "Make executable" },
+      -- { "<leader>oo", "<cmd>up | !xdg-open %<CR>", desc = "Open program" },
+
+      { "<leader>t", group = "Toggles" },
+      { "<leader>tb", ":ToggleTerm<cr>", desc = "Split Below" },
+      { "<leader>ts", ":Telescope colorscheme<CR>", desc = "Telescope Colorscheme" },
+      {
+        "<leader>tf",
+        function()
+          local Terminal = require("toggleterm.terminal").Terminal
+          local float = Terminal:new({direction = "float"})
+          return float:toggle()
+        end,
+        desc = "Floating Terminal" },
+      {
+        "<leader>tg",
+        function()
+          local Terminal = require("toggleterm.terminal").Terminal
+          local lazygit = Terminal:new({cmd = "lazygit", direction = "float"})
+          return lazygit:toggle()
+        end,
+        desc = "LazyGit"
       },
-      f = {
-        name = "File",
-        s = {":w<CR>", "Save"},
-        S = {":so %<CR>", "Source"},
-      },
-      l = {
-        name = "LSP",
-        i = {":LspInfo<cr>", "Connected Language Servers" },
-        k = {"<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help" },
-        K = {"<cmd>Lspsaga hover_doc<cr>", "Hover Commands" },
-        w = {'<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>', "Add Workspace Folder" },
-        W = {'<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>', "Remove Workspace Folder" },
-        l = {
-          '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>',
-          "List Workspace Folders"
-        },
-        r = {'<cmd>lua vim.lsp.buf.references()<cr>', "References" },
-        t = {'<cmd>lua vim.lsp.buf.type_definition()<cr>', "Type Definition" },
-        d = {'<cmd>lua vim.lsp.buf.definition()<cr>', "Go To Definition" },
-        D = {'<cmd>lua vim.lsp.buf.declaration()<cr>', "Go To Declaration" },
-        p = {'<cmd>Lspsaga peek_definition<cr>', "Preview Definition" },
-        R = {'<cmd>Lspsaga rename<cr>', "Rename" },
-        a = {'<cmd>Lspsaga code_action<cr>', "Code Action" },
-        e = {'<cmd>Lspsaga show_line_diagnostics<cr>', "Show Line Diagnostics" },
-        n = {'<cmd>Lspsaga diagnostic_jump_next<cr>', "Go To Next Diagnostic" },
-        N = {'<cmd>Lspsaga diagnostic_jump_prev<cr>', "Go To Previous Diagnostic" }
-      },
-      t = {
-        name = "Toggles",
-        j = {":Telescope find_files<CR>", "Telescope Find Files"},
-        o = {":Telescope oldfiles<CR>", "Telescope Recent Files"},
-        m = {":Telescope noice<CR>", "Telescope Messages"},
-        r = {":Telescope live_grep<CR>", "Telescope Live Grep"},
-        c = {":Telescope colorscheme<CR>", "Telescope Colorscheme"},
-        b = {":ToggleTerm<cr>", "Split Below"},
-        t = {":TailwindConcealToggle<cr>", "Conceal Tailwind"},
-        f = {toggle_float, "Floating Terminal"},
-        g = {toggle_lazygit, "LazyGit"},
-      },
-      o = {
-        name = "Operations",
-        x = {"<cmd>silent !chmod +x %<CR>", "Make executable"},
-      -- o = {":up | !xdg-open %<CR>", "Open program"},
-      },
-      a = {
-        name = "Other",
-      },
-      p = {":Lazy<cr>", "Plugins"}
+      { "<leader>tj", ":Telescope find_files<CR>", desc = "Telescope Find Files" },
+      { "<leader>tm", ":Telescope noice<CR>", desc = "Telescope Messages" },
+      { "<leader>to", ":Telescope oldfiles<CR>", desc = "Telescope Recent Files" },
+      { "<leader>tr", ":Telescope live_grep<CR>", desc = "Telescope Live Grep" },
+
+      { "<leader>p", ":Lazy<cr>", desc = "Lazy" },
     }
-    wk.setup(opts)
-    wk.register(mappings, opts)
-  end,
+  }
 }

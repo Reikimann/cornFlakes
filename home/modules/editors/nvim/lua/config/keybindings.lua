@@ -1,41 +1,36 @@
 local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = false, desc = "which_key_ignore" }
 vim.g.mapleader = ' '
 
-map('n', '<C-h>', '<C-w>h', {noremap = true, silent = false})
-map('n', '<C-l>', '<C-w>l', {noremap = true, silent = false})
-map('n', '<C-j>', '<C-w>j', {noremap = true, silent = false})
-map('n', '<C-k>', '<C-w>k', {noremap = true, silent = false})
+map('n', '<C-h>', '<C-w>h', opts)
+map('n', '<C-l>', '<C-w>l', opts)
+map('n', '<C-j>', '<C-w>j', opts)
+map('n', '<C-k>', '<C-w>k', opts)
 
-map('i', 'jk', '<ESC>', {noremap = true, silent = false})
-map('i', 'kj', '<ESC>', {noremap = true, silent = false})
+map('i', 'jk', '<ESC>', opts)
+map('i', 'kj', '<ESC>', opts)
 
-map('v', '<', '<gv', {noremap = true, silent = false})
-map('v', '>', '>gv', {noremap = true, silent = false})
+map('v', '<', '<gv', opts)
+map('v', '>', '>gv', opts)
 
-map('v', 'J', ":m '>+1<CR>gv=gv", {noremap = true, silent = false})
-map('v', 'K', ":m '<-2<CR>gv=gv", {noremap = true, silent = false})
+map('v', 'J', ":m '>+1<CR>gv=gv", opts)
+map('v', 'K', ":m '<-2<CR>gv=gv", opts)
 
-map('v', 'u', "t_", {noremap = true, silent = false})
+map('v', 'u', "t_", opts)
 
-map('n', 'cu', "ct_", {noremap = true, silent = false})
+map('n', 'cu', "ct_", opts)
 
-map("n", "J", "mzJ`z", {noremap = true, silent = false})
+map("n", "J", "mzJ`z", opts)
 
-map("n", "<C-d>", "<C-d>zz", {noremap = true, silent = false})
-map("n", "<C-u>", "<C-u>zz", {noremap = true, silent = false})
-map("n", "n", "nzzzv", {noremap = true, silent = false})
-map("n", "N", "Nzzzv", {noremap = true, silent = false})
+map("n", "<C-d>", "<C-d>zz", opts)
+map("n", "<C-u>", "<C-u>zz", opts)
+map("n", "n", "nzzzv", opts)
+map("n", "N", "Nzzzv", opts)
 
-map("x", "<leader>P", [["_dP]], {noremap = true, silent = false })
+map("x", "<leader>P", [["_dP]], opts)
 
-map("n", "<leader>y", [["+y]], {noremap = true, silent = false })
-map("v", "<leader>y", [["+y]], {noremap = true, silent = false })
+map("n", "<leader>y", [["+y]], opts)
+map("v", "<leader>y", [["+y]], opts)
 
-map("n", "<leader>d", [["_d]], {noremap = true, silent = false })
-map("v", "<leader>d", [["_d]], {noremap = true, silent = false })
-
--- TODO: Move into keys when declaring the plugin.
-map("n", "<M-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1, '<c-u>')<cr>", {noremap = true, silent = true})
-map("n", "<M-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1, '<c-d>')<cr>", {noremap = true, silent = true})
-
-map("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", {desc = "Dismiss Noice Messages"})
+map("n", "<leader>d", [["_d]], opts)
+map("v", "<leader>d", [["_d]], opts)

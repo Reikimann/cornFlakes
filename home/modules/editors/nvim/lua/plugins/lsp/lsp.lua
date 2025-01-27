@@ -101,6 +101,9 @@ return {
       "nvim-telescope/telescope.nvim", -- optional
       "neovim/nvim-lspconfig", -- optional
     },
+    keys = {
+      { "<leader>tc", ":TailwindConcealToggle<cr>", desc = "Conceal Tailwind" },
+    },
     opts = {
       server = {
         override = true, -- setup the server from the plugin if true
@@ -114,7 +117,7 @@ return {
         debounce = 200, -- in milliseconds, only applied in insert mode
       },
       conceal = {
-        enabled = false, -- NOTE: Resource intensive - can be toggled by commands
+        enabled = false, -- NOTE: Resource intensive - is toggled by command
         min_length = nil, -- only conceal classes exceeding the provided length
         symbol = "󱏿", -- only a single character is allowed
         highlight = { -- extmark highlight options, see :h 'highlight'
@@ -124,6 +127,6 @@ return {
       cmp = {
         highlight = "foreground", -- color preview style, "foreground" | "background"
       },
-    } -- your configuration
+    }
   }
 }

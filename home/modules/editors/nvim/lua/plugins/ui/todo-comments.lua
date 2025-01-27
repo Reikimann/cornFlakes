@@ -1,9 +1,13 @@
--- TODO: Setup keymaps after LSP is configured.
--- https://github.com/LazyVim/LazyVim/blob/a50f92f7550fb6e9f21c0852e6cb190e6fcd50f5/lua/lazyvim/plugins/editor.lua#L487
 return {
   "folke/todo-comments.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
-  event = "BufRead",
-  cmd = { "TodoTrouble", "TodoTelescope" },
   config = true,
+  event = "VeryLazy",
+  -- stylua: ignore
+  keys = {
+    { "]t", function() require("todo-comments").jump_next() end, desc = "Next todo comment" },
+    { "[t", function() require("todo-comments").jump_prev() end, desc = "Previous todo comment" },
+    { "<leader>tt", "<cmd>TodoTrouble<cr>", desc = "Trouble" },
+    { "<leader>tT", "<cmd>TodoTelescope<cr>", desc = "Trouble (Telescope)" },
+  },
 }
