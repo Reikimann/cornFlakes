@@ -48,20 +48,18 @@ in
             "custom/launcher"
             "hyprland/workspaces"
             "group/system-container"
-          ] ++ (if cfg.isLaptop then [
-            "custom/updates" # FIX: This should be removed when the laptop doesn't have arch
-          ] else []);
+          ] ++ lib.optional cfg.isLaptop "custom/updates"; # FIX: This should be removed when the laptop doesn't have arch
 
           modules-center = [ "clock" ];
 
           modules-right = [
             "tray"
             "wireplumber"
-          ] ++ (if cfg.isLaptop then [
+          ] ++ lib.optionals cfg.isLaptop [
             "backlight"
             "network"
             "battery"
-          ] else []) ++ [
+          ] ++ [
             "custom/swww"
           ];
         }

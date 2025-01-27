@@ -23,6 +23,8 @@
     brightnessctl
     playerctl
     hyprpicker
+    lunatask
+    ungoogled-chromium
     # pkgs.kicad
   ];
 }
