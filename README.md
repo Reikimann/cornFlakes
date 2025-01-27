@@ -30,6 +30,8 @@ REMEMBER a laptop option
     - [ ] To home-manager in /home/profiles/
     - [ ] To NixOS in /system/profiles/
 - [X] Add ~home-manager/hosts~ home.nix files to /hosts/
+- [ ] Configure firefox search engines with modules
+- [ ] Properly add ungoogled-chromium so that it isn't opened by other programs
 - [ ] Can I use the flakes self to do absolute imports? How to better handle paths
 - [ ] Setup garbage collection
 - [ ] After NixOS installation on laptop add makeUserHome and mkHome functions to lib (see EdenEast/nyx)

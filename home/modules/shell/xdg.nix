@@ -26,9 +26,9 @@ in
         music = "${config.home.homeDirectory}/music";
         pictures = "${config.home.homeDirectory}/pix";
         videos = "${config.home.homeDirectory}/vids";
-        desktop = null;
-        templates = null;
-        publicShare = null;
+        desktop = "${config.home.homeDirectory}/";
+        templates = "${config.home.homeDirectory}/";
+        publicShare = "${config.home.homeDirectory}/";
       };
     };
   };
