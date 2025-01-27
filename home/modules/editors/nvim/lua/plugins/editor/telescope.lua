@@ -9,9 +9,32 @@ return {
         build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release'
       }
     },
+    keys = {
+      { "<C-b>", ":Telescope buffers<CR>", desc = "Manage buffers"}
+    },
     config = function()
       local actions = require("telescope.actions")
       require("telescope").setup {
+        pickers = {
+          buffers = {
+            show_all_buffers = true,
+            sort_mru = true,
+            sort_lastused = false,
+            initial_mode = "normal",
+            theme = "ivy",
+            mappings = {
+              n = {
+                ["d"] = actions.delete_buffer,
+              },
+              i = {
+                ["<C-d>"] = actions.delete_buffer,
+              }
+            },
+            layout_config = {
+              preview_width = 0.45
+            }
+          }
+        },
         defaults = {
           mappings = {
             n = {
