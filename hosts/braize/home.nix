@@ -40,6 +40,9 @@
         enableUserDirs = true;
       };
     };
+    editors = {
+      nvim.enable = true;
+    };
   };
 
   home = {
