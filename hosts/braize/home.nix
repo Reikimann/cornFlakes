@@ -7,10 +7,6 @@
 
   # TODO: Move to profiles
   reiki.modules = {
-    services = {
-      wlsunset.enable = true;
-      dunst.enable = true;
-    };
     programs = {
       swaylock.enable = true;
       swww.enable = true;
@@ -31,6 +27,18 @@
       discord.enable = true;
       signal-desktop.enable = true;
       spotify.enable = true;
+    };
+    services = {
+      wlsunset.enable = true;
+      dunst.enable = true;
+    };
+    shell = {
+      bash.enable = true;
+      zsh.enable = true;
+      xdg = {
+        enable = true;
+        enableUserDirs = true;
+      };
     };
   };
 

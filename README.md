@@ -18,7 +18,7 @@ REMEMBER a laptop option
     - [ ] Home-manager
         - [X] Programs
         - [X] Services
-        - [ ] Shell
+        - [X] Shell
         - [ ] Editors
         - [ ] Cli
         - [ ] Desktops
