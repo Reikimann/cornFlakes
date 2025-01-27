@@ -49,8 +49,8 @@ return {
       timeout = 500,
     },
     view = {
-      width = 30,
-      side = 'left',
+      width = {}, -- A table indicates that the view should be dynamically sized based on the longest line.
+      side = 'right',
       signcolumn = "yes",
       number = false,
       relativenumber = false,
