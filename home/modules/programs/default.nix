@@ -17,7 +17,7 @@
     ./wofi
   ];
 
-  # Not sorted yet
+  # TODO: Modules: Not sorted yet
   home.packages = with pkgs; [
     keepassxc
     brightnessctl
@@ -25,6 +25,7 @@
     hyprpicker
     lunatask
     ungoogled-chromium
+    rpi-imager
     # pkgs.kicad
   ];
 }

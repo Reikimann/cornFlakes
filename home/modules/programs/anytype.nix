@@ -8,7 +8,7 @@ in
   options.reiki.modules.programs.anytype = {
     enable = mkEnableOption "Anytype configuration";
     disableWayland = mkOption {
-      description = "Toogle to disable Wayland for Anytype";
+      description = "Toggle to disable Wayland for Anytype";
       default = false;
       type = types.bool;
     };

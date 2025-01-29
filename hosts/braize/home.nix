@@ -40,6 +40,32 @@
         enableUserDirs = true;
       };
     };
+    cli = {
+      btop.enable = true;
+      fzf.enable = true;
+      just.enable = true;
+      nmap.enable = true;
+      tmux.enable = true;
+      # File management
+      bat.enable = true;
+      duf.enable = true;
+      eza = {
+        enable = true;
+        enableIntegrations = true;
+      };
+      fd.enable = true;
+      gdu.enable = true;
+      xdg-ninja.enable = true;
+      yazi.enable = true;
+      yt-dlp.enable = true;
+      # Fun
+      asciiquarium.enable = true;
+      cowsay.enable = true;
+      fortune.enable = true;
+      lolcat.enable = true;
+      sl.enable = true;
+      unimatrix.enable = true;
+    };
     editors = {
       nvim.enable = true;
     };

@@ -1,7 +1,9 @@
 { ... }:
+
 {
   # TODO: Don't want to include email, but its not working otherwise.
   # Setup ssh instead.
+  # Make this into a module
   programs.git = {
     enable = true;
     userName = "Reikimann";

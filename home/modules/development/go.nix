@@ -6,7 +6,7 @@ let
 in
 {
   options.reiki.modules.development.go = {
-    enable = mkEnableOption "Go Configuration";
+    enable = mkEnableOption "Go configuration";
   };
 
   config = mkIf cfg.enable {
