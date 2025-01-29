@@ -8,25 +8,29 @@
   # TODO: Move to profiles
   reiki.modules = {
     programs = {
+      anytype = {
+        enable = true;
+        disableWayland = true;
+      };
+      discord.enable = true;
+      firefox.enable = true;
+      keepassxc.enable = true;
+      kitty.enable = true;
+      lunatask.enable = true;
+      rpi-imager.enable = true;
+      signal-desktop.enable = true;
+      spotify.enable = true;
+      ungoogled-chromium.enable = true;
+      zathura.enable = true;
+      # Desktop (stuff)
+      rofi.enable = true;
       swaylock.enable = true;
-      swww.enable = true;
       waybar = {
         enable = true;
         outputScreen = "DP-1";
       };
       wlogout.enable = true;
       wofi.enable = false; # Just for remembering adding to profiles
-      kitty.enable = true;
-      rofi.enable = true;
-      firefox.enable = true;
-      zathura.enable = true;
-      anytype = {
-        enable = true;
-        disableWayland = true;
-      };
-      discord.enable = true;
-      signal-desktop.enable = true;
-      spotify.enable = true;
     };
     services = {
       wlsunset.enable = true;
@@ -41,10 +45,14 @@
       };
     };
     cli = {
+      brightnessctl.enable = true;
       btop.enable = true;
       fzf.enable = true;
+      hyprpicker.enable = true;
       just.enable = true;
       nmap.enable = true;
+      playerctl.enable = true;
+      swww.enable = true;
       tmux.enable = true;
       # File management
       bat.enable = true;

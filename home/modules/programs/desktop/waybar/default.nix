@@ -35,6 +35,7 @@ in
           spacing = 4; # Gaps between modules (4px)
 
           include = [ "~/.config/waybar/common-modules.jsonc" ];
+          # FIX: Why doesn't this button work on startup, but only after launching it as a user?
           "custom/swww" = {
             format = "{icon}";
             format-icons = {

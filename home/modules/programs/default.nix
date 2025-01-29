@@ -1,31 +1,18 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   imports = [
+    ./desktop
     ./anytype.nix
-    ./kitty.nix
-    ./spotify.nix
     ./discord.nix
+    ./firefox.nix
+    ./keepassxc.nix
+    ./kitty.nix
+    ./lunatask.nix
+    ./rpi-imager.nix
     ./signal-desktop.nix
+    ./spotify.nix
+    ./ungoogled-chromium.nix
     ./zathura.nix
-    ./swaylock
-    ./rofi
-    ./firefox
-    ./swww
-    ./waybar
-    ./wlogout
-    ./wofi
-  ];
-
-  # TODO: Modules: Not sorted yet
-  home.packages = with pkgs; [
-    keepassxc
-    brightnessctl
-    playerctl
-    hyprpicker
-    lunatask
-    ungoogled-chromium
-    rpi-imager
-    # pkgs.kicad
   ];
 }

@@ -5,7 +5,7 @@
   - `overlays/` - Nix overlays
   - `pkgs/` - Self packaged applications
 
-### Modules
+## Modules
 config.reiki.modules.module-type.program-name
 config.reiki.profiles.[common,work,development,gaming]
 
@@ -17,16 +17,16 @@ REMEMBER a laptop option
 - [ ] Add a module system
     - [ ] Home-manager
         - [X] Programs
+            - [X] Sort the default.nix files
         - [X] Services
         - [X] Shell
         - [X] Editors
         - [X] Cli
-        - [ ] Desktops
         - [X] Development
+        - [ ] Desktops
     - [ ] System
     - https://nixos-and-flakes.thiscute.world/other-usage-of-flakes/module-system
     - Example: https://github.com/EdenEast/nyx/blob/0da99bed4058d655e1b11a3bfe68c9c9d0222e46/home/modules/shell/xdg.nix
-    - [ ] Check TODOs modules (sort the default.nix files)
 - [ ] Add profiles and maybe archetypes (librephoenix/nixos-config)
     - [ ] To home-manager in /home/profiles/
     - [ ] To NixOS in /system/profiles/
@@ -40,8 +40,6 @@ REMEMBER a laptop option
 - [ ] Checkout config.lib.file.mkOutOfStoreSymlink
 - Wayland:
     - https://wiki.nixos.org/wiki/Wayland
-
-- "I prefer writeShellApplication over writeShellScriptBin. writeShellApplication also runs your shell script through shellcheck, great for people like me who write sloppy shell scripts. You can also specify runtime dependencies by doing runtimeInputs = [ cowsay ];, that way you can just write cowsay without having to reference the path to cowsay explicitly within the script :)"
 
 ## Host Specifications
 | Name          | Description                                         |  Type   |     Arch      |
