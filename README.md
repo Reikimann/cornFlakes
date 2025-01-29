@@ -32,7 +32,7 @@ REMEMBER a laptop option
 - [ ] Add profiles and maybe archetypes (librephoenix/nixos-config)
     - [ ] To home-manager in /home/profiles/
     - [ ] To NixOS in /system/profiles/
-- [X] Add ~home-manager/hosts~ home.nix files to /hosts/
+- [ ] Can I add a getPrimaryMonitor function to the monitors module (see waybar)
 - [ ] Checkout config.lib.file.mkOutOfStoreSymlink (for nvim, emacs and other configs not managed through nix module settings)
 - [ ] Configure firefox search engines with modules
 - [ ] Properly add ungoogled-chromium so that it isn't opened by other programs

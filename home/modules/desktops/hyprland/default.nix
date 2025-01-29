@@ -145,6 +145,7 @@ in
         font_family = "Liga SFMono Nerd Font";
       };
 
+      # TODO: Make a module toggle to disable swww
       exec-once = [
         "swww-daemon &"
         "~/.config/swww/swww_randomize.sh $RICE_WALL_DIR &"
@@ -157,6 +158,7 @@ in
   home.file.".config/hypr/input.conf".source = ./configs/input.conf;
   home.file.".config/hypr/windowrules.conf".source = ./configs/windowrules.conf;
 
+  # TODO: Move this into a module
   home.packages = with pkgs; [
     hyprshot
   ];

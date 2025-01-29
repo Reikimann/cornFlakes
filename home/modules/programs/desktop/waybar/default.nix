@@ -37,7 +37,7 @@ in
             (config.monitors);
           in
             if primaryMonitor == [] then
-              throw "No primary monitor found"
+              throw "No primary monitor found" # This shouldn't be possible (see note above)
             else
               (builtins.head primaryMonitor).name;
 
