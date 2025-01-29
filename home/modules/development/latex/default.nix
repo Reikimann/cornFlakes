@@ -1,10 +1,20 @@
-{ ... }:
+{ config, lib, ... }:
 
+with lib;
+let
+  cfg = config.reiki.modules.development.latex;
+in
 {
-  programs.texlive = {
-    enable = true;
-    extraPackages = tpkgs: { inherit (tpkgs) collection-fontsrecommended scheme-full; };
+  options.reiki.modules.development.latex = {
+    enable = mkEnableOption "LaTeX configuration";
   };
 
-  home.file.".config/latexmk/latexmkrc".source = ./latexmkrc;
+  config = mkIf cfg.enable {
+    programs.texlive = {
+      enable = true;
+      extraPackages = tpkgs: { inherit (tpkgs) collection-fontsrecommended scheme-full; };
+    };
+
+    home.file.".config/latexmk/latexmkrc".source = ./latexmkrc;
+  };
 }

@@ -43,6 +43,13 @@
     editors = {
       nvim.enable = true;
     };
+    development = {
+      go.enable = true;
+      nodejs.enable = true;
+      python.enable = true;
+      rust.enable = true;
+      latex.enable = true;
+    };
   };
 
   home = {

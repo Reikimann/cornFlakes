@@ -1,14 +1,24 @@
-{ pkgs, config, ... }:
+{ config, lib, pkgs, ... }:
 
+with lib;
+let
+  cfg = config.reiki.modules.development.rust;
+in
 {
-  home = {
-    packages = [ pkgs.rustup ];
+  options.reiki.modules.development.rust = {
+    enable = mkEnableOption "Rust configuration";
+  };
 
-    sessionVariables = {
-      RUSTUP_HOME = "${config.xdg.dataHome}/rustup";
-      CARGO_HOME = "${config.xdg.dataHome}/cargo";
+  config = mkIf cfg.enable {
+    home = {
+      packages = [ pkgs.rustup ];
+
+      sessionVariables = {
+        RUSTUP_HOME = "${config.xdg.dataHome}/rustup";
+        CARGO_HOME = "${config.xdg.dataHome}/cargo";
+      };
+
+      sessionPath = [ "$CARGO_HOME/bin" ];
     };
-
-    sessionPath = [ "$CARGO_HOME/bin" ];
   };
 }
