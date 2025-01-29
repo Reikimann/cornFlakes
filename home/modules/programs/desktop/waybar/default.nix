@@ -26,7 +26,21 @@ in
       systemd.enable = true;
       settings = [
         {
-          output = cfg.outputScreen;
+          # NOTE: If there is more than one monitor, then _one_ of
+          # them will always be marked as the primary.
+          output =
+          let
+            primaryMonitor = (monitors:
+             if builtins.length monitors == 1 then builtins.head monitors
+             else builtins.filter (m: m.primary) monitors
+            )
+            (config.monitors);
+          in
+            if primaryMonitor == [] then
+              throw "No primary monitor found"
+            else
+              (builtins.head primaryMonitor).name;
+
           layer = "top"; # Waybar at top layer
           position = "top"; # Waybar position (top|bottom|left|right)
           exclusive = true;

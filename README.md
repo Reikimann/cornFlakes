@@ -1,6 +1,7 @@
 
 ## Structure
 
+TODO: Finish this
 - `nix/` - Nix package manager configurations
   - `overlays/` - Nix overlays
   - `pkgs/` - Self packaged applications
@@ -13,6 +14,7 @@ REMEMBER a laptop option
 
 ## TODO
 
+### Nix
 - [ ] Convert every dotfile to be managed by nix
 - [ ] Add a module system
     - [ ] Home-manager
@@ -31,15 +33,19 @@ REMEMBER a laptop option
     - [ ] To home-manager in /home/profiles/
     - [ ] To NixOS in /system/profiles/
 - [X] Add ~home-manager/hosts~ home.nix files to /hosts/
+- [ ] Checkout config.lib.file.mkOutOfStoreSymlink (for nvim, emacs and other configs not managed through nix module settings)
 - [ ] Configure firefox search engines with modules
 - [ ] Properly add ungoogled-chromium so that it isn't opened by other programs
 - [ ] Can I use the flakes self to do absolute imports? How to better handle paths
 - [ ] Setup garbage collection
 - [ ] After NixOS installation on laptop add makeUserHome and mkHome functions to lib (see EdenEast/nyx)
 - [ ] Checkout nix-output-manager
-- [ ] Checkout config.lib.file.mkOutOfStoreSymlink
+- [ ] Reorder the home-manager modules into a better system:
+    - "The cleanest I have seen were concern-based categories (e.g. desktop-environment.nix, development-tools.nix…), rather than grouping by type (e.g. services.nix, programs.nix…)."
 - Wayland:
     - https://wiki.nixos.org/wiki/Wayland
+### Nvim
+- [ ] Setup blink.cmp
 
 ## Host Specifications
 | Name          | Description                                         |  Type   |     Arch      |

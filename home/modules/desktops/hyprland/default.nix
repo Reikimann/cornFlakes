@@ -24,14 +24,14 @@ in
         "~/.config/hypr/input.conf"
       ];
 
-      # TODO: Make this work on laptop also (by nixifying monitors (vimjoyer has a video on this))
-      monitor = [
-        "DP-1,2560x1440@240,auto,1"
-        # https://wiki.hyprland.org/FAQ/#workspaces-or-clients-are-disappearing-or-monitor-related-dispatchers-cause-crashes
-        "Unknown-1,disabled"
-      ];
-
-      #monitor = ",preferred,auto,1";
+      monitor = map
+        (m:
+          let
+            resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
+          in
+          "${m.name},${if m.enabled then "${resolution},${m.position},1" else "disable"}"
+        )
+        (config.monitors);
 
       general = {
         layout = "master"; # master|dwindle

@@ -5,6 +5,23 @@
     ../../home/modules
   ];
 
+  monitors = [
+    {
+      name = "DP-1";
+      width = 2560;
+      height = 1440;
+      refreshRate = 240;
+      position = "auto"; # Auto is for hyprland. Can also use e.g. 0x0.
+      primary = true;
+      enabled = true;
+    }
+    {
+      # https://wiki.hyprland.org/FAQ/#workspaces-or-clients-are-disappearing-or-monitor-related-dispatchers-cause-crashes
+      name = "Unknown-1";
+      enabled = false;
+    }
+  ];
+
   # TODO: Move to profiles
   reiki.modules = {
     programs = {

@@ -3,6 +3,7 @@
 {
   imports = [
     ./cli
+    ./custom
     ./desktops
     ./development
     ./editors
