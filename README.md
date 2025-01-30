@@ -10,8 +10,6 @@ TODO: Finish this
 config.reiki.modules.module-type.program-name
 config.reiki.profiles.[common,work,development,gaming]
 
-REMEMBER a laptop option
-
 ## TODO
 
 ### Nix
@@ -27,8 +25,6 @@ REMEMBER a laptop option
         - [X] Development
         - [ ] Desktops
     - [ ] System
-    - https://nixos-and-flakes.thiscute.world/other-usage-of-flakes/module-system
-    - Example: https://github.com/EdenEast/nyx/blob/0da99bed4058d655e1b11a3bfe68c9c9d0222e46/home/modules/shell/xdg.nix
 - [ ] Add profiles and maybe archetypes (librephoenix/nixos-config)
     - [ ] To home-manager in /home/profiles/
     - [ ] To NixOS in /system/profiles/
@@ -46,9 +42,35 @@ REMEMBER a laptop option
     - https://wiki.nixos.org/wiki/Wayland
 ### Nvim
 - [ ] Setup blink.cmp
+- [ ] Make the paste button from custom keyboard work
+- [ ] https://github.com/folke/dot/blob/master/nvim/lua/config/autocmds.lua
+```lua
+-- show cursor line only in active window
+vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
+  callback = function()
+    if vim.w.auto_cursorline then
+      vim.wo.cursorline = true
+      vim.w.auto_cursorline = nil
+    end
+  end,
+})
+vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
+  callback = function()
+    if vim.wo.cursorline then
+      vim.w.auto_cursorline = true
+      vim.wo.cursorline = false
+    end
+  end,
+})
+```
+### Emacs
+- [ ] https://www.reddit.com/r/emacs/comments/1hwvtyo/ultrascroll_v02_scroll_emacs_like_lightning
+
 
 ## Host Specifications
+- [ ] Find a cosmere planet for `Superiority` when converting it to Nix.
+
 | Name          | Description                                         |  Type   |     Arch      |
 | :-----------: | :-------------------------------------------------: | :-----: | :-----------: |
 | `Braize`      | Day-to-day desktop workstation and gaming machine.  | Desktop | x86_64-linux  |
-| not yet named | Lenovo work laptop for work, school and programming | Laptop  | x86_64-linux  |
+| `Superiority` | Lenovo work laptop for work, school and programming | Laptop  | x86_64-linux  |

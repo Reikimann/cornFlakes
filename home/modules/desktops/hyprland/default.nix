@@ -1,12 +1,9 @@
-{ pkgs, config, ... }:
+{ config, lib, pkgs, ... }:
 let
   pointer = config.home.pointerCursor;
 
+  # TODO: Use the hyprland utilities for lockscreen and idling
   startupScript = pkgs.pkgs.writeShellScriptBin "autostart" ''
-    # Starts the NetworkManager applet (This should only be done on laptop. Use modules to fix...)
-    nm-applet 2>&1 > /dev/null &
-
-    # TODO: Use the hyprland utilities for lockscreen and idling
     # Manage Lockscreen
     ~/.local/bin/lockidle &
 
@@ -145,12 +142,11 @@ in
         font_family = "Liga SFMono Nerd Font";
       };
 
-      # TODO: Make a module toggle to disable swww
       exec-once = [
-        "swww-daemon &"
+        "${pkgs.swww}/bin/swww-daemon --no-cache &"
         "~/.config/swww/swww_randomize.sh $RICE_WALL_DIR &"
         ''hyprctl setcursor ${toString pointer.name} ${toString pointer.size}''
-      ];
+      ] ++ lib.optional config.isLaptop "nm-applet 2>&1 > /dev/null &";
     };
   };
 

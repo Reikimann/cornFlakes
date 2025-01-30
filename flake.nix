@@ -3,8 +3,6 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    #nixpkgs.url = "nixpkgs/nixos-24.05";
-    #nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,7 +17,6 @@
         inherit system;
         config = import ./nix/config.nix;
       };
-      #pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
       lib = nixpkgs.lib;
     in {
 
@@ -57,11 +54,3 @@
       };
     };
 }
-
-# Why default package? this was needed when on Arch.
-#{
-#  outputs = { self, nixpkgs, home-manager, ... }:
-#    in {
-#      defaultPackage.${system} =
-#        home-manager.defaultPackage.${system};
-#}

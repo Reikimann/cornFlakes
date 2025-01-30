@@ -5,6 +5,8 @@
     ../../home/modules
   ];
 
+  # Just for remembering adding to profiles/laptop
+
   monitors = [
     {
       name = "DP-1";
@@ -42,10 +44,7 @@
       # Desktop (stuff)
       rofi.enable = true;
       swaylock.enable = true;
-      waybar = {
-        enable = true;
-        outputScreen = "DP-1";
-      };
+      waybar.enable = true;
       wlogout.enable = true;
       wofi.enable = false; # Just for remembering adding to profiles
     };

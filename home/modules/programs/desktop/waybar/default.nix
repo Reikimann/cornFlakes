@@ -8,16 +8,6 @@ in
   # TODO: Maybe make a folder for desktop stuff (not /home/desktops) like bars and lockscreens
   options.reiki.modules.programs.waybar = {
     enable = mkEnableOption "Waybar configuration";
-    isLaptop = mkOption {
-      description = "Switch for adding laptop modules";
-      default = false;
-      type = types.bool;
-    };
-    outputScreen = mkOption {
-      description = "Output screen";
-      default = "eDP-1"; # Laptop screen
-      type = types.str;
-    };
   };
 
   config = mkIf cfg.enable {
@@ -28,8 +18,7 @@ in
         {
           # NOTE: If there is more than one monitor, then _one_ of
           # them will always be marked as the primary.
-          output =
-          let
+          output = let
             primaryMonitor = (monitors:
              if builtins.length monitors == 1 then builtins.head monitors
              else builtins.filter (m: m.primary) monitors
@@ -63,14 +52,12 @@ in
             "custom/launcher"
             "hyprland/workspaces"
             "group/system-container"
-          ] ++ lib.optional cfg.isLaptop "custom/updates"; # FIX: This should be removed when the laptop doesn't have arch
-
+          ];
           modules-center = [ "clock" ];
-
           modules-right = [
             "tray"
             "wireplumber"
-          ] ++ lib.optionals cfg.isLaptop [
+          ] ++ lib.optionals config.isLaptop [
             "backlight"
             "network"
             "battery"
