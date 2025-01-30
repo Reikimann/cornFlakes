@@ -1,7 +1,7 @@
 
 ## Structure
 
-TODO: Finish this
+- [ ] Finish documenting the structure
 - `nix/` - Nix package manager configurations
   - `overlays/` - Nix overlays
   - `pkgs/` - Self packaged applications
@@ -13,26 +13,21 @@ config.reiki.profiles.[common,work,development,gaming]
 ## TODO
 
 ### Nix
-- [ ] Convert every dotfile to be managed by nix
 - [ ] Add a module system
-    - [ ] Home-manager
-        - [X] Programs
-            - [X] Sort the default.nix files
-        - [X] Services
-        - [X] Shell
-        - [X] Editors
-        - [X] Cli
-        - [X] Development
-        - [ ] Desktops
+    - [X] Home-manager
     - [ ] System
+    - [ ] Cleanup the home.nix and configuration.nix into modules
 - [ ] Add profiles and maybe archetypes (librephoenix/nixos-config)
     - [ ] To home-manager in /home/profiles/
     - [ ] To NixOS in /system/profiles/
+- [ ] Add a font module that defines fonts to be used in every app (does this already exist?)
+    - https://github.com/Misterio77/nix-config/blob/7ede608b314eb4b59a588e1d7bfc644ccc409e0e/modules/home-manager/fonts.nix
 - [ ] Can I add a getPrimaryMonitor function to the monitors module (see waybar)
 - [ ] Checkout config.lib.file.mkOutOfStoreSymlink (for nvim, emacs and other configs not managed through nix module settings)
 - [ ] Configure firefox search engines with modules
 - [ ] Properly add ungoogled-chromium so that it isn't opened by other programs
 - [ ] Can I use the flakes self to do absolute imports? How to better handle paths
+- [ ] Convert every dotfile to be managed by nix
 - [ ] Setup garbage collection
 - [ ] After NixOS installation on laptop add makeUserHome and mkHome functions to lib (see EdenEast/nyx)
 - [ ] Checkout nix-output-manager
@@ -40,10 +35,11 @@ config.reiki.profiles.[common,work,development,gaming]
     - "The cleanest I have seen were concern-based categories (e.g. desktop-environment.nix, development-tools.nix…), rather than grouping by type (e.g. services.nix, programs.nix…)."
 - Wayland:
     - https://wiki.nixos.org/wiki/Wayland
+
 ### Nvim
 - [ ] Setup blink.cmp
 - [ ] Make the paste button from custom keyboard work
-- [ ] https://github.com/folke/dot/blob/master/nvim/lua/config/autocmds.lua
+- [ ] Add the following (see below): https://github.com/folke/dot/blob/master/nvim/lua/config/autocmds.lua
 ```lua
 -- show cursor line only in active window
 vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
@@ -63,6 +59,7 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
   end,
 })
 ```
+
 ### Emacs
 - [ ] https://www.reddit.com/r/emacs/comments/1hwvtyo/ultrascroll_v02_scroll_emacs_like_lightning
 

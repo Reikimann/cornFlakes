@@ -6,6 +6,7 @@
   ];
 
   # Just for remembering adding to profiles/laptop
+  isLaptop = false;
 
   monitors = [
     {
@@ -26,6 +27,9 @@
 
   # TODO: Move to profiles
   reiki.modules = {
+    desktops = {
+      hyprland.enable = true;
+    };
     programs = {
       anytype = {
         enable = true;
@@ -119,6 +123,15 @@
 
   programs = {
     home-manager.enable = true;
+  };
+
+  # TODO: Move to some other module place
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    name = "Bibata-Modern-Ice";
+    package = pkgs.bibata-cursors;
+    size = 20;
   };
 
   targets.genericLinux.enable = true;
