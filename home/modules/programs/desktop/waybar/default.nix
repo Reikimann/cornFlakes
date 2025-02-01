@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 with lib;
 let
@@ -45,7 +45,7 @@ in
               default = "";
             };
             tooltip = false;
-            on-click = "swww_changebg";
+            on-click = "${pkgs.swww-utils}/bin/swww-utils switch";
           };
 
           modules-left = [

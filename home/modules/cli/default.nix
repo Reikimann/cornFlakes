@@ -4,7 +4,6 @@
   imports = [
     ./file-management
     ./fun
-    ./swww
     ./brightnessctl.nix
     ./btop.nix
     ./fzf.nix
@@ -12,6 +11,7 @@
     ./just.nix
     ./nmap.nix
     ./playerctl.nix
+    ./swww.nix
     ./tmux.nix
   ];
 }

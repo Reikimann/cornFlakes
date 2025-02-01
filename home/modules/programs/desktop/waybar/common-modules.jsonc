@@ -202,13 +202,5 @@
     "exec-if": "exit 0",
     "interval": 3600,
     "on-click": "kitty -e paru"
-  },
-  "custom/swww" : {
-    "format": "{icon}",
-    "format-icons": {
-      "default": ""
-    },
-    "tooltip": false,
-    "on-click": "swww_changebg"
   }
 }

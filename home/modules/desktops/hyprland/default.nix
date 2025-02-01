@@ -152,8 +152,8 @@ in
         };
 
         exec-once = [
-          "${pkgs.swww}/bin/swww-daemon --no-cache &"
-          "~/.config/swww/swww_randomize.sh $RICE_WALL_DIR &"
+          "${pkgs.swww}/bin/swww-daemon &"
+          "${pkgs.swww-utils}/bin/swww-utils randomize &"
           ''hyprctl setcursor ${toString pointer.name} ${toString pointer.size}''
         ] ++ lib.optional config.isLaptop "nm-applet 2>&1 > /dev/null &";
       };
@@ -167,7 +167,6 @@ in
     home.packages = with pkgs; [
       hyprshot
     ];
-
     home.sessionVariables = {
       HYPRSHOT_DIR = "${config.xdg.userDirs.pictures}/screenshots";
     };
