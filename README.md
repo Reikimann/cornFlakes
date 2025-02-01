@@ -29,6 +29,8 @@ config.reiki.profiles.[common,work,development,gaming]
 - [ ] Can I use the flakes self to do absolute imports? How to better handle paths
 - [ ] Convert every dotfile to be managed by nix
 - [ ] Setup garbage collection
+- [ ] Checkout Lorri and dir-env
+    - https://github.com/nix-community/lorri
 - [ ] After NixOS installation on laptop add makeUserHome and mkHome functions to lib (see EdenEast/nyx)
 - [ ] Checkout nix-output-manager
 - [ ] Reorder the home-manager modules into a better system:

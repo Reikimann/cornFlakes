@@ -16,6 +16,8 @@ in
 
   # TODO: Setup xdg.desktopEntries from /.old_dots
   config = mkIf cfg.enable {
+    home.preferXdgDirectories = true;
+
     xdg = {
       enable = true;
       userDirs = {
