@@ -19,6 +19,7 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
+      nemo
       brightnessctl
     ] ++ optionals cfg.laptop laptopPkgs;
 

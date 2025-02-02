@@ -157,13 +157,27 @@ in
           "hyprctl setcursor ${toString pointer.name} ${toString pointer.size}"
         ];
 
-        # TODO: Finish converting from wmBinds.conf
         bind = let
-          wpctl = lib.getExe' pkgs.wireplumber "wpctl";
           brightnessctl = lib.getExe pkgs.brightnessctl;
+          discord = lib.getExe pkgs.discord;
+          firefox = lib.getExe pkgs.firefox;
           hyprpicker = lib.getExe pkgs.hyprpicker;
           hyprshot = lib.getExe pkgs.hyprshot;
+          keepassxc = lib.getExe pkgs.keepassxc;
+          kitty = lib.getExe pkgs.kitty;
+          nemo = lib.getExe pkgs.nemo;
+          rofi = lib.getExe pkgs.rofi-wayland;
+          spotify = lib.getExe pkgs.spotify;
+          wpctl = lib.getExe' pkgs.wireplumber "wpctl";
         in [
+          "$mainMod,Return,exec,${kitty}"
+          "$mainMod,B,exec,${firefox}"
+          "$mainMod,U,exec,${spotify}"
+          "$mainMod,Y,exec,${rofi} -show drun"
+          "$mainMod,f,exec,${nemo}"
+          "$mainMod,d,exec,${discord}"
+          "$mainMod,dead_diaeresis,exec,${keepassxc}"
+          #"$mainMod,e,exec, emacs"
           # Volume
           ",XF86AudioRaiseVolume,exec,${wpctl} set-volume @DEFAULT_SINK@ 5%+"
           ",XF86AudioLowerVolume,exec,${wpctl} set-volume @DEFAULT_SINK@ 5%-"
