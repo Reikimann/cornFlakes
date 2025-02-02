@@ -2,10 +2,10 @@
 
 with lib;
 let
-  cfg = config.reiki.modules.services.dunst;
+  cfg = config.reiki.modules.desktop.dunst;
 in
 {
-  options.reiki.modules.services.dunst = {
+  options.reiki.modules.desktop.dunst = {
     enable = mkEnableOption "Lightweight notification-deamon service";
     font = mkOption {
       description = "Override notification font";

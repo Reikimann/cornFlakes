@@ -1,5 +1,4 @@
 ** Fonts and icons
-- Liga SFMono Nerd Font
 - Iosevka Aile (ttc-iosevka-aile)
 - Fira code (ttf-fira-code)
 - Opensans (ttf-opensans)
@@ -10,14 +9,12 @@
 ** Programs
 - Mpv
 - Git
-- Paru (aur-helper)
 - Lf
   - Ueberzug
   - Mediainfo
   - lynx
   - bat
   - glow
-  - unzip
   - ffmpegthumbnailer
   - poppler
   - poppler-glib
@@ -33,7 +30,6 @@
 
 ** Other programs
 - Clipman
-- jq
 - Nsxiv/feh (is there a better option?)
 - Graphicsmagick
 
@@ -46,6 +42,3 @@
 
 *** Funny
 - Atlauncher
-- Figlet
-- Cbonsai-git
-- Cava

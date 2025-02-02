@@ -20,6 +20,7 @@ in
 
     xdg = {
       enable = true;
+      mimeApps.enable = true;
       userDirs = {
         enable = cfg.enableUserDirs;
         createDirectories = true;

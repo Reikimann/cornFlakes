@@ -12,7 +12,10 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       sl
+      cava
+      figlet
       lolcat
+      cbonsai
       fortune
       unimatrix
       neo-cowsay

@@ -15,8 +15,8 @@ config.reiki.profiles.[common,work,development,gaming]
 ### Nix
 - [ ] Add a module system
     - [X] Home-manager
-    - [ ] System
     - [ ] Cleanup the home.nix and configuration.nix into modules
+    - [ ] System
 - [ ] Add profiles and maybe archetypes (librephoenix/nixos-config)
     - [ ] To home-manager in /home/profiles/
     - [ ] To NixOS in /system/profiles/
@@ -26,6 +26,7 @@ config.reiki.profiles.[common,work,development,gaming]
 - [ ] Checkout config.lib.file.mkOutOfStoreSymlink (for nvim, emacs and other configs not managed through nix module settings)
 - [ ] Configure firefox search engines with modules
 - [ ] Properly add ungoogled-chromium so that it isn't opened by other programs
+- [ ] Add Syncthing
 - [ ] Can I use the flakes self to do absolute imports? How to better handle paths
 - [ ] Convert every dotfile to be managed by nix
 - [ ] Setup garbage collection
@@ -37,6 +38,11 @@ config.reiki.profiles.[common,work,development,gaming]
     - "The cleanest I have seen were concern-based categories (e.g. desktop-environment.nix, development-tools.nix…), rather than grouping by type (e.g. services.nix, programs.nix…)."
 - Wayland:
     - https://wiki.nixos.org/wiki/Wayland
+
+### Ricing
+- [ ] Udforsk Fabric widgets
+    - https://github.com/Fabric-Development/fabric
+    - https://github.com/Axenide/dotfiles
 
 ### Nvim
 - [ ] Setup blink.cmp

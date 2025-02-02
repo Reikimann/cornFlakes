@@ -2,10 +2,10 @@
 
 with lib;
 let
-  cfg = config.reiki.modules.services.wlsunset;
+  cfg = config.reiki.modules.desktop.wlsunset;
 in
 {
-  options.reiki.modules.services.wlsunset = {
+  options.reiki.modules.desktop.wlsunset = {
     enable = mkEnableOption "Day/night gamma adjustment service";
     sunrise = mkOption {
       description = "Override sunrise time";

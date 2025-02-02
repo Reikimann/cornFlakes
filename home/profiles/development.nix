@@ -11,6 +11,8 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
+      rpi-imager
+      jq
       nmap
       # Shell script analysis tool
       shellcheck

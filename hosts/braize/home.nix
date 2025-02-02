@@ -6,9 +6,6 @@
     ../../home/profiles
   ];
 
-  # Just for remembering adding to profiles/laptop
-  isLaptop = false;
-
   monitors = [
     {
       name = "DP-1";
@@ -29,10 +26,6 @@
   # TODO: Move to profiles
   reiki = {
     modules = {
-      desktops = {
-        hyprland.enable = true;
-        cursor.enable = true;
-      };
       programs = {
         anytype = {
           enable = true;
@@ -43,37 +36,32 @@
         keepassxc.enable = true;
         kitty.enable = true;
         lunatask.enable = true;
-        rpi-imager.enable = true;
         signal-desktop.enable = true;
         spotify.enable = true;
         ungoogled-chromium.enable = true;
         zathura.enable = true;
-# Desktop (stuff)
+        # Desktop (stuff)
         rofi.enable = true;
         swaylock.enable = true;
         waybar.enable = true;
         wlogout.enable = true;
         wofi.enable = false; # Just for remembering adding to profiles
       };
-      services = {
-        wlsunset.enable = true;
-        dunst.enable = true;
-      };
       cli = {
-        brightnessctl.enable = true;
         btop.enable = true;
-        playerctl.enable = true;
         swww.enable = true;
         tmux.enable = true;
-# File management
+        # File management
         bat.enable = true;
         xdg-ninja.enable = true;
         yazi.enable = true;
         yt-dlp.enable = true;
       };
     };
+
     profiles = {
       common.enable = true;
+      desktop.enable = true;
       development.enable = true;
       entertainment.enable = true;
     };
@@ -86,7 +74,7 @@
     RICE_WALL_DIR = "${config.xdg.userDirs.pictures}/wallpapers/rices/tokyonight";
   };
 
-  home.file."pix/wallpapers".source = ../../wallpapers;
+  home.file."${config.xdg.userDirs.pictures}/wallpapers".source = ../../wallpapers;
 
   # TODO: Add below to mkHome (see EdenEast/nyx)
   home = {

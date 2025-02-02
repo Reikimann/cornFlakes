@@ -11,12 +11,4 @@ image/gif=img.desktop;
 video/x-matroska=video.desktop
 video/mp4=video.desktop
 inode/directory=file.desktop
-x-scheme-handler/http=userapp-Waterfox-ZBAXN1.desktop
-x-scheme-handler/https=userapp-Waterfox-ZBAXN1.desktop
 x-scheme-handler/chrome=userapp-Waterfox-ZBAXN1.desktop
-application/x-maple-worksheet=/home/reikimann/.local/share/applications/maple2022.desktop
-
-[Added Associations]
-x-scheme-handler/http=userapp-Waterfox-ZBAXN1.desktop;
-x-scheme-handler/https=userapp-Waterfox-ZBAXN1.desktop;
-x-scheme-handler/chrome=userapp-Waterfox-ZBAXN1.desktop;

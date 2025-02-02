@@ -2,10 +2,10 @@
 
 with lib;
 let
-  cfg = config.reiki.modules.desktops.cursor;
+  cfg = config.reiki.modules.desktop.cursor;
 in
 {
-  options.reiki.modules.desktops.cursor = {
+  options.reiki.modules.desktop.cursor = {
     enable = mkEnableOption "Cursor configuration";
     size = mkOption {
       description = "Determines the size of the cursor";

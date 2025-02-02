@@ -2,7 +2,7 @@
 
 with lib;
 let
-  cfg = config.reiki.modules.desktops.hyprland;
+  cfg = config.reiki.modules.desktop.hyprland;
 
   pointer = config.home.pointerCursor;
 
@@ -16,7 +16,7 @@ let
   '';
 in
 {
-  options.reiki.modules.desktops.hyprland = {
+  options.reiki.modules.desktop.hyprland = {
     enable = mkEnableOption "Hyprland configuration";
   };
 
@@ -25,7 +25,7 @@ in
       enable = true;
       settings = {
         source = [
-          "~/.config/hypr/binds.conf"
+          "~/.config/hypr/wmBinds.conf"
           "~/.config/hypr/windowrules.conf"
           "~/.config/hypr/input.conf"
         ];
@@ -154,21 +154,64 @@ in
         exec-once = [
           "${pkgs.swww}/bin/swww-daemon &"
           "${pkgs.swww-utils}/bin/swww-utils randomize &"
-          ''hyprctl setcursor ${toString pointer.name} ${toString pointer.size}''
-        ] ++ lib.optional config.isLaptop "nm-applet 2>&1 > /dev/null &";
+          "hyprctl setcursor ${toString pointer.name} ${toString pointer.size}"
+        ];
+
+        # TODO: Finish converting from wmBinds.conf
+        bind = let
+          wpctl = lib.getExe' pkgs.wireplumber "wpctl";
+          brightnessctl = lib.getExe pkgs.brightnessctl;
+          hyprpicker = lib.getExe pkgs.hyprpicker;
+          hyprshot = lib.getExe pkgs.hyprshot;
+        in [
+          # Volume
+          ",XF86AudioRaiseVolume,exec,${wpctl} set-volume @DEFAULT_SINK@ 5%+"
+          ",XF86AudioLowerVolume,exec,${wpctl} set-volume @DEFAULT_SINK@ 5%-"
+          ",XF86AudioMute,exec,${wpctl} set-mute @DEFAULT_SINK@ toggle"
+          ",XF86AudioMicMute,exec,${wpctl} set-mute @DEFAULT_SOURCE@ toggle"
+          # Brightness
+          ",XF86MonBrightnessUp,exec,${brightnessctl} s 5%+"
+          ",XF86MonBrightnessDown,exec,${brightnessctl} s 5%-"
+          # Screenshotting
+          "CTRL,Print,exec,${hyprshot} -m region -f $(date '+%Y-%m-%d-%T').png"
+          ",Print,exec,${hyprshot} -m region --clipboard-only"
+          # Colorpicking
+          "SHIFT,Print,exec,${hyprpicker} -a --format=hsl"
+        ] ++ (let
+          playerctl = lib.getExe' config.services.playerctld.package "playerctl";
+          playerctld = lib.getExe' config.services.playerctld.package "playerctld";
+        in
+          optionals config.services.playerctld.enable [
+            # Audio
+            ",XF86AudioNext,exec,${playerctl} next"
+            ",XF86AudioPrev,exec,${playerctl} previous"
+            ",XF86AudioPlay,exec,${playerctl} play-pause"
+
+            "SHIFT,XF86AudioNext,exec,${playerctld} shift"
+            "SHIFT,XF86AudioPrev,exec,${playerctld} unshift"
+
+            "$mainMod,right,exec,${playerctl} next"
+            "$mainMod,left,exec,${playerctl} previous"
+            "$mainMod CONTROL,space,exec,${playerctl} play-pause"
+          ]
+        ) ++ (let
+          killall = lib.getExe pkgs.killall;
+        in
+          optionals config.programs.waybar.enable [
+            "$mainMod,O,exec,${killall} -SIGUSR1 .waybar-wrapped"
+          ]
+        ) ++ (let
+          wlogout = lib.getExe pkgs.wlogout;
+        in
+          optionals config.programs.wlogout.enable [
+            "$mainMod CONTROL,l,exec,${wlogout} --buttons-per-row 5 --margin-top 400 --margin-bottom 400 --show-binds --protocol layer-shell"
+          ]
+        );
       };
     };
 
-    home.file.".config/hypr/binds.conf".source = ./configs/binds.conf;
+    home.file.".config/hypr/wmBinds.conf".source = ./configs/wmBinds.conf;
     home.file.".config/hypr/input.conf".source = ./configs/input.conf;
     home.file.".config/hypr/windowrules.conf".source = ./configs/windowrules.conf;
-
-    # TODO: Move this into a module
-    home.packages = with pkgs; [
-      hyprshot
-    ];
-    home.sessionVariables = {
-      HYPRSHOT_DIR = "${config.xdg.userDirs.pictures}/screenshots";
-    };
   };
 }

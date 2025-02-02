@@ -4,11 +4,10 @@
   imports = [
     ./cli
     ./custom
-    ./desktops
+    ./desktop
     ./development
     ./editors
     ./programs
-    ./services
     ./shell
   ];
 }

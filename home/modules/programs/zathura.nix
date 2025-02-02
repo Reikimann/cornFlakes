@@ -96,5 +96,11 @@ in
     home.sessionVariables = {
       READER = "zathura";
     };
+
+    xdg.mimeApps = {
+      defaultApplications = {
+        "application/pdf" = "org.pwmt.zathura-pdf-mupdf.desktop";
+      };
+    };
   };
 }
