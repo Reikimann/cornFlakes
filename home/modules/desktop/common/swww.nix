@@ -2,10 +2,10 @@
 
 with lib;
 let
-  cfg = config.reiki.modules.cli.swww;
+  cfg = config.reiki.modules.desktop.swww;
 in
 {
-  options.reiki.modules.cli.swww = {
+  options.reiki.modules.desktop.swww = {
     enable = mkEnableOption "Swww configuration";
   };
 

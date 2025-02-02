@@ -1,48 +1,42 @@
-
 ## Structure
-
 - [ ] Finish documenting the structure
 - `nix/` - Nix package manager configurations
   - `overlays/` - Nix overlays
   - `pkgs/` - Self packaged applications
 
-## Modules
-config.reiki.modules.module-type.program-name
-config.reiki.profiles.[common,work,development,gaming]
-
 ## TODO
-
 ### Nix
-- [ ] Add a module system
-    - [X] Home-manager
-    - [ ] Cleanup the home.nix and configuration.nix into modules
-    - [ ] System
-- [ ] Add profiles and maybe archetypes (librephoenix/nixos-config)
-    - [ ] To home-manager in /home/profiles/
-    - [ ] To NixOS in /system/profiles/
+- [ ] Add a modules and profiles to the /system folder
+    - [ ] Modules
+    - [ ] Profiles
 - [ ] Add a font module that defines fonts to be used in every app (does this already exist?)
     - https://github.com/Misterio77/nix-config/blob/7ede608b314eb4b59a588e1d7bfc644ccc409e0e/modules/home-manager/fonts.nix
 - [ ] Can I add a getPrimaryMonitor function to the monitors module (see waybar)
 - [ ] Checkout config.lib.file.mkOutOfStoreSymlink (for nvim, emacs and other configs not managed through nix module settings)
-- [ ] Configure firefox search engines with modules
-- [ ] Properly add ungoogled-chromium so that it isn't opened by other programs
-- [ ] Add Syncthing
 - [ ] Can I use the flakes self to do absolute imports? How to better handle paths
-- [ ] Convert every dotfile to be managed by nix
 - [ ] Setup garbage collection
 - [ ] Checkout Lorri and dir-env
     - https://github.com/nix-community/lorri
 - [ ] After NixOS installation on laptop add makeUserHome and mkHome functions to lib (see EdenEast/nyx)
-- [ ] Checkout nix-output-manager
 - [ ] Reorder the home-manager modules into a better system:
     - "The cleanest I have seen were concern-based categories (e.g. desktop-environment.nix, development-tools.nix…), rather than grouping by type (e.g. services.nix, programs.nix…)."
+- [ ] Convert every dotfile to be managed by nix
+- [ ] Configure firefox search engines with modules
+- [ ] Properly add ungoogled-chromium so that it isn't opened by other programs
+- [ ] Add Syncthing
+- [ ] Checkout nix-output-manager
 - Wayland:
     - https://wiki.nixos.org/wiki/Wayland
 
 ### Ricing
-- [ ] Udforsk Fabric widgets
-    - https://github.com/Fabric-Development/fabric
-    - https://github.com/Axenide/dotfiles
+- [ ] Check out Astal/AGS (Aylur's GTK Shell) (cli)
+    - [ ] https://aylur.github.io/ags/
+    - [ ] (Outdated) https://www.youtube.com/watch?v=GvpTUKaXqNk
+    - Keep an eye on Fabric widgets
+        - Although it's not declarative widgets, so choose AGS
+        - https://github.com/Fabric-Development/fabric
+        - https://github.com/Axenide/dotfiles
+- [ ] NixOS Stylix
 
 ### Nvim
 - [ ] Setup blink.cmp

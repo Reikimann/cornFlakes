@@ -26,6 +26,9 @@ in
       allLocales = false;
       locales = [ "en_DK.UTF-8/UTF-8" ];
     };
+    home.sessionVariables = {
+      LOCALES_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
+    };
 
     reiki.modules = {
       shell = {
@@ -42,10 +45,12 @@ in
           enable = true;
           enableIntegrations = true;
         };
+        bat.enable = true;
+        btop.enable = true;
+        tmux.enable = true;
+        yazi.enable = true;
       };
-      editors = {
-        nvim.enable = true;
-      };
+      editors.nvim.enable = true;
     };
   };
 }

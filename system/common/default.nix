@@ -1,9 +1,7 @@
 { outputs, pkgs, ... }:
 
 {
-
   imports = [
-    ./productivity.nix
     ./gaming.nix
   ];
 
@@ -13,8 +11,7 @@
   };
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # TODO: Is setting zsh as default smart on multisystem flakes?
-  # Make this into a module
+  # TODO: Make this into a module
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 

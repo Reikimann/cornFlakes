@@ -2,10 +2,10 @@
 
 with lib;
 let
-  cfg = config.reiki.modules.programs.wofi;
+  cfg = config.reiki.modules.desktop.wofi;
 in
 {
-  options.reiki.modules.programs.wofi = {
+  options.reiki.modules.desktop.wofi = {
     enable = mkEnableOption "Wofi configuration";
   };
 

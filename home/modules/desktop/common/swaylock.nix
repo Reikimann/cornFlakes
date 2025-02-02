@@ -2,11 +2,10 @@
 
 with lib;
 let
-  cfg = config.reiki.modules.programs.swaylock;
+  cfg = config.reiki.modules.desktop.swaylock;
 in
 {
-  # TODO: Maybe make a folder for desktop stuff (not /home/desktops) like bars and lockscreens
-  options.reiki.modules.programs.swaylock = {
+  options.reiki.modules.desktop.swaylock = {
     enable = mkEnableOption "Swaylock configuration";
   };
 

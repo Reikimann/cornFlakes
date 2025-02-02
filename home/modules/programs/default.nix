@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./desktop
     ./anytype.nix
     ./discord.nix
     ./firefox.nix
@@ -12,6 +11,5 @@
     ./signal-desktop.nix
     ./spotify.nix
     ./ungoogled-chromium.nix
-    ./zathura.nix
   ];
 }

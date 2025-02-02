@@ -23,58 +23,19 @@
     }
   ];
 
-  # TODO: Move to profiles
   reiki = {
-    modules = {
-      programs = {
-        anytype = {
-          enable = true;
-          disableWayland = true;
-        };
-        discord.enable = true;
-        firefox.enable = true;
-        keepassxc.enable = true;
-        kitty.enable = true;
-        lunatask.enable = true;
-        signal-desktop.enable = true;
-        spotify.enable = true;
-        ungoogled-chromium.enable = true;
-        zathura.enable = true;
-        # Desktop (stuff)
-        rofi.enable = true;
-        swaylock.enable = true;
-        waybar.enable = true;
-        wlogout.enable = true;
-        wofi.enable = false; # Just for remembering adding to profiles
-      };
-      cli = {
-        btop.enable = true;
-        swww.enable = true;
-        tmux.enable = true;
-        # File management
-        bat.enable = true;
-        xdg-ninja.enable = true;
-        yazi.enable = true;
-        yt-dlp.enable = true;
-      };
-    };
-
     profiles = {
       common.enable = true;
       desktop.enable = true;
       development.enable = true;
       entertainment.enable = true;
+      extended.enable = true;
+      productivity.enable = true;
     };
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "24.05";
-  home.sessionVariables = {
-    LOCALES_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
-    RICE_WALL_DIR = "${config.xdg.userDirs.pictures}/wallpapers/rices/tokyonight";
-  };
-
-  home.file."${config.xdg.userDirs.pictures}/wallpapers".source = ../../wallpapers;
 
   # TODO: Add below to mkHome (see EdenEast/nyx)
   home = {

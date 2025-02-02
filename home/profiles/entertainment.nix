@@ -11,6 +11,10 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
+      # Gaming
+      heroic
+      prismlauncher
+      # CLI
       sl
       cava
       figlet

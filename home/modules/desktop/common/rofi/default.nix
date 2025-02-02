@@ -2,10 +2,10 @@
 
 with lib;
 let
-  cfg = config.reiki.modules.programs.rofi;
+  cfg = config.reiki.modules.desktop.rofi;
 in
 {
-  options.reiki.modules.programs.rofi = {
+  options.reiki.modules.desktop.rofi = {
     enable = mkEnableOption "Rofi configuration";
     font = mkOption {
       description = "Override font";

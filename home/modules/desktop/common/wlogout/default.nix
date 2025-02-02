@@ -2,10 +2,10 @@
 
 with lib;
 let
-  cfg = config.reiki.modules.programs.wlogout;
+  cfg = config.reiki.modules.desktop.wlogout;
 in
 {
-  options.reiki.modules.programs.wlogout = {
+  options.reiki.modules.desktop.wlogout = {
     enable = mkEnableOption "Wlogout configuration";
     font = mkOption {
       description = "Override font";

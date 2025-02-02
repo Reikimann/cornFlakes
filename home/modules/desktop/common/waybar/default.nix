@@ -2,11 +2,10 @@
 
 with lib;
 let
-  cfg = config.reiki.modules.programs.waybar;
+  cfg = config.reiki.modules.desktop.waybar;
 in
 {
-  # TODO: Maybe make a folder for desktop stuff (not /home/desktops) like bars and lockscreens
-  options.reiki.modules.programs.waybar = {
+  options.reiki.modules.desktop.waybar = {
     enable = mkEnableOption "Waybar configuration";
   };
 

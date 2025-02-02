@@ -2,10 +2,10 @@
 
 with lib;
 let
-  cfg = config.reiki.modules.programs.zathura;
+  cfg = config.reiki.modules.productivity.zathura;
 in
 {
-  options.reiki.modules.programs.zathura = {
+  options.reiki.modules.productivity.zathura = {
     enable = mkEnableOption "Zathura configuration";
     font = mkOption {
       description = "Override font";

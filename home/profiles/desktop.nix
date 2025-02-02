@@ -36,7 +36,26 @@ in
         hyprland.enable = true;
         hyprshot.enable = true;
         playerctl.enable = true;
+        rofi.enable = true;
+        swaylock.enable = true;
+        swww.enable = true;
+        waybar.enable = true;
+        wlogout.enable = true;
         wlsunset.enable = true;
+        wofi.enable = false;
+      };
+      programs = {
+        anytype = {
+          enable = true;
+          disableWayland = true;
+        };
+        discord.enable = true;
+        firefox.enable = true;
+        kitty.enable = true;
+        keepassxc.enable = true;
+        lunatask.enable = true;
+        signal-desktop.enable = true;
+        spotify.enable = true;
       };
     };
   };
