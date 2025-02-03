@@ -24,6 +24,7 @@
 - [ ] Configure firefox search engines with modules
 - [ ] Properly add ungoogled-chromium so that it isn't opened by other programs
 - [ ] Add Syncthing
+- [ ] Fix suspend/sleep/wakeup issues: https://wiki.hyprland.org/Nix/Hyprland-on-Home-Manager/#programs-dont-work-in-systemd-services-but-do-on-the-terminal
 - [ ] Checkout nix-output-manager
 - Wayland:
     - https://wiki.nixos.org/wiki/Wayland

@@ -38,6 +38,7 @@ in
 
           include = [ "~/.config/waybar/common-modules.jsonc" ];
           # FIX: Why doesn't this button work on startup, but only after launching it as a user?
+          # Maybe this? https://wiki.hyprland.org/Nix/Hyprland-on-Home-Manager/#programs-dont-work-in-systemd-services-but-do-on-the-terminal
           "custom/swww" = {
             format = "{icon}";
             format-icons = {
