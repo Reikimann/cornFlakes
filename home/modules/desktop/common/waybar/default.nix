@@ -17,6 +17,7 @@ in
         {
           # NOTE: If there is more than one monitor, then _one_ of
           # them will always be marked as the primary.
+          # TODO: Can I add a getPrimaryMonitor function to the monitors module (see waybar)
           output = let
             primaryMonitor = (monitors:
              if builtins.length monitors == 1 then builtins.head monitors

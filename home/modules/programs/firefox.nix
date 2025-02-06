@@ -7,6 +7,11 @@ in
 {
   options.reiki.modules.programs.firefox = {
     enable = mkEnableOption "Firefox configuration";
+    isDefaultBrowser = mkOption {
+      description = "Whether or not firefox is the default browser";
+      default = true;
+      type = types.bool;
+    };
     enableKeepassXC = mkOption {
       description = "Enable KeepassXC Integration";
       default = true;
@@ -20,12 +25,11 @@ in
       nativeMessagingHosts = [] ++ lib.optional cfg.enableKeepassXC pkgs.keepassxc;
     };
 
-    # TODO: Add a proper setting for the default browser
-    home.sessionVariables = {
+    home.sessionVariables = mkIf cfg.isDefaultBrowser {
       BROWSER = "firefox";
     };
 
-    xdg.mimeApps.defaultApplications = {
+    xdg.mimeApps.defaultApplications = mkIf cfg.isDefaultBrowser {
       "text/html" = ["firefox.desktop"];
       "text/xml" = ["firefox.desktop"];
       "x-scheme-handler/http" = ["firefox.desktop"];

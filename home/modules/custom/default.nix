@@ -2,7 +2,8 @@
 
 {
   imports = [
-    ./monitors.nix
+    ./dotfiles-path.nix
     ./laptop.nix
+    ./monitors.nix
   ];
 }

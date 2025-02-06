@@ -7,6 +7,11 @@ in
 {
   options.reiki.modules.editors.nvim = {
     enable = mkEnableOption "Neovim configuration";
+    isDefaultEditor = mkOption {
+      description = "Whether or not nvim is the default editor";
+      default = true;
+      type = types.bool;
+    };
   };
 
   # TODO: Setup https://github.com/stevearc/conform.nvim (eslint issues?) eller
@@ -16,8 +21,7 @@ in
   config = mkIf cfg.enable {
     programs.neovim = {
       enable = true;
-      #package = pkgs-unstable.neovim;
-      defaultEditor = true; # TODO: Make a nix module for chosing a default editor (1)
+      defaultEditor = cfg.isDefaultEditor;
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
@@ -44,12 +48,18 @@ in
       nodePackages_latest.typescript-language-server
     ];
 
-    # TODO: Make a nix module for chosing a default editor (2)
-    home.sessionVariables = {
+    home.sessionVariables = mkIf cfg.isDefaultEditor {
       VISUAL = "nvim";
     };
 
-    home.file.".config/nvim/init.lua".source = ./init.lua;
-    home.file.".config/nvim/lua".source = ./lua;
+    # It's split up so lazy.nvim can make lazy-lock.jason
+    xdg.configFile = {
+      "nvim/lua" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.dotfilesPath}/config/nvim/lua";
+      };
+      "nvim/init.lua" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.dotfilesPath}/config/nvim/init.lua";
+      };
+    };
   };
 }
