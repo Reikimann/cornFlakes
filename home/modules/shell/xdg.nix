@@ -21,6 +21,7 @@ in
     xdg = {
       enable = true;
       mimeApps.enable = true;
+      portal.enable = true;
       userDirs = {
         enable = cfg.enableUserDirs;
         createDirectories = true;

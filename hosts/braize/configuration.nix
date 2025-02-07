@@ -48,7 +48,14 @@
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  programs.dconf.enable = true;
+  #services.xserver.desktopManager.gnome.enable = true;
+
+  security.polkit.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  programs.seahorse.enable = true;
+  # TODO: Make this into a module and make it toggleable
+  security.pam.services.swaylock = { };
 
   programs.hyprland.enable = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -69,8 +76,6 @@
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  # TODO: Make this into a module and make it toggleable
-  security.pam.services.swaylock = { };
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -97,6 +102,11 @@
     font-awesome
     corefonts
     vistafonts
+
+    cantarell-fonts
+    dejavu_fonts
+    source-code-pro
+    source-sans
   ];
 
   # List packages installed in system profile. To search, run:
@@ -105,6 +115,10 @@
     wget
     curl
     vim
+
+    libsecret
+    adwaita-icon-theme
+
     imagemagick
     git
     wl-clipboard
@@ -121,13 +135,15 @@
   hardware.keyboard.qmk.enable = true;
 
   # enabling OpenGL and GPU drivers
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
   services.xserver.videoDrivers = ["nvidia"];
-  hardware.nvidia.modesetting.enable = true;
-  hardware.nvidia.open = false;
+  hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+    nvidia.modesetting.enable = true;
+    nvidia.open = false;
+  };
 
 
   # Some programs need SUID wrappers, can be configured further or are

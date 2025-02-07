@@ -21,8 +21,11 @@ in
   };
 
   config = mkIf cfg.enable {
+    xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
+
     wayland.windowManager.hyprland = {
       enable = true;
+      systemd.variables = ["--all"];
       settings = {
         source = [
           "~/.config/hypr/wmBinds.conf"

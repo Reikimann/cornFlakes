@@ -11,6 +11,7 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
+      gnome-font-viewer
       rpi-imager
       jq
       nmap
