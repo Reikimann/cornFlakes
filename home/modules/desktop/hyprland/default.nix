@@ -182,8 +182,8 @@ in
           "$mainMod,dead_diaeresis,exec,${keepassxc}"
           #"$mainMod,e,exec, emacs"
           # Volume
-          ",XF86AudioRaiseVolume,exec,${wpctl} set-volume @DEFAULT_SINK@ 5%+"
-          ",XF86AudioLowerVolume,exec,${wpctl} set-volume @DEFAULT_SINK@ 5%-"
+          ",XF86AudioRaiseVolume,exec,${wpctl} set-volume @DEFAULT_SINK@ 2%+"
+          ",XF86AudioLowerVolume,exec,${wpctl} set-volume @DEFAULT_SINK@ 2%-"
           ",XF86AudioMute,exec,${wpctl} set-mute @DEFAULT_SINK@ toggle"
           ",XF86AudioMicMute,exec,${wpctl} set-mute @DEFAULT_SOURCE@ toggle"
           # Brightness
