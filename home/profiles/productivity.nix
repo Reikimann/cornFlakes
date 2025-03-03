@@ -13,12 +13,12 @@ in
     home.packages = with pkgs; [
       libreoffice-fresh
       gimp
-      figma-linux
     ];
 
     reiki.modules = {
       productivity = {
         zathura.enable = true;
+        figma.enable = true;
       };
     };
   };

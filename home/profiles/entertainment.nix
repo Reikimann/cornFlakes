@@ -3,7 +3,7 @@
 with lib;
 let
   cfg = config.reiki.profiles.entertainment;
-in 
+in
 {
   options.reiki.profiles.entertainment = {
     enable = mkEnableOption "Entertainment profile";

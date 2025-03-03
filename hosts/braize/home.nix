@@ -32,6 +32,14 @@
       extended.enable = true;
       productivity.enable = true;
     };
+    modules = {
+      programs = {
+        anytype.disableWayland = true;
+      };
+      productivity = {
+        figma.disableWayland = true;
+      };
+    };
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

@@ -46,10 +46,7 @@ in
         wofi.enable = false;
       };
       programs = {
-        anytype = {
-          enable = true;
-          disableWayland = true;
-        };
+        anytype.enable = true;
         discord.enable = true;
         firefox.enable = true;
         kitty.enable = true;
