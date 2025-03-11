@@ -18,6 +18,7 @@ return {
         "json",
         "jsonc",
         "lua",
+        "svelte",
         "tsx",
         "typescript",
         "latex",

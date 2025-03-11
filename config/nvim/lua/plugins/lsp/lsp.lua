@@ -75,6 +75,10 @@ return {
         cmd = { "typescript-language-server", "--stdio" },
       })
 
+      nvim_lsp.svelte.setup({
+        capabilities = capabilities,
+      })
+
       nvim_lsp.astro.setup({
         capabilities = capabilities,
         -- cmd = { "astro-ls", "--stdio" }, -- default

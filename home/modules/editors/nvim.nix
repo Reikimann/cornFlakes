@@ -42,6 +42,7 @@ in
       pyright
       gopls
       lua-language-server
+      svelte-language-server
       astro-language-server
       tailwindcss-language-server
       nodePackages_latest.vscode-langservers-extracted
