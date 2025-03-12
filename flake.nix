@@ -7,6 +7,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -51,7 +55,7 @@
           inherit pkgs;
           # NOTE: ./home/modules : /modules may need to be removed to EdenEast/nyx how he handles it (regarding profiles)
           modules = [ ./hosts/braize/home.nix ./home/modules ./home/profiles ];
-          extraSpecialArgs = { inherit outputs; };
+          extraSpecialArgs = { inherit outputs inputs; };
         };
       };
     };

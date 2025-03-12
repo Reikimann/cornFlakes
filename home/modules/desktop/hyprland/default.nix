@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 with lib;
 let
@@ -163,7 +163,7 @@ in
         bind = let
           brightnessctl = lib.getExe pkgs.brightnessctl;
           discord = lib.getExe pkgs.discord;
-          firefox = lib.getExe pkgs.firefox;
+          zen-browser = lib.getExe inputs.zen-browser.packages."${pkgs.system}".default;
           hyprpicker = lib.getExe pkgs.hyprpicker;
           hyprshot = lib.getExe pkgs.hyprshot;
           keepassxc = lib.getExe pkgs.keepassxc;
@@ -174,7 +174,7 @@ in
           wpctl = lib.getExe' pkgs.wireplumber "wpctl";
         in [
           "$mainMod,Return,exec,${kitty}"
-          "$mainMod,B,exec,${firefox}"
+          "$mainMod,B,exec,${zen-browser}"
           "$mainMod,U,exec,${spotify}"
           "$mainMod,Y,exec,${rofi} -show drun"
           "$mainMod,f,exec,${nemo}"

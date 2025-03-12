@@ -54,6 +54,10 @@ in
         lunatask.enable = true;
         signal-desktop.enable = true;
         spotify.enable = true;
+        zen-browser = {
+          enable = true;
+          isDefaultBrowser = true;
+        };
       };
     };
   };

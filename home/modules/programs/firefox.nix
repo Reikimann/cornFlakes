@@ -9,7 +9,7 @@ in
     enable = mkEnableOption "Firefox configuration";
     isDefaultBrowser = mkOption {
       description = "Whether or not firefox is the default browser";
-      default = true;
+      default = false;
       type = types.bool;
     };
     enableKeepassXC = mkOption {
