@@ -1,8 +1,8 @@
 {
   myAliases = {
     matrix="unimatrix -l cCaGgkr -s 98 -a -f";
-    c="clear && zsh";
-    C="clear && bash";
+    c="clear && exec zsh";
+    C="clear && exec bash";
     #exa="eza --sort=type --icons";
     #exal="eza -lah --sort=type --icons";
     v="nvim";
