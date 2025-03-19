@@ -39,6 +39,9 @@
       productivity = {
         figma.disableWayland = true;
       };
+      other = {
+        bedtime-control.enable = true;
+      };
     };
   };
 

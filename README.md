@@ -6,6 +6,8 @@
 
 ## TODO
 ### Nix
+- [ ] Setup a proper notification daemon (see Discussion `Config Flex`)
+    - https://github.com/ErikReider/SwayNotificationCenter
 - [ ] Add a modules and profiles to the /system folder
     - [ ] Modules
     - [ ] Profiles

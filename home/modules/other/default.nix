@@ -1,0 +1,7 @@
+{ ... }:
+
+{
+  imports = [
+    ./bedtime-control.nix
+  ];
+}

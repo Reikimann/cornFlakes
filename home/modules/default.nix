@@ -7,6 +7,7 @@
     ./desktop
     ./development
     ./editors
+    ./other
     ./productivity
     ./programs
     ./shell
