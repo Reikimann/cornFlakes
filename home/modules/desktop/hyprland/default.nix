@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, ... }:
 
 with lib;
 let
@@ -20,6 +20,11 @@ in
     enable = mkEnableOption "Hyprland configuration";
   };
 
+  imports = [
+    ./binds.nix
+    ./input.nix
+  ];
+
   config = mkIf cfg.enable {
     xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
 
@@ -30,7 +35,6 @@ in
         source = [
           "~/.config/hypr/wmBinds.conf"
           "~/.config/hypr/windowrules.conf"
-          "~/.config/hypr/input.conf"
         ];
 
         monitor = map
@@ -107,13 +111,13 @@ in
           enabled = 1;
           bezier = [
             "overshot, 0.13, 0.99, 0.29, 1.1"
-            "liner, 1, 1, 1, 1"
+            "linear, 1, 1, 1, 1"
           ];
           animation = [
             "windows, 1, 3, overshot, slide"
             "windowsOut, 1, 3, default, popin 80%"
             "border, 1, 3, default"
-            "borderangle, 1, 50, liner, loop"
+            "borderangle, 1, 50, linear, loop"
             "fade, 1, 3, default"
             "workspaces, 1, 3, overshot, slidevert"
           ];
@@ -159,76 +163,23 @@ in
           "${pkgs.swww-utils}/bin/swww-utils randomize &"
           "hyprctl setcursor ${toString pointer.name} ${toString pointer.size}"
         ];
-
-        bind = let
-          brightnessctl = lib.getExe pkgs.brightnessctl;
-          discord = lib.getExe pkgs.discord;
-          zen-browser = lib.getExe inputs.zen-browser.packages."${pkgs.system}".default;
-          hyprpicker = lib.getExe pkgs.hyprpicker;
-          hyprshot = lib.getExe pkgs.hyprshot;
-          keepassxc = lib.getExe pkgs.keepassxc;
-          kitty = lib.getExe pkgs.kitty;
-          nemo = lib.getExe pkgs.nemo;
-          rofi = lib.getExe pkgs.rofi-wayland;
-          spotify = lib.getExe pkgs.spotify;
-          wpctl = lib.getExe' pkgs.wireplumber "wpctl";
-        in [
-          "$mainMod,Return,exec,${kitty}"
-          "$mainMod,B,exec,${zen-browser}"
-          "$mainMod,U,exec,${spotify}"
-          "$mainMod,Y,exec,${rofi} -show drun"
-          "$mainMod,f,exec,${nemo}"
-          "$mainMod,d,exec,${discord}"
-          "$mainMod,dead_diaeresis,exec,${keepassxc}"
-          #"$mainMod,e,exec, emacs"
-          # Volume
-          ",XF86AudioRaiseVolume,exec,${wpctl} set-volume @DEFAULT_SINK@ 2%+"
-          ",XF86AudioLowerVolume,exec,${wpctl} set-volume @DEFAULT_SINK@ 2%-"
-          ",XF86AudioMute,exec,${wpctl} set-mute @DEFAULT_SINK@ toggle"
-          ",XF86AudioMicMute,exec,${wpctl} set-mute @DEFAULT_SOURCE@ toggle"
-          # Brightness
-          ",XF86MonBrightnessUp,exec,${brightnessctl} s 5%+"
-          ",XF86MonBrightnessDown,exec,${brightnessctl} s 5%-"
-          # Screenshotting
-          "CTRL,Print,exec,${hyprshot} -m region -f $(date '+%Y-%m-%d-%T').png"
-          ",Print,exec,${hyprshot} -m region --clipboard-only"
-          # Colorpicking
-          "SHIFT,Print,exec,${hyprpicker} -a --format=hsl"
-        ] ++ (let
-          playerctl = lib.getExe' config.services.playerctld.package "playerctl";
-          playerctld = lib.getExe' config.services.playerctld.package "playerctld";
-        in
-          optionals config.services.playerctld.enable [
-            # Audio
-            ",XF86AudioNext,exec,${playerctl} next"
-            ",XF86AudioPrev,exec,${playerctl} previous"
-            ",XF86AudioPlay,exec,${playerctl} play-pause"
-
-            "SHIFT,XF86AudioNext,exec,${playerctld} shift"
-            "SHIFT,XF86AudioPrev,exec,${playerctld} unshift"
-
-            "$mainMod,right,exec,${playerctl} next"
-            "$mainMod,left,exec,${playerctl} previous"
-            "$mainMod CONTROL,space,exec,${playerctl} play-pause"
-          ]
-        ) ++ (let
-          killall = lib.getExe pkgs.killall;
-        in
-          optionals config.programs.waybar.enable [
-            "$mainMod,O,exec,${killall} -SIGUSR1 .waybar-wrapped"
-          ]
-        ) ++ (let
-          wlogout = lib.getExe pkgs.wlogout;
-        in
-          optionals config.programs.wlogout.enable [
-            "$mainMod CONTROL,l,exec,${wlogout} --buttons-per-row 5 --margin-top 400 --margin-bottom 400 --show-binds --protocol layer-shell"
-          ]
-        );
       };
+      extraConfig = ''
+        bind=$mainMod ALT,R,submap,resize
+        submap=resize
+
+        # sets repeatable binds for resizing the active window
+        binde=,l,resizeactive,20 0
+        binde=,h,resizeactive,-20 0
+        binde=,k,resizeactive,0 -20
+        binde=,j,resizeactive,0 20
+
+        bind=,escape,submap,reset
+        submap=reset
+      '';
     };
 
     home.file.".config/hypr/wmBinds.conf".source = ./configs/wmBinds.conf;
-    home.file.".config/hypr/input.conf".source = ./configs/input.conf;
     home.file.".config/hypr/windowrules.conf".source = ./configs/windowrules.conf;
   };
 }
