@@ -6,8 +6,8 @@
     ./custom
     ./desktop
     ./development
+    ./digital-wellbeing
     ./editors
-    ./other
     ./productivity
     ./programs
     ./shell

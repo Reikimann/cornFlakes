@@ -59,6 +59,11 @@ in
           isDefaultBrowser = true;
         };
       };
+      digital-wellbeing = {
+        bedtime-control.enable = true;
+        eye-health.enable = true;
+        remember-moving.enable = true;
+      };
     };
   };
 }

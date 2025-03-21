@@ -2,11 +2,11 @@
 
 with lib;
 let
-  cfg = config.reiki.modules.other.bedtime-control;
+  cfg = config.reiki.modules.digital-wellbeing.bedtime-control;
   service-name = "bedtime-control";
 in
 {
-  options.reiki.modules.other.${service-name} = {
+  options.reiki.modules.digital-wellbeing.${service-name} = {
     enable = mkEnableOption "Bedtime control";
     description = "Disables the internet and reminds the user to go to bed";
   };
@@ -17,12 +17,9 @@ in
         Unit = {
           Description = "Disables the internet and reminds the user to go to bed";
         };
-        Install = {
-          WantedBy = [ "graphical-session.target" ];
-        };
         Service = {
           Type = "exec";
-          ExecStart = "${pkgs.writeShellScript "bedtime-control" ''
+          ExecStart = "${pkgs.writeShellScript "${service-name}" ''
             ${pkgs.libnotify}/bin/notify-send "Turn off your PC now!" "The internet disconnects in 10 minutes :P" -u critical
             ${pkgs.coreutils}/bin/sleep 600
             ${pkgs.networkmanager}/bin/nmcli networking off
@@ -45,17 +42,3 @@ in
     };
   };
 }
-
-
-/*
-systemd.user.timers = {
- bedtime-control = {
-   wantedBy = [ "timers.target" ];
-   partOf = [ "bedtime-control.service" ];
-   timerConfig = {
-     onCalender = "";
-     Unit = "bedtime-control.service";
-   };
- };
-};
-*/
