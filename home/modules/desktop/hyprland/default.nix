@@ -23,6 +23,7 @@ in
   imports = [
     ./binds.nix
     ./input.nix
+    ./rules.nix
   ];
 
   config = mkIf cfg.enable {
@@ -32,11 +33,6 @@ in
       enable = true;
       systemd.variables = ["--all"];
       settings = {
-        source = [
-          "~/.config/hypr/wmBinds.conf"
-          "~/.config/hypr/windowrules.conf"
-        ];
-
         monitor = map
           (m:
             let
@@ -178,8 +174,5 @@ in
         submap=reset
       '';
     };
-
-    home.file.".config/hypr/wmBinds.conf".source = ./configs/wmBinds.conf;
-    home.file.".config/hypr/windowrules.conf".source = ./configs/windowrules.conf;
   };
 }
