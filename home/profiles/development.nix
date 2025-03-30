@@ -12,7 +12,7 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       gnome-font-viewer
-      rpi-imager
+      #rpi-imager
       jq
       nmap
       # Shell script analysis tool
