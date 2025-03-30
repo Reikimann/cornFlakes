@@ -21,7 +21,7 @@ return {
         "svelte",
         "tsx",
         "typescript",
-        "latex",
+        -- "latex",
         "rust",
         "yuck",
         "yaml",
