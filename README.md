@@ -31,6 +31,7 @@
 
 ### Ricing
 - [ ] Check out Astal/AGS (Aylur's GTK Shell) (cli)
+    - [ ] https://quickshell.outfoxxed.me/
     - [ ] https://aylur.github.io/ags/
     - [ ] (Outdated) https://www.youtube.com/watch?v=GvpTUKaXqNk
     - Keep an eye on Fabric widgets
