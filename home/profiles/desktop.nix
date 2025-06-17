@@ -48,6 +48,7 @@ in
       programs = {
         anytype.enable = true;
         discord.enable = true;
+        element-desktop.enable = true;
         firefox.enable = true;
         kitty.enable = true;
         keepassxc.enable = true;

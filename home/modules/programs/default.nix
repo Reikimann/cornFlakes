@@ -4,6 +4,7 @@
   imports = [
     ./anytype.nix
     ./discord.nix
+    ./element-desktop.nix
     ./firefox.nix
     ./keepassxc.nix
     ./kitty.nix
