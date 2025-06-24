@@ -1,8 +1,6 @@
+import Quickshell
 import QtQuick
 import QtQuick.Layouts
-import QtQuick.Effects
-import Quickshell
-import Quickshell.Widgets
 import "../../services"
 import "../../config"
 import "../../widgets"

@@ -10,23 +10,21 @@ import "../../config"
 
 Variants {
   id: root
-  model: Quickshell.screens
-
   property color backgroundColor: "#1e1e2e99"
 	property color buttonColor: "#1e1e1e00"
 	property color buttonHoverColor: "#cba6f7"
-
   default property list<LogoutButton> buttons
 
+  model: Quickshell.screens
   PanelWindow {
     id: w
 
     property var modelData
     screen: modelData
 
-    exclusiveZone: ExclusionMode.Ignore
-    WlrLayershell.layer: WlrLayer.Overlay
-    WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
+		exclusionMode: ExclusionMode.Ignore
+		WlrLayershell.layer: WlrLayer.Overlay
+		WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
 
     color: "transparent"
     Image {
@@ -68,8 +66,8 @@ Variants {
 
         GridLayout {
           anchors.centerIn: parent
-          width: parent.width * 0.8
-          height: parent.height * 0.5
+          width: parent.width * 0.85
+          height: parent.height * 0.45
 
           columns: 5
           columnSpacing: 10
