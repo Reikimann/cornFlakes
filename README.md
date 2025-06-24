@@ -3,6 +3,18 @@
 - `nix/` - Nix package manager configurations
   - `overlays/` - Nix overlays
   - `pkgs/` - Self packaged applications
+  - `config.nix` -
+- `config/` -
+- `.old_dots/` -
+- `home/` -
+    - `modules/` -
+    - `profiles/` -
+- `hosts/` -
+    - `braize/` -
+- `system/` -
+    - `common/` -
+    - `modules/` -
+- `wallpapers/` -
 
 ## TODO
 ### Nix
