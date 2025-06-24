@@ -48,6 +48,7 @@
   home.packages = with pkgs; [
      adwaita-icon-theme
      papirus-icon-theme
+     material-icons
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

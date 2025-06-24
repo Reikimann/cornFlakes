@@ -1,30 +1,32 @@
 import QtQuick
 import QtQuick.Layouts
+import QtQuick.Effects
 import Quickshell
-import Quickshell.Services.Pipewire
 import Quickshell.Widgets
+import "../../services"
+import "../../config"
+import "../../widgets"
 
 Scope {
   id: root
+  property bool shouldShowOsd: false
 
-  PwObjectTracker {
-    objects: [ Pipewire.defaultAudioSink ]
+  function show(): void {
+    root.shouldShowOsd = true;
+    hideTimer.restart();
   }
 
   Connections {
-    target: Pipewire.defaultAudioSink?.audio
+    target: Audio
 
-    function onVolumeChanged() {
-      root.shouldShowOsd = true;
-      hideTimer.restart();
+    function onVolumeChanged(): void {
+      root.show();
     }
   }
 
-  property bool shouldShowOsd: false
-
   Timer {
     id: hideTimer
-    interval: 1000
+    interval: Config.osd.hideDelay
     onTriggered: root.shouldShowOsd = false
   }
 
@@ -47,15 +49,21 @@ Scope {
         color: "#80000000"
 
         RowLayout {
+          spacing: 10
           anchors {
             fill: parent
             leftMargin: 10
-            rightMargin: 15
+            rightMargin: 10
           }
 
           IconImage {
-            implicitSize: 30
-            source: Quickshell.iconPath("audio-volume-high-symbolic")
+            implicitSize: 18
+            source: Qt.resolvedUrl("../../assets/pics/volume-high.svg")
+            layer.enabled: true
+            layer.effect: MultiEffect {
+              colorization: 1.0
+              colorizationColor: "white"
+            }
           }
 
           Rectangle {
@@ -72,19 +80,16 @@ Scope {
                 bottom: parent.bottom
               }
 
-              implicitWidth: parent.width * (Pipewire.defaultAudioSink?.audio.volume ?? 0)
+              implicitWidth: parent.width * Audio.volume
               radius: parent.radius
             }
           }
 
-          Item {
-            implicitWidth: 37
-            Text {
-              anchors.verticalCenter: parent.verticalCenter
-              anchors.right: parent.right
-              text: `${Math.round((Pipewire.defaultAudioSink.audio.volume * 100))}%`
-              color: "#ffffff"
-            }
+          Text {
+            text: `${Math.round(Audio.volume * 100)}%`
+            color: "#ffffff"
+            font.family: Appearance.font.family.mono
+            font.pointSize: Appearance.font.size.smaller
           }
         }
       }
