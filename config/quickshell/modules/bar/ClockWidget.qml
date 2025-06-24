@@ -2,6 +2,7 @@ import "../../services"
 import "../../config"
 import "../../widgets"
 import QtQuick
+import Quickshell
 import QtQuick.Layouts
 
 RowLayout {

@@ -49,21 +49,16 @@ Scope {
         color: "#80000000"
 
         RowLayout {
-          spacing: 10
           anchors {
             fill: parent
             leftMargin: 10
             rightMargin: 10
           }
 
-          IconImage {
-            implicitSize: 18
-            source: Qt.resolvedUrl("../../assets/pics/volume-high.svg")
-            layer.enabled: true
-            layer.effect: MultiEffect {
-              colorization: 1.0
-              colorizationColor: "white"
-            }
+          MaterialIcon {
+            text: "volume_up"
+            color: "#ffffff"
+            font.pointSize: Appearance.font.size.large
           }
 
           Rectangle {
