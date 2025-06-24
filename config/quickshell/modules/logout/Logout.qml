@@ -41,19 +41,6 @@ Variants {
       }
     }
 
-    contentItem {
-      focus: true
-      Keys.onPressed: event => {
-        if (event.key == Qt.Key_Escape) Qt.quit();
-        else {
-          for (let i = 0; i < root.buttons.length; i++) {
-            let button = root.buttons[i];
-            if (event.key == button.keybind) button.exec();
-          }
-        }
-      }
-    }
-
     anchors { top: true; left: true; bottom: true; right: true }
 
     Rectangle {
@@ -64,34 +51,68 @@ Variants {
         anchors.fill: parent
         onClicked: Qt.quit()
 
-        GridLayout {
+        RowLayout {
+          id: grid
           anchors.centerIn: parent
           width: parent.width * 0.85
           height: parent.height * 0.45
+          spacing: 10
 
-          columns: 5
-          columnSpacing: 10
+          Keys.onPressed: event => {
+            if (event.key == Qt.Key_Escape) Qt.quit();
+            else {
+              for (let i = 0; i < root.buttons.length; i++) {
+                let button = root.buttons[i];
+                if (event.key == button.keybind) button.exec();
+              }
+            }
+          }
 
           Repeater {
+            id: repeater
             model: root.buttons
+
             delegate: Rectangle {
               id: button
               required property LogoutButton modelData;
-              Layout.fillWidth: true
-              Layout.fillHeight: true
+              required property int index;
 
-              color: ma.containsMouse ? root.buttonHoverColor : root.buttonColor
+              focus: index == 0
+              Keys.onLeftPressed: {
+                if (index > 0) {
+                  repeater.itemAt(index - 1).forceActiveFocus()
+                } else if (index == 0) {
+                  repeater.itemAt(repeater.count - 1).forceActiveFocus()
+                }
+              }
+              Keys.onRightPressed: {
+                if (index < repeater.count - 1) {
+                  repeater.itemAt(index + 1).forceActiveFocus()
+                } else if (index == repeater.count - 1) {
+                  repeater.itemAt(0).forceActiveFocus()
+                }
+              }
+              Keys.onReturnPressed: {
+                button.modelData.exec()
+              }
+
+              MouseArea {
+                anchors.fill: parent
+                hoverEnabled: true
+                onEntered: button.forceActiveFocus()
+                onClicked: {
+                  button.modelData.exec()
+                }
+              }
+
+              color: activeFocus ? root.buttonHoverColor : root.buttonColor
               border.color: "white"
               border.width: 3
               radius: 5
-
-              MouseArea {
-                id: ma
-                anchors.fill: parent
-                hoverEnabled: true
-                onClicked: button.modelData.exec()
-              }
-
+              Layout.fillWidth: true
+              Layout.fillHeight: true
+              implicitWidth: grid.width / 5 - 10
+              implicitHeight: grid.height
 
               // FIX: For some reason this doesn't work: Icons are wrong
               //MaterialIcon {
@@ -108,7 +129,7 @@ Variants {
                 layer.enabled: true
                 layer.effect: MultiEffect {
                   colorization: 1.0
-                  colorizationColor: ma.containsMouse ? "black" : "white"
+                  colorizationColor: button.activeFocus ? "black" : "white"
                 }
               }
 
@@ -121,7 +142,7 @@ Variants {
                 text: button.modelData.text
                 font.pointSize: Appearance.font.size.large
                 font.family: Appearance.font.family.mono
-                color: ma.containsMouse ? "black" : "white"
+                color: button.activeFocus ? "black" : "white"
               }
             }
           }
