@@ -42,6 +42,11 @@
     };
   };
 
+  home.packages = with pkgs; [
+     adwaita-icon-theme
+     papirus-icon-theme
+  ];
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "24.05";
 
