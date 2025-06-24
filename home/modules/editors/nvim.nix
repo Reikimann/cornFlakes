@@ -53,7 +53,7 @@ in
       VISUAL = "nvim";
     };
 
-    # It's split up so lazy.nvim can make lazy-lock.jason
+    # It's split up so lazy.nvim can make lazy-lock.json
     xdg.configFile = {
       "nvim/lua" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.dotfilesPath}/config/nvim/lua";

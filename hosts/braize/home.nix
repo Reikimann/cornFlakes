@@ -39,6 +39,9 @@
       productivity = {
         figma.disableWayland = true;
       };
+      desktop = {
+        quickshell.enable = true;
+      };
     };
   };
 

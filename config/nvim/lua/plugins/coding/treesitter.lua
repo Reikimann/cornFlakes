@@ -26,6 +26,7 @@ return {
         "yuck",
         "yaml",
         "css",
+        "qmljs",
       },
       highlight = {
           enable = true,

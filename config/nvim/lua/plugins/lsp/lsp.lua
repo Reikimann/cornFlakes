@@ -94,6 +94,11 @@ return {
         capabilities = capabilities,
         cmd = { "vscode-json-language-server", "--stdio" },
       })
+
+      nvim_lsp.qmlls.setup({
+        capabilities = capabilities,
+        cmd = { "qmlls", "-E" },
+      })
     end,
   },
   {

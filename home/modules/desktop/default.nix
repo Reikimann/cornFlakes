@@ -4,5 +4,6 @@
   imports = [
     ./common
     ./hyprland
+    ./quickshell
   ];
 }
