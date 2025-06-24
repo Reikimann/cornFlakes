@@ -6,7 +6,7 @@ import QtQuick
 Singleton {
   id: root
 
-  readonly property Font font: Font {}
+  readonly property CustomFonts font: CustomFonts {}
 
   component FontFamily: QtObject {
     readonly property string mono: "Liga SFMono Nerd Font"
@@ -22,7 +22,7 @@ Singleton {
     readonly property int extraLarge: 28
   }
 
-  component Font: QtObject {
+  component CustomFonts: QtObject {
     readonly property FontFamily family: FontFamily {}
     readonly property FontSize size: FontSize {}
   }
