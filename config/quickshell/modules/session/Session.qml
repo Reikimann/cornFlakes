@@ -7,6 +7,7 @@ import Quickshell
 import Quickshell.Wayland
 import Quickshell.Hyprland
 import "../../config"
+import "../../services"
 
 Scope {
   id: root
@@ -16,18 +17,17 @@ Scope {
     description: qsTr("Toggles session utility")
 
     onPressed: {
-      sessionLoader.active = !sessionLoader.active;
+      GlobalStates.sessionOpen = !GlobalStates.sessionOpen
     }
   }
 
   Loader {
     id: sessionLoader
-    active: false
+    active: GlobalStates.sessionOpen
 
-    // TODO: add GlobalStates (git-user:end-4)
     sourceComponent: PanelWindow {
       id: w
-      visible: sessionLoader.active
+      visible: GlobalStates.sessionOpen
 
       exclusionMode: ExclusionMode.Ignore
       WlrLayershell.layer: WlrLayer.Overlay
@@ -62,7 +62,7 @@ Scope {
 
       MouseArea {
         anchors.fill: parent
-        onClicked: sessionLoader.active = false
+        onClicked: GlobalStates.sessionOpen = false
 
         RowLayout {
           id: grid
@@ -71,7 +71,7 @@ Scope {
           height: parent.height * 0.45
           spacing: Appearance.spacing.smaller
 
-          Keys.onEscapePressed: sessionLoader.active = false
+          Keys.onEscapePressed: GlobalStates.sessionOpen = false
 
           Repeater {
             id: repeater

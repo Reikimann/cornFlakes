@@ -1,15 +1,13 @@
+pragma ComponentBehavior: Bound
 import Quickshell.Widgets
 import QtQuick.Effects
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import Quickshell.Io
-import "../../widgets"
 import "../../config"
+import "../../services"
 
-
-// TODO: USE A SINGLETON TO HANDLE VISIBILITY AND
-// SEPERATE SESSION.QML INTO A SESSION PANEL FILE
 
 Button {
   id: root
@@ -28,7 +26,7 @@ Button {
 
   onClicked: {
     process.startDetached();
-    sessionLoader.active = !sessionLoader.active;
+    GlobalStates.sessionOpen = false
   }
 
   MouseArea {
@@ -54,6 +52,7 @@ Button {
   }
 
   // FIX: For some reason this doesn't work: Icons are wrong
+  // Obviously move this to the top: import "../../widgets"
   //MaterialIcon {
   //  id: texticon
   //  text: root.icon
