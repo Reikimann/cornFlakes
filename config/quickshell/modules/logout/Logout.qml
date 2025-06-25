@@ -59,7 +59,7 @@ Variants {
           spacing: 10
 
           Keys.onPressed: event => {
-            if (event.key == Qt.Key_Escape) Qt.quit();
+            if (event.key == Qt.Key_Escape) logoutLoader.active = false;
             else {
               for (let i = 0; i < root.buttons.length; i++) {
                 let button = root.buttons[i];

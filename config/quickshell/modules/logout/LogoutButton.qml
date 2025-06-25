@@ -15,6 +15,6 @@ QtObject {
 
   function exec() {
     process.startDetached();
-    Qt.quit();
+    logoutLoader.active = !logoutLoader.active;
   }
 }

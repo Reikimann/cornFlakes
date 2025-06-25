@@ -28,6 +28,10 @@ in
       "$mainMod, mouse:273, resizewindow"
     ];
 
+    bindd = [
+      "$mainMod, I, Toggle logout utility, global, quickshell:logoutScreenToggle"
+    ];
+
     bind = let
       discord = lib.getExe pkgs.discord;
       zen-browser = lib.getExe inputs.zen-browser.packages."${pkgs.system}".default;
