@@ -29,7 +29,7 @@ in
     ];
 
     bindd = [
-      "$mainMod, I, Toggle logout utility, global, quickshell:logoutScreenToggle"
+      "$mainMod, I, Toggle session utility, global, quickshell:sessionToggle"
     ];
 
     bind = let

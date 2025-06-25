@@ -3,11 +3,11 @@
 import Quickshell
 import "modules/bar"
 import "modules/osd"
-import "modules/logout" as Logout
+import "modules/session"
 
 ShellRoot {
   //Bar {}
   Osd {}
 
-  LazyLoader { active: true; component: Logout.Wrapper { } }
+  LazyLoader { active: true; component: Session { } }
 }

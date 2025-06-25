@@ -63,7 +63,7 @@ Scope {
             Layout.fillWidth: true
 
             implicitHeight: 10
-            radius: 20
+            radius: Appearance.rounding.normal
             color: "#50ffffff"
 
             Rectangle {
