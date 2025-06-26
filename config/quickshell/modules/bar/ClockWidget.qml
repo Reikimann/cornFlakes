@@ -5,8 +5,8 @@ import QtQuick
 import QtQuick.Layouts
 
 RowLayout {
-  MaterialIcon {
-    text: "schedule"
+  MaterialSymbol {
+    symbol: "schedule"
   }
 
   Text {

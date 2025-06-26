@@ -39,11 +39,11 @@ Scope {
       ListModel {
         id: buttonModel
 
-        ListElement { label: qsTr("Lock[l]"); cmd: "swaylock"; key: Qt.Key_L; pic: "lock.png"; } // Icon: lock
-        ListElement { label: qsTr("Reboot[r]"); cmd: "systemctl reboot"; key: Qt.Key_R; pic: "restart.png"; } // Icon: restart
-        ListElement { label: qsTr("Shutdown[s]"); cmd: "systemctl poweroff"; key: Qt.Key_S; pic: "power.png"; } // Icon: mode_off_on
-        ListElement { label: qsTr("Logout[o]"); cmd: "hyprctl dispatch exit 0"; key: Qt.Key_O; pic: "logout.png"; } // Icon: logout
-        ListElement { label: qsTr("Suspend[u]"); cmd: "systemctl suspend"; key: Qt.Key_U; pic: "sleep.png"; } // Icon: bedtime
+        ListElement { label: qsTr("Lock[l]"); cmd: "swaylock"; key: Qt.Key_L; symbol: "lock"; }
+        ListElement { label: qsTr("Reboot[r]"); cmd: "systemctl reboot"; key: Qt.Key_R; symbol: "restart_alt"; }
+        ListElement { label: qsTr("Shutdown[s]"); cmd: "systemctl poweroff"; key: Qt.Key_S; symbol: "mode_off_on"; }
+        ListElement { label: qsTr("Logout[o]"); cmd: "hyprctl dispatch exit 0"; key: Qt.Key_O; symbol: "logout"; }
+        ListElement { label: qsTr("Suspend[u]"); cmd: "systemctl suspend"; key: Qt.Key_U; symbol: "bedtime"; }
       }
 
       Image {
@@ -65,7 +65,6 @@ Scope {
         onClicked: GlobalStates.sessionOpen = false
 
         RowLayout {
-          id: grid
           anchors.centerIn: parent
           width: parent.width * 0.85
           height: parent.height * 0.45
@@ -88,7 +87,7 @@ Scope {
               label: model.label
               command: model.cmd
               keybind: model.key
-              picture: model.pic
+              symbol: model.symbol
 
               KeyNavigation.right: last ? repeater.itemAt(0) : repeater.itemAt(index + 1)
               KeyNavigation.left: first ? repeater.itemAt(buttonModel.count - 1) : repeater.itemAt(index - 1)

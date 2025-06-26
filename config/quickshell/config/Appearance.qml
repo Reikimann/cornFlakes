@@ -13,7 +13,7 @@ Singleton {
 
   component FontFamily: QtObject {
     readonly property string mono: "Liga SFMono Nerd Font"
-    readonly property string icons: "Material Icons Round"
+    readonly property string icons: "Material Symbols Rounded"
   }
 
   component Spacing: QtObject {

@@ -1,12 +1,11 @@
 pragma ComponentBehavior: Bound
-import Quickshell.Widgets
-import QtQuick.Effects
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import Quickshell.Io
 import "../../config"
 import "../../services"
+import "../../widgets"
 
 
 Button {
@@ -16,7 +15,7 @@ Button {
 	property color buttonHoverColor: "#cba6f7"
 
   required property string command
-  required property string picture
+  required property string symbol
   required property string label
   required property int keybind
 
@@ -51,15 +50,6 @@ Button {
     root.clicked()
   }
 
-  // FIX: For some reason this doesn't work: Icons are wrong
-  // Obviously move this to the top: import "../../widgets"
-  //MaterialIcon {
-  //  id: texticon
-  //  text: root.icon
-  //  font.pointSize: 75
-  //  anchors.centerIn: parent
-  //}
-
   background: Rectangle {
     color: root.activeFocus ? root.buttonHoverColor : root.buttonColor
     border.color: "white"
@@ -80,24 +70,18 @@ Button {
       anchors.centerIn: parent
       spacing: Appearance.spacing.large
 
-      IconImage {
-        id: icon
-        source: Qt.resolvedUrl(`../../assets/pics/${root.picture}`)
-        implicitSize: root.width * 0.25
-        layer.enabled: true
-        layer.effect: MultiEffect {
-          colorization: 1.0
-          colorizationColor: root.activeFocus ? "black" : "white"
-
-          Behavior on colorizationColor {
-            ColorAnimation {
-              duration: Appearance.anim.durations.small
-            }
+      MaterialSymbol {
+        symbol: root.symbol
+        font.pointSize: 75
+        Layout.alignment: Qt.AlignHCenter
+        color: root.activeFocus ? "black" : "white"
+        Behavior on color {
+          ColorAnimation {
+            duration: Appearance.anim.durations.small
           }
         }
-        Layout.alignment: Qt.AlignHCenter
-
       }
+
 
       Text {
         text: root.label

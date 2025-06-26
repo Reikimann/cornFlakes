@@ -53,8 +53,8 @@ Scope {
             rightMargin: 10
           }
 
-          MaterialIcon {
-            text: "volume_up"
+          MaterialSymbol {
+            symbol: "volume_up"
             color: "#ffffff"
             font.pointSize: Appearance.font.size.large
           }
