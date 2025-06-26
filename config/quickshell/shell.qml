@@ -6,8 +6,8 @@ import "modules/osd"
 import "modules/session"
 
 ShellRoot {
-  //Bar {}
+  Bar {}
   Osd {}
 
-  LazyLoader { active: true; component: Session { } }
+  Session {}
 }

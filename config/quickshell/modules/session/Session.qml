@@ -9,6 +9,7 @@ import Quickshell.Hyprland
 import "../../config"
 import "../../services"
 
+// TODO: Setup Variants for multi-screen support
 Scope {
   id: root
 
@@ -21,11 +22,11 @@ Scope {
     }
   }
 
-  Loader {
+  LazyLoader {
     id: sessionLoader
     active: GlobalStates.sessionOpen
 
-    sourceComponent: PanelWindow {
+    component: PanelWindow {
       id: w
       visible: GlobalStates.sessionOpen
 
