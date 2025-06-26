@@ -48,8 +48,10 @@
   home.packages = with pkgs; [
      adwaita-icon-theme
      papirus-icon-theme
-     material-icons
+     pkgs.material-symbols
   ];
+
+  fonts.fontconfig.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "24.05";

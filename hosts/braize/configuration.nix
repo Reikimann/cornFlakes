@@ -44,11 +44,11 @@
   };
 
   # Enable the X11 windowing system.
+  # NOTE: Do I even need this anymore, now that I dont use x11?
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  #services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
+  services.displayManager.gdm.enable = true;
   programs.dconf.enable = true;
 
   security.polkit.enable = true;

@@ -1,8 +1,8 @@
-{ substituteAll, lib
+{ replaceVarsWith, lib
 , coreutils, getopt
-, fd, swww
+, fd, swww, bash
 }:
-substituteAll {
+replaceVarsWith {
   name = "swww-utils";
 
   src = ./swww-utils.sh;
@@ -10,7 +10,9 @@ substituteAll {
   dir = "bin";
   isExecutable = true;
 
-  inherit fd swww coreutils getopt;
+  replacements = {
+    inherit fd swww coreutils getopt bash;
+  };
 
   meta = with lib; {
     description = "Swww Wallpaper Helper Utility";

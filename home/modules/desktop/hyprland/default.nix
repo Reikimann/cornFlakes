@@ -156,8 +156,8 @@ in
 
         exec-once = [
           "${pkgs.swww}/bin/swww-daemon &"
-          "${pkgs.swww-utils}/bin/swww-utils randomize &"
           "hyprctl setcursor ${toString pointer.name} ${toString pointer.size}"
+          "${pkgs.swww-utils}/bin/swww-utils randomize &"
         ];
       };
       extraConfig = ''
