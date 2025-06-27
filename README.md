@@ -1,25 +1,23 @@
 ## Structure
-- [ ] Finish documenting the structure
+- `home/` - Configuration for my user. Here lies my home-manager configuration
+    - `modules/` - My custom home-manager modules
+    - `profiles/` - Pre-defined profiles that enables batches of my HM modules (desktop, development, productivity, etc.)
+- `hosts/` - Holds system (machine) and user configuration entries
+- `system/` - Machine configuration
+    - `common/` - Common modules most likely to be included on every system
+    - `modules/` - System modules to setup any system (TBD)
+- `config/` - Currently it holds my `OutOfStore` configurations (Quickshell and Nvim)
 - `nix/` - Nix package manager configurations
   - `overlays/` - Nix overlays
   - `pkgs/` - Self packaged applications
-  - `config.nix` -
-- `config/` -
-- `.old_dots/` -
-- `home/` -
-    - `modules/` -
-    - `profiles/` -
-- `hosts/` -
-    - `braize/` -
-- `system/` -
-    - `common/` -
-    - `modules/` -
-- `wallpapers/` -
+  - `config.nix` - Nix configuration settings
+- `.old_dots/` - Old dotfiles that I'm too lazy rn to move to nix xD
+- `wallpapers/` - My wallpapers
 
 ## TODO
 ### Nix
 - [ ] Setup a proper notification daemon (see Discussion `Config Flex`)
-    - https://github.com/ErikReider/SwayNotificationCenter
+    - https://github.com/ErikReider/SwayNotificationCenter (replace with Quickshell)
 - [ ] Add a modules and profiles to the /system folder
     - [ ] Modules
     - [ ] Profiles
@@ -42,14 +40,7 @@
     - https://wiki.nixos.org/wiki/Wayland
 
 ### Ricing
-- [ ] Check out Astal/AGS (Aylur's GTK Shell) (cli)
-    - [ ] https://quickshell.outfoxxed.me/
-    - [ ] https://aylur.github.io/ags/
-    - [ ] (Outdated) https://www.youtube.com/watch?v=GvpTUKaXqNk
-    - Keep an eye on Fabric widgets
-        - Although it's not declarative widgets, so choose AGS
-        - https://github.com/Fabric-Development/fabric
-        - https://github.com/Axenide/dotfiles
+- [ ] Mutagen wallpaper color generation
 - [ ] NixOS Stylix
 
 ### Nvim
