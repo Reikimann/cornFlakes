@@ -16,6 +16,7 @@
 
 ## TODO
 ### Nix
+- [ ] Setup a screen-recorder: Use `gpu-screen-recorder`
 - [ ] Setup a proper notification daemon (see Discussion `Config Flex`)
     - https://github.com/ErikReider/SwayNotificationCenter (replace with Quickshell)
 - [ ] Add a modules and profiles to the /system folder

@@ -3,8 +3,6 @@
 - Fira code (ttf-fira-code)
 - Opensans (ttf-opensans)
 - Opendesktop-fonts
-- Papirus-icon-theme
-- Adwaita-icon-theme
 
 ** Programs
 - Mpv
@@ -22,23 +20,9 @@
   - catdoc
   - docxtxt
   - nsxiv
-- Nvim
-  - Pdflatex
-  - Texlive-most
-  - nvim-packer-git
 - Emacs
 
 ** Other programs
 - Clipman
 - Nsxiv/feh (is there a better option?)
 - Graphicsmagick
-
-*** School
-- Minder
-- Onlyoffice
-- Figma-linux
-- Geogebra-5
-- ttf-ms-fonts
-
-*** Funny
-- Atlauncher
