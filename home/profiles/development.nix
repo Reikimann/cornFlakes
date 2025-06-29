@@ -23,6 +23,9 @@ in
       tokei
       # Colorpicker
       hyprpicker
+      sqlitebrowser
+      inetutils
+      sqlite
     ];
 
     reiki.modules = {

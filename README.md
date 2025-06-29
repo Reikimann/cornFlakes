@@ -42,6 +42,7 @@
 
 ### Ricing
 - [ ] Mutagen wallpaper color generation
+- [ ] https://github.com/ozwaldorf/lutgen-rs
 - [ ] NixOS Stylix
 
 ### Nvim
