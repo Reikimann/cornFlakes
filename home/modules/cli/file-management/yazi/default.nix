@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 with lib;
 let
@@ -13,7 +13,7 @@ in
     programs.yazi = {
       enable = true;
       settings = {
-        manager = {
+        mgr = {
           show_hidden = false;
           show_symlink = false; # This is handled by the function in init.lua
             ratio = [ 2 3 5 ];
@@ -21,11 +21,13 @@ in
           scrolloff = 15;
         };
       };
+      plugins = {
+        inherit (pkgs.yaziPlugins) full-border;
+      };
     };
 
     home.file.".config/yazi/theme.toml".source = ./theme.toml;
     home.file.".config/yazi/keymap.toml".source = ./keymap.toml;
-    home.file.".config/yazi/plugins".source = ./plugins;
     home.file.".config/yazi/init.lua".source = ./init.lua;
   };
 }

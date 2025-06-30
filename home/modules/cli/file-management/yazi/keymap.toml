@@ -1,4 +1,4 @@
-[manager]
+[mgr]
 prepend_keymap = [
   { on = [ "g", "p"], run = "cd ~/pix", desc = "Goto pictures" },
   { on = [ "g", "c"], run = "cd ~/cornFlakes", desc = "Goto cornFlakes" },
