@@ -9,18 +9,13 @@
 
   monitors = [
     {
-      name = "DP-1";
-      width = 2560;
-      height = 1440;
-      refreshRate = 240;
+      name = "eDP";
+      width = 1920;
+      height = 1080;
+      refreshRate = 60;
       position = "auto"; # Auto is for hyprland. Can also use e.g. 0x0.
       primary = true;
       enabled = true;
-    }
-    {
-      # https://wiki.hyprland.org/FAQ/#workspaces-or-clients-are-disappearing-or-monitor-related-dispatchers-cause-crashes
-      name = "Unknown-1";
-      enabled = false;
     }
   ];
 
@@ -34,12 +29,6 @@
       productivity.enable = true;
     };
     modules = {
-      programs = {
-        anytype.disableWayland = true;
-      };
-      productivity = {
-        figma.disableWayland = true;
-      };
       desktop = {
         quickshell.enable = true;
       };

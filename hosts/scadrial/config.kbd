@@ -1,0 +1,46 @@
+;; vim:filetype=lisp
+;; https://github.com/jtroo/kanata/blob/main/docs/config.adoc
+;; https://www.toptal.com/developers/keycode
+
+(defcfg
+  ;;linux-dev /dev/input/by-id/usb-Logitech_Gaming_Keyboard_G910_0A7234663735-event-kbd
+  process-unmapped-keys yes
+)
+
+(defvar
+  tap-time 190
+  hold-time 200
+  weak-tap-time 240
+  weak-hold-time 250
+)
+
+;; 102d means ><
+(defsrc
+  esc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    ret
+  caps a    s    d    f    g    h    j    k    l    ;    '    \
+  lsft 102d z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet comp rctl
+)
+
+(defalias
+  a (tap-hold $weak-tap-time $hold-time a lalt)
+  s (tap-hold $weak-tap-time $hold-time s lmet)
+  d (tap-hold $tap-time $hold-time d lctl)
+  f (tap-hold $tap-time $hold-time f lsft)
+  j (tap-hold $tap-time $hold-time j lsft)
+  k (tap-hold $tap-time $hold-time k lctl)
+  l (tap-hold $weak-tap-time $hold-time l lmet)
+  ; (tap-hold $weak-tap-time $hold-time ; lalt)
+)
+
+;; XX means no operation
+(deflayer base
+  XX
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    ret
+  esc  @a   @s   @d   @f   g    h    @j   @k   @l   @;   '    \
+  XX   102d z    x    c    v    b    n    m    ,    .    /    XX
+  caps XX   XX             spc            ralt XX   comp XX
+)

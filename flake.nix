@@ -53,13 +53,23 @@
           system = system;
           modules = [ ./hosts/braize/configuration.nix ];
         };
+        scadrial = lib.nixosSystem {
+          specialArgs = { inherit outputs; };
+          system = system;
+          modules = [ ./hosts/scadrial/configuration.nix ];
+        };
       };
 
       homeConfigurations = {
-        reikimann = home-manager.lib.homeManagerConfiguration {
+        "reikimann@braize" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           # NOTE: ./home/modules : /modules may need to be removed to EdenEast/nyx how he handles it (regarding profiles)
           modules = [ ./hosts/braize/home.nix ./home/modules ./home/profiles ];
+          extraSpecialArgs = { inherit outputs inputs; };
+        };
+        "reikimann@scadrial" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./hosts/scadrial/home.nix ./home/modules ./home/profiles ];
           extraSpecialArgs = { inherit outputs inputs; };
         };
       };
