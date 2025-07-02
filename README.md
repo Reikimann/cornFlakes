@@ -54,9 +54,8 @@
 
 
 ## Host Specifications
-- [ ] Find a cosmere planet for `Superiority` when converting it to Nix.
 
 | Name          | Description                                         |  Type   |     Arch      |
 | :-----------: | :-------------------------------------------------: | :-----: | :-----------: |
 | `Braize`      | Day-to-day desktop workstation and gaming machine.  | Desktop | x86_64-linux  |
-| `Superiority` | Lenovo work laptop for work, school and programming | Laptop  | x86_64-linux  |
+| `Scadrial`    | Lenovo work laptop for work, school and programming | Laptop  | x86_64-linux  |

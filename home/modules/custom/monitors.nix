@@ -29,6 +29,10 @@ in
             type = types.int;
             default = 60;
           };
+          scale = mkOption {
+            type = types.float;
+            default = 1.0;
+          };
           position = mkOption {
             type = types.str;
             default = "auto";

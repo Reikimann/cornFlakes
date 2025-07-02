@@ -38,7 +38,7 @@ in
             let
               resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
             in
-            "${m.name},${if m.enabled then "${resolution},${m.position},1" else "disable"}"
+            "${m.name},${if m.enabled then "${resolution},${m.position},${toString m.scale}" else "disable"}"
           )
           (config.monitors);
 

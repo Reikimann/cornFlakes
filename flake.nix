@@ -51,12 +51,12 @@
         braize = lib.nixosSystem {
           specialArgs = { inherit outputs; };
           system = system;
-          modules = [ ./hosts/braize/configuration.nix ];
+          modules = [ ./hosts/braize ];
         };
         scadrial = lib.nixosSystem {
           specialArgs = { inherit outputs; };
           system = system;
-          modules = [ ./hosts/scadrial/configuration.nix ];
+          modules = [ ./hosts/scadrial ];
         };
       };
 

@@ -1,15 +1,9 @@
 { pkgs, config, outputs, ... }:
 
 {
-  # TODO: These may not be needed as they are declared as modules in flake.nix homeConfigurations
-  imports = [
-    ../../home/modules
-    ../../home/profiles
-  ];
-
   monitors = [
     {
-      name = "eDP";
+      name = "eDP-1";
       width = 1920;
       height = 1080;
       refreshRate = 60;
@@ -17,12 +11,20 @@
       primary = true;
       enabled = true;
     }
+    {
+      # https://wiki.hyprland.org/FAQ/#workspaces-or-clients-are-disappearing-or-monitor-related-dispatchers-cause-crashes
+      name = "Unknown-1";
+      enabled = false;
+    }
   ];
 
   reiki = {
     profiles = {
       common.enable = true;
-      desktop.enable = true;
+      desktop = {
+        enable = true;
+        laptop = true;
+      };
       development.enable = true;
       entertainment.enable = true;
       extended.enable = true;
@@ -44,7 +46,7 @@
   fonts.fontconfig.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "24.05";
+  home.stateVersion = "25.05";
 
   # TODO: Add below to mkHome (see EdenEast/nyx)
   home = {
