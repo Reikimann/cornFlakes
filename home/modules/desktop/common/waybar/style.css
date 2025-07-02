@@ -110,7 +110,6 @@ button:hover {
 
 #battery {
   border-radius: 10px;
-  padding-right: 17px;
 }
 
 #battery.charging, #battery.plugged {

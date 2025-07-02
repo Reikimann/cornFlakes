@@ -42,9 +42,6 @@
     },
     "sort-by-number": true
   },
-  "hyprland/window": {
-    "format": "{}"
-  },
   "keyboard-state": {
     "numlock": true,
     "capslock": true,
@@ -53,39 +50,6 @@
       "locked": "",
       "unlocked": ""
     }
-  },
-  "sway/scratchpad": {
-    "format": "{icon} {count}",
-    "show-empty": false,
-    "format-icons": ["", ""],
-    "tooltip": true,
-    "tooltip-format": "{app}: {title}"
-  },
-  "mpd": {
-    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-    "format-disconnected": "Disconnected ",
-    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-    "unknown-tag": "N/A",
-    "interval": 2,
-    "consume-icons": {
-      "on": " "
-    },
-    "random-icons": {
-      "off": "<span color=\"#f53c3c\"></span> ",
-      "on": " "
-    },
-    "repeat-icons": {
-      "on": " "
-    },
-    "single-icons": {
-      "on": "1 "
-    },
-    "state-icons": {
-      "paused": "",
-      "playing": ""
-    },
-    "tooltip-format": "MPD (connected)",
-    "tooltip-format-disconnected": "MPD (disconnected)"
   },
   "idle_inhibitor": {
     "format": "{icon}",
@@ -128,8 +92,8 @@
   "backlight": {
     // "device": "acpi_video1",
     "format": "{icon} {percent}%",
-    "format-icons": ["", "", ""]
-    // "format-icons": ["", "", "", "", "", "", "", "", ""],
+    //"format-icons": ["", "", ""]
+     "format-icons": ["", "", "", "", "", "", "", "", ""]
   },
   "battery": {
     "states": {
@@ -154,10 +118,10 @@
   },
   "wireplumber": {
     "format": "{icon} {volume}%",
-    "format-muted": "",
+    "format-muted": "󰖁",
     // "on-click": "helvum",
     "scroll-step": 2,
-    "format-icons": [ "", "", "" ]
+    "format-icons": [ "󰕿", "󰖀", "󰕾" ]
   },
   // TODO: Chose an on-click program
   "pulseaudio": {
@@ -175,7 +139,7 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["", "", ""]
+      "default": ["󰕿", "󰖀", "󰕾"]
     },
     "on-click": "pavucontrol"
   },
