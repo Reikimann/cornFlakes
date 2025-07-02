@@ -18,6 +18,13 @@
   environment.shells = [ pkgs.bashInteractive pkgs.zsh ];
   environment.systemPackages = [ pkgs.killall ];
 
+  # USB-mounting
+  services = {
+    udisks2.enable = true;
+    devmon.enable = true;
+  };
+
+
   # TODO: How to correctly set these variables?
   programs.less = {
     enable = true;
