@@ -12,7 +12,7 @@ in
   config = mkIf cfg.enable {
     reiki.modules = {
       programs = {
-        ungoogled-chromium.enable = true;
+        #ungoogled-chromium.enable = true;
       };
       cli = {
         xdg-ninja.enable = true;
