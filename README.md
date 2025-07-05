@@ -40,6 +40,9 @@
 - Wayland:
     - https://wiki.nixos.org/wiki/Wayland
 
+### Other
+- [ ] Try the API clients Bruno and Yaak
+
 ### Ricing
 - [ ] Mutagen wallpaper color generation
 - [ ] https://github.com/ozwaldorf/lutgen-rs

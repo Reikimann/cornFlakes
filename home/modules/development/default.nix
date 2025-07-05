@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./editors
     ./latex
     ./go.nix
     ./nodejs.nix

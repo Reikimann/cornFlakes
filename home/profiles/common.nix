@@ -50,7 +50,7 @@ in
         tmux.enable = true;
         yazi.enable = true;
       };
-      editors.nvim.enable = true;
+      development.editors.nvim.enable = true;
     };
   };
 }

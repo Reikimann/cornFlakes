@@ -2,10 +2,10 @@
 
 with lib;
 let
-  cfg = config.reiki.modules.editors.nvim;
+  cfg = config.reiki.modules.development.editors.nvim;
 in
 {
-  options.reiki.modules.editors.nvim = {
+  options.reiki.modules.development.editors.nvim = {
     enable = mkEnableOption "Neovim configuration";
     isDefaultEditor = mkOption {
       description = "Whether or not nvim is the default editor";
