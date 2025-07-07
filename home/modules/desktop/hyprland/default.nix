@@ -158,6 +158,9 @@ in
           "${pkgs.swww}/bin/swww-daemon &"
           "hyprctl setcursor ${toString pointer.name} ${toString pointer.size}"
           "${pkgs.swww-utils}/bin/swww-utils randomize &"
+          (if config.isLaptop then
+            "nm-applet &"
+          else "")
         ];
       };
       extraConfig = ''
