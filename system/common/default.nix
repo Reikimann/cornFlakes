@@ -16,7 +16,7 @@
   programs.zsh.enable = true;
 
   environment.shells = [ pkgs.bashInteractive pkgs.zsh ];
-  environment.systemPackages = [ pkgs.killall ];
+  environment.systemPackages = with pkgs; [ killall just ];
 
   # USB-mounting
   services = {

@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    NixOS-WSL.url = "github:nix-community/NixOS-WSL/main";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,7 +19,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, NixOS-WSL, ... }@inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
@@ -58,6 +59,14 @@
           system = system;
           modules = [ ./hosts/scadrial ];
         };
+        nalthis = lib.nixosSystem {
+          specialArgs = { inherit outputs; };
+          system = system;
+          modules = [ 
+	    ./hosts/nalthis
+	    NixOS-WSL.nixosModules.wsl
+	  ];
+        };
       };
 
       homeConfigurations = {
@@ -70,6 +79,11 @@
         "reikimann@scadrial" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./hosts/scadrial/home.nix ./home/modules ./home/profiles ];
+          extraSpecialArgs = { inherit outputs inputs; };
+        };
+        "reikimann@nalthis" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./hosts/nalthis/home.nix ./home/modules ./home/profiles ];
           extraSpecialArgs = { inherit outputs inputs; };
         };
       };
