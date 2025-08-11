@@ -54,12 +54,14 @@
     pulse.enable = true;
   };
 
+  virtualisation.docker.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.reikimann = {
     isNormalUser = true;
     description = "reikimann";
     initialPassword = "NixOS";
-    extraGroups = [ "networkmanager" "wheel" "input" ];
+    extraGroups = [ "networkmanager" "wheel" "input" "docker" ];
     #packages = with pkgs; [ ];
   };
 

@@ -58,7 +58,18 @@
 
 ## Host Specifications
 
-| Name          | Description                                         |  Type   |     Arch      |
-| :-----------: | :-------------------------------------------------: | :-----: | :-----------: |
-| `Braize`      | Day-to-day desktop workstation and gaming machine.  | Desktop | x86_64-linux  |
-| `Scadrial`    | Lenovo work laptop for work, school and programming | Laptop  | x86_64-linux  |
+| Name          | Description                                          |  Type   |     Arch      |
+| :-----------: | :--------------------------------------------------: | :-----: | :-----------: |
+| `Braize`      | Day-to-day desktop workstation and gaming machine.   | Desktop | x86_64-linux  |
+| `Scadrial`    | Lenovo laptop for homeuse, studying and programming. | Laptop  | x86_64-linux  |
+| `Nalthis`     | Nix WSL configuration for work and programming.      | Laptop  | x86_64-linux  |
+
+
+## WSL
+
+### Rebooting/relogging the user
+
+```sh
+$ wsl -t nixos
+$ wsl -d nixos -u USER exit
+```
