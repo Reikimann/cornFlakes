@@ -76,6 +76,8 @@
     curl
     vim
 
+    docker-buildx
+
     kitty
 
     libsecret
@@ -84,8 +86,6 @@
     imagemagick
     git
     wl-clipboard
-    wev
-    nemo
   ];
 
   hardware.keyboard.qmk.enable = true;
