@@ -83,15 +83,12 @@
     pulse.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.reikimann = {
     isNormalUser = true;
     description = "reikimann";
     initialPassword = "NixOS";
-    extraGroups = [ "networkmanager" "wheel" "input" ];
+    extraGroups = [ "networkmanager" "wheel" "input" "docker" ];
     #packages = with pkgs; [ ];
   };
 
@@ -133,6 +130,8 @@
 
   services.udev.packages = [ pkgs.vial ];
   hardware.keyboard.qmk.enable = true;
+
+  virtualisation.docker.enable = true;
 
   # enabling OpenGL and GPU drivers
   services.xserver.videoDrivers = ["nvidia"];
