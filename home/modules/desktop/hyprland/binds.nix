@@ -40,7 +40,7 @@ in
       keepassxc = lib.getExe pkgs.keepassxc;
       kitty = lib.getExe pkgs.kitty;
       nemo = lib.getExe pkgs.nemo;
-      rofi = lib.getExe pkgs.rofi-wayland;
+      rofi = lib.getExe pkgs.rofi;
       spotify = lib.getExe pkgs.spotify;
     in [
       # compositor commands

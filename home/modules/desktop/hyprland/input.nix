@@ -2,11 +2,9 @@
 
 {
   wayland.windowManager.hyprland.settings = {
-    gestures = {
-      workspace_swipe = true;
-      workspace_swipe_fingers = 3;
-      workspace_swipe_create_new = false;
-    };
+    gesture = [
+      "3, vertical, workspace"
+    ];
     input = {
       kb_layout = "dk";
       #kb_options = ctrl:swapcaps

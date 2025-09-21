@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ config, lib, ... }:
 
 with lib;
 let
@@ -22,7 +22,6 @@ in
   config = mkIf cfg.enable {
     programs.rofi = {
       enable = true;
-      package = pkgs.rofi-wayland;
       theme = "themes/cherry";
       font = "${cfg.font} ${toString cfg.fontSize}";
       extraConfig = {

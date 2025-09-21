@@ -42,7 +42,7 @@ in
           path = "${config.xdg.dataHome}/zsh/zhistory";
         };
 
-        dotDir = ".config/zsh";
+        dotDir = "${config.xdg.configHome}/zsh";
 
         #initExtra = ''
         #  LESS=R
