@@ -35,6 +35,7 @@ in
         python.enable = true;
         rust.enable = true;
         latex.enable = true;
+        typst.enable = true;
       };
     };
   };
