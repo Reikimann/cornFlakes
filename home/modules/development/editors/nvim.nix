@@ -32,6 +32,7 @@ in
         cmake # for telescope
         ripgrep # for telescope
         fzf # for telescope
+        websocat # for typst-preview
         python3
         tree-sitter
         tree-sitter-grammars.tree-sitter-latex
@@ -41,6 +42,7 @@ in
       nixd
       pyright
       gopls
+      tinymist
       lua-language-server
       svelte-language-server
       astro-language-server

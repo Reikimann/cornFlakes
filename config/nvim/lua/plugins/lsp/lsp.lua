@@ -99,6 +99,15 @@ return {
         capabilities = capabilities,
         cmd = { "qmlls", "-E" },
       })
+
+      nvim_lsp.tinymist.setup({
+        capabilities = capabilities,
+        settings = {
+          formatterMode = "typstyle",
+          exportPdf = "onType",
+          semanticTokens = "disable"
+        }
+      })
     end,
   },
   {
