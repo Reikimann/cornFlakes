@@ -24,6 +24,12 @@
   # Hostname-scheme is Cosmere planets
   networking.hostName = "braize"; # Define your hostname.
   networking.networkmanager.enable = true;
+
+  networking.networkmanager.dns = "none"; # https://networkmanager.dev/docs/api/latest/NetworkManager.conf.html
+  networking.nameservers = [
+    "192.168.1.17"
+    #"192.168.1.1"
+  ];
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   time.timeZone = "Europe/Copenhagen";
