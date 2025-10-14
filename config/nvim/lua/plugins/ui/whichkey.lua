@@ -15,11 +15,12 @@ return {
       { "<leader>nm", ":messages<CR>", desc = "Show Messages" },
 
       { "<leader>l", group = "LSP" },
+      { "<leader>ll", group = "Languages"},
       { "<leader>li", ":LspInfo<cr>", desc = "Connected Language Servers" },
       { "<leader>lk", "<cmd>lua vim.lsp.buf.signature_help()<cr>", desc = "Signature Help" },
       { "<leader>lw", "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", desc = "Add Workspace Folder" },
       { "<leader>lW", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>", desc = "Remove Workspace Folder" },
-      { "<leader>ll", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>", desc = "List Workspace Folders" },
+      { "<leader>lf", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>", desc = "List Workspace Folders" },
       { "<leader>lr", "<cmd>lua vim.lsp.buf.references()<cr>", desc = "References" },
       { "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<cr>", desc = "Type Definition" },
       { "<leader>ld", "<cmd>lua vim.lsp.buf.definition()<cr>", desc = "Go To Definition" },

@@ -106,7 +106,27 @@ return {
           formatterMode = "typstyle",
           exportPdf = "onType",
           semanticTokens = "disable"
-        }
+        },
+        on_attach = function (client, bufnr)
+          local wk = require("which-key")
+          wk.add({
+            { "<leader>llt", group = "Typst"}
+          })
+          vim.keymap.set("n", "<leader>lltp", function ()
+            client:exec_cmd({
+              title = "pin",
+              command = "tinymist.pinMain",
+              arguments = { vim.api.nvim_buf_get_name(0) },
+            }, { bufnr = bufnr})
+          end, { desc = "[T]inymist [P]in", noremap = true })
+          vim.keymap.set("n", "<leader>lltu", function()
+            client:exec_cmd({
+              title = "unpin",
+              command = "tinymist.pinMain",
+              arguments = { vim.v.null },
+            }, { bufnr = bufnr })
+          end, { desc = "[T]inymist [U]npin", noremap = true })
+        end
       })
     end,
   },
