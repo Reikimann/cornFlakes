@@ -1,1 +1,0 @@
-("~/dox/coding/TuxDocs/" "~/dox/coding/scripts/" "~/dox/coding/git-clones/user.js/" "~/dox/coding/latex/")
