@@ -24,6 +24,23 @@
     devmon.enable = true;
   };
 
+  fonts.packages = with pkgs; [
+    sf-mono-liga-bin
+    (pkgs.iosevka-bin.override {
+      variant = "Aile";
+    })
+    libertine
+    libertinus
+    font-awesome
+    corefonts
+    vistafonts
+
+    cantarell-fonts
+    dejavu_fonts
+    source-code-pro
+    source-sans
+  ];
+
 
   # TODO: How to correctly set these variables?
   programs.less = {

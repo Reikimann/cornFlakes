@@ -1,9 +1,3 @@
-** Fonts and icons
-- Iosevka Aile (ttc-iosevka-aile)
-- Fira code (ttf-fira-code)
-- Opensans (ttf-opensans)
-- Opendesktop-fonts
-
 ** Programs
 - Mpv
 - Git

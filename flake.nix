@@ -8,6 +8,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    emacs-overlay = {
+      url = "github:nix-community/emacs-overlay/";
+    };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -44,6 +47,7 @@
         in
         [
           (self.overlay)
+          (inputs.emacs-overlay.overlay)
         ] ++ ovs;
 
       formatter.${system} = pkgs.nixfmt-rfc-style;
@@ -62,10 +66,7 @@
         nalthis = lib.nixosSystem {
           specialArgs = { inherit outputs; };
           system = system;
-          modules = [ 
-	    ./hosts/nalthis
-	    NixOS-WSL.nixosModules.wsl
-	  ];
+          modules = [ ./hosts/nalthis NixOS-WSL.nixosModules.wsl ];
         };
       };
 

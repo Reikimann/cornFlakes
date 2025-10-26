@@ -30,6 +30,7 @@ in
 
     reiki.modules = {
       development = {
+        editors.emacs.enable = true;
         go.enable = true;
         nodejs.enable = true;
         python.enable = true;

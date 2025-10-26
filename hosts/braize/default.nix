@@ -98,20 +98,6 @@
     #packages = with pkgs; [ ];
   };
 
-  fonts.packages = with pkgs; [
-    sf-mono-liga-bin
-    libertine
-    libertinus
-    font-awesome
-    corefonts
-    vistafonts
-
-    cantarell-fonts
-    dejavu_fonts
-    source-code-pro
-    source-sans
-  ];
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
