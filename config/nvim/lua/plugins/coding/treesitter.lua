@@ -7,7 +7,10 @@ return {
       ensure_installed = {
         "astro",
         "bash",
+        "c",
         "diff",
+        "dockerfile",
+        "go",
         "html",
         "javascript",
         "jsdoc",
