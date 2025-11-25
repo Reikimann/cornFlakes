@@ -104,7 +104,7 @@ return {
         capabilities = capabilities,
         settings = {
           formatterMode = "typstyle",
-          exportPdf = "onType",
+          exportPdf = "onSave",
           semanticTokens = "disable"
         },
         on_attach = function (client, bufnr)
