@@ -33,7 +33,7 @@
     libertinus
     font-awesome
     corefonts
-    vistafonts
+    vista-fonts
 
     cantarell-fonts
     dejavu_fonts

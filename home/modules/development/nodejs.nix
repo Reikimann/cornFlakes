@@ -15,7 +15,7 @@ in
 
   config = mkIf cfg.enable {
     home = {
-      packages = with pkgs; [ nodejs corepack ]; # Corepack to install pkgmanagers
+      packages = with pkgs; [ nodejs bun ]; # Corepack to install pkgmanagers
 
       sessionVariables = {
         NPM_CONFIG_USERCONFIG = "${configHome}/npm/npmrc";
