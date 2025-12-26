@@ -31,6 +31,7 @@ in
     reiki.modules = {
       development = {
         editors.emacs.enable = true;
+        arduino.enable = true;
         go.enable = true;
         nodejs.enable = true;
         python.enable = true;

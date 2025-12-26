@@ -94,7 +94,7 @@
     isNormalUser = true;
     description = "reikimann";
     initialPassword = "NixOS";
-    extraGroups = [ "networkmanager" "wheel" "input" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "input" "docker" "dialout" ];
     #packages = with pkgs; [ ];
   };
 

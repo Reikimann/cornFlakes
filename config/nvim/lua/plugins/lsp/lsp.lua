@@ -44,6 +44,10 @@ return {
         capabilities = capabilities,
       }
 
+      nvim_lsp.arduino_language_server.setup {
+        capabilities = capabilities,
+      }
+
       nvim_lsp.nixd.setup {
         capabilities = capabilities,
       }

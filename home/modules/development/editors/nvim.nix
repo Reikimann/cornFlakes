@@ -36,6 +36,9 @@ in
         python3
         tree-sitter
         tree-sitter-grammars.tree-sitter-latex
+        # order specific: https://github.com/NixOS/nixpkgs/issues/76486
+        clang-tools # for arduino lsp
+        clang # for arduino lsp
       ];
     };
     home.packages = with pkgs; [
@@ -49,6 +52,7 @@ in
       tailwindcss-language-server
       nodePackages_latest.vscode-langservers-extracted
       nodePackages_latest.typescript-language-server
+      arduino-language-server
     ];
 
     home.sessionVariables = mkIf cfg.isDefaultEditor {
