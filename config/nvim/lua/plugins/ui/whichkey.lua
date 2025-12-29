@@ -14,6 +14,8 @@ return {
 
       { "<leader>nm", ":messages<CR>", desc = "Show Messages" },
 
+      { "<leader>a", group = "Appearance", icon = "" },
+      { "<leader>as", ":Telescope colorscheme<CR>", desc = "Switch Colorscheme" },
       { "<leader>l", group = "LSP" },
       { "<leader>ll", group = "Languages"},
       { "<leader>li", ":LspInfo<cr>", desc = "Connected Language Servers" },
@@ -31,25 +33,6 @@ return {
       -- { "<leader>oo", "<cmd>up | !xdg-open %<CR>", desc = "Open program" },
 
       { "<leader>t", group = "Toggles" },
-      { "<leader>tb", ":ToggleTerm<cr>", desc = "Split Below" },
-      { "<leader>ts", ":Telescope colorscheme<CR>", desc = "Telescope Colorscheme" },
-      {
-        "<leader>tf",
-        function()
-          local Terminal = require("toggleterm.terminal").Terminal
-          local float = Terminal:new({direction = "float"})
-          return float:toggle()
-        end,
-        desc = "Floating Terminal" },
-      {
-        "<leader>tg",
-        function()
-          local Terminal = require("toggleterm.terminal").Terminal
-          local lazygit = Terminal:new({cmd = "lazygit", direction = "float"})
-          return lazygit:toggle()
-        end,
-        desc = "LazyGit"
-      },
       { "<leader>tj", ":Telescope find_files<CR>", desc = "Telescope Find Files" },
       { "<leader>to", ":Telescope oldfiles<CR>", desc = "Telescope Recent Files" },
       { "<leader>tr", ":Telescope live_grep<CR>", desc = "Telescope Live Grep" },

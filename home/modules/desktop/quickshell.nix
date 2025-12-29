@@ -13,6 +13,7 @@ in
   # to pick up qml modules that are not in QML2_IMPORT_PATH.
   # The easiest way to ensure this is by setting qt.enable
   # to true and installing the quickshell package globally.
+  # NOTE: or see this: https://github.com/fufexan/dotfiles/blob/main/home/services/quickshell/default.nix
   config = mkIf cfg.enable {
     home.packages = [
       inputs.quickshell.packages."${pkgs.system}".default
