@@ -7,8 +7,8 @@ return {
   keys = {
     { "<leader>no",  function() Snacks.notifier.show_history() end, desc = "Notification Overview" },
     { "<leader>nd", function() Snacks.notifier.hide() end, desc = "Dismiss Notifications" },
-    { "<leader>tb", function() Snacks.terminal() end, desc = "Toggle terminal" },
-    { "<leader>tx", function() Snacks.terminal("zsh", {auto_close = true, win = { position = "float", backdrop = 60, height = 0.9, width = 0.9, zindex = 50, }}) end, desc = "Toggle terminal" },
+    { "<leader>tb", function() Snacks.terminal() end, desc = "Terminal Below" },
+    { "<leader>tf", function() Snacks.terminal("zsh", {auto_close = true, win = { position = "float", backdrop = 60, height = 0.9, width = 0.9, zindex = 50, }}) end, desc = "Terminal Floating" },
   },
   init = function()
     vim.api.nvim_create_autocmd("User", {

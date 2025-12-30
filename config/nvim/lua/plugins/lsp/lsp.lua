@@ -9,7 +9,6 @@ return {
       -- https://github.com/ericlovesmath/dotfiles/blob/master/.config/nvim/lua/plugins/lsp.lua
     },
     config = function()
-      local nvim_lsp = require("lspconfig")
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
       capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -21,17 +20,25 @@ return {
         lineFoldingOnly = true,
       }
 
-      local signs = { Error = "", Warn = "", Hint = "", Info = "" }
-      for type, icon in pairs(signs) do
-        local hl = "DiagnosticSign" .. type
-        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-      end
       vim.diagnostic.config({
         virtual_text = true,
-        signs = true,
         underline = true,
         update_in_insert = true,
         severity_sort = false,
+        signs = {
+          text = {
+            [vim.diagnostic.severity.WARN] = "",
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.INFO] = "",
+            [vim.diagnostic.severity.HINT] = "",
+          },
+          linehl = {
+              [vim.diagnostic.severity.ERROR] = 'ErrorMsg',
+          },
+          numhl = {
+              [vim.diagnostic.severity.WARN] = 'WarningMsg',
+          },
+        }
       })
       -- TODO: Setup:
       --   "ltex"
@@ -39,105 +46,76 @@ return {
       -- Good source of nix nvim setup
       -- https://github.com/Ruixi-rebirth/melted-flakes/blob/31f8805ee48b59ea87d8962b25a9d96b8e7cfdbd/modules/editors/nvim/lua/plugins/lsp.lua
 
+      local languages = {
+        "arduino_language_server",
+        "lua_ls",
+        "nixd",
+        "rust_analyzer",
+        "gopls",
+        "pyright",
+        "html",
+        "cssls",
+        "ts_ls",
+        "svelte",
+        "astro",
+        "tailwindcss",
+        "jsonls",
+        "qmlls",
+        "tinymist",
+      }
+
+      local server_opts = {
+        qmlls = {
+          cmd = { "qmlls", "-E" },
+        },
+        tinymist = {
+          settings = {
+            formatterMode = "typstyle",
+            exportPdf = "onSave",
+            semanticTokens = "disable"
+          },
+          on_attach = function (client, bufnr)
+            local wk = require("which-key")
+            wk.add({
+              { "<leader>llt", group = "Typst"}
+            })
+            vim.keymap.set("n", "<leader>lltp", function ()
+              client:exec_cmd({
+                title = "pin",
+                command = "tinymist.pinMain",
+                arguments = { vim.api.nvim_buf_get_name(0) },
+              }, { bufnr = bufnr})
+            end, { desc = "[T]inymist [P]in", noremap = true })
+            vim.keymap.set("n", "<leader>lltu", function()
+              client:exec_cmd({
+                title = "unpin",
+                command = "tinymist.pinMain",
+                arguments = { vim.v.null },
+              }, { bufnr = bufnr })
+            end, { desc = "[T]inymist [U]npin", noremap = true })
+          end,
+        }
+      }
+
       require("lazydev").setup()
-      nvim_lsp.lua_ls.setup {
-        capabilities = capabilities,
-      }
-
-      nvim_lsp.arduino_language_server.setup {
-        capabilities = capabilities,
-      }
-
-      nvim_lsp.nixd.setup {
-        capabilities = capabilities,
-      }
-
-      nvim_lsp.rust_analyzer.setup({
-        capabilities = capabilities,
-      })
-
-      nvim_lsp.gopls.setup({
-        capabilities = capabilities,
-      })
-
-      nvim_lsp.pyright.setup({
-        capabilities = capabilities,
-      })
-
-      nvim_lsp.html.setup({
-        capabilities = capabilities,
-        cmd = { "vscode-html-language-server", "--stdio" },
-      })
-
-      nvim_lsp.cssls.setup({
-        capabilities = capabilities,
-        cmd = { "vscode-css-language-server", "--stdio" },
-      })
-
-      nvim_lsp.ts_ls.setup({
-        capabilities = capabilities,
-        cmd = { "typescript-language-server", "--stdio" },
-      })
-
-      nvim_lsp.svelte.setup({
-        capabilities = capabilities,
-      })
-
-      nvim_lsp.astro.setup({
-        capabilities = capabilities,
-        -- cmd = { "astro-ls", "--stdio" }, -- default
-      })
       -- MDX-analyzer?
       -- vim.treesitter.language.register("markdown", "mdx")
 
-      nvim_lsp.tailwindcss.setup({
-        capabilities = capabilities,
-      })
-
-      nvim_lsp.jsonls.setup({
-        capabilities = capabilities,
-        cmd = { "vscode-json-language-server", "--stdio" },
-      })
-
-      nvim_lsp.qmlls.setup({
-        capabilities = capabilities,
-        cmd = { "qmlls", "-E" },
-      })
-
-      nvim_lsp.tinymist.setup({
-        capabilities = capabilities,
-        settings = {
-          formatterMode = "typstyle",
-          exportPdf = "onSave",
-          semanticTokens = "disable"
-        },
-        on_attach = function (client, bufnr)
-          local wk = require("which-key")
-          wk.add({
-            { "<leader>llt", group = "Typst"}
-          })
-          vim.keymap.set("n", "<leader>lltp", function ()
-            client:exec_cmd({
-              title = "pin",
-              command = "tinymist.pinMain",
-              arguments = { vim.api.nvim_buf_get_name(0) },
-            }, { bufnr = bufnr})
-          end, { desc = "[T]inymist [P]in", noremap = true })
-          vim.keymap.set("n", "<leader>lltu", function()
-            client:exec_cmd({
-              title = "unpin",
-              command = "tinymist.pinMain",
-              arguments = { vim.v.null },
-            }, { bufnr = bufnr })
-          end, { desc = "[T]inymist [U]npin", noremap = true })
-        end
-      })
+      for _, language in ipairs(languages) do
+        vim.lsp.config(language, vim.tbl_deep_extend(
+          "force",
+          { capabilities = capabilities },
+          server_opts[language] or {}
+        ))
+        vim.lsp.enable(language)
+      end
     end,
   },
   {
     "luckasRanarison/tailwind-tools.nvim",
     name = "tailwind-tools",
     build = ":UpdateRemotePlugins",
+    ft = {"html", "jsx", "tsx", "astro", "svelte", "vue", "templ"},
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-telescope/telescope.nvim", -- optional
