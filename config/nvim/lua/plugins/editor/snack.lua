@@ -27,7 +27,9 @@ return {
     },
     styles = {
       zen = {
-        backdrop = { transparent = true, blend = 10 },
+        -- backdrop = { transparent = true, blend = 40 },
+        backdrop = { transparent = false },
+        width = 100,
       },
     },
     bigfile = { enabled = true },
