@@ -1459,36 +1459,6 @@ Stops hidden files, created by Emacs, cluttering your system.
   (setq create-lockfiles nil)
 
 #+end_src
-* Fun
-** Games
-- Tetris
-#+begin_src emacs-lisp
-  (use-package tetris
-    :ensure nil
-    :defer t
-    :config
-    (evil-collection-tetris-setup)
-    )
-#+end_src
-
-** Chat
-*** ERC
-*** Elfeed
-
-#+begin_src emacs-lisp
-
-  (use-package elfeed
-    :commands 'elfeed
-    :config
-    (setq elfeed-search-filter "@3-months-ago +unread")
-    (setq elfeed-db-directory (concat user-emacs-directory "elfeed/"))
-    (setq elfeed-enclosure-default-dir (concat user-emacs-directory "elfeed/"))
-    (setq elfeed-feeds
-          '("https://archlinux.org/feeds/news"
-            "https://www.reddit.com/r/emacs/.rss")))
-
-#+end_src
-
 * Built-in Packages
 ** Eshell
 
