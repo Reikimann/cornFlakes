@@ -24,6 +24,7 @@ in
       portal.enable = true;
       userDirs = {
         enable = cfg.enableUserDirs;
+        setSessionVariables = true;
         createDirectories = true;
         documents = "${config.home.homeDirectory}/dox";
         download = "${config.home.homeDirectory}/dl";

@@ -22,6 +22,7 @@ in
     programs.neovim = {
       enable = true;
       defaultEditor = cfg.isDefaultEditor;
+      withRuby = false;
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
@@ -50,8 +51,8 @@ in
       svelte-language-server
       astro-language-server
       tailwindcss-language-server
-      nodePackages_latest.vscode-langservers-extracted
-      nodePackages_latest.typescript-language-server
+      vscode-langservers-extracted
+      typescript-language-server
       arduino-language-server
     ];
 
