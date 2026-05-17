@@ -2,7 +2,8 @@ return {
   {
     'nvim-treesitter/nvim-treesitter',
     build = ":TSUpdate",
-    event = "VeryLazy",
+    event = { "VeryLazy" },
+    cmd = { "TSUpdate", "TSInstall", "TSLog", "TSUninstall" },
     opts = {
       ensure_installed = {
         "arduino",
@@ -64,14 +65,14 @@ return {
     event = "VeryLazy",
     dependencies = "nvim-treesitter/nvim-treesitter",
   },
-  {
-    "windwp/nvim-ts-autotag",
-    dependencies = "nvim-treesitter/nvim-treesitter",
-    opts = {
-      disable_filetype = { "TelescopePrompt" },
-    },
-    config = function(_, opts)
-      require("nvim-ts-autotag").setup(opts)
-    end
-  }
+  -- {
+  --   "windwp/nvim-ts-autotag",
+  --   dependencies = "nvim-treesitter/nvim-treesitter",
+  --   opts = {
+  --     disable_filetype = { "TelescopePrompt" },
+  --   },
+  --   config = function(_, opts)
+  --     require("nvim-ts-autotag").setup(opts)
+  --   end
+  -- }
 }

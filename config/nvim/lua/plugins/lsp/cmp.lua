@@ -1,111 +1,135 @@
 return {
   {
-    "hrsh7th/nvim-cmp",
-    event = { "InsertEnter", "CmdlineEnter" },
-    version = false, -- The last release was ages ago
+    "saghen/blink.cmp",
     dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-cmdline",
-      "hrsh7th/cmp-buffer",
-      "L3MON4D3/LuaSnip",
-      "saadparwaiz1/cmp_luasnip",
-      "rafamadriz/friendly-snippets", -- INFO: The github page shows how to exclude snippets
-      "onsails/lspkind.nvim",
+      "rafamadriz/friendly-snippets",
+      -- "onsails/lspkind.nvim",
+      -- "tailwind-tools",
     },
-    config = function()
-      local cmp = require("cmp")
-      local luasnip = require("luasnip")
+    version = "1.*",
+    event = { "InsertEnter", "CmdlineEnter" },
+    ---@module "blink.cmp"
+    ---@type blink.cmp.Config
+    opts = {
+      keymap = {
+        preset = "super-tab",
 
-      require("luasnip.loaders.from_vscode").lazy_load()
-      luasnip.config.setup {}
-
-      cmp.setup {
-        snippet = {
-          expand = function(args)
-            luasnip.lsp_expand(args.body)
-          end,
+        -- FIX: Why this no worky??
+        -- ["<C-n>"] = { function(cmp) cmp.scroll_documentation_down(2) end, "fallback" },
+        -- ["<C-m>"] = { function(cmp) cmp.scroll_documentation_up(2) end, "fallback" },
+        ["<C-n>"] = { "scroll_documentation_down", "fallback" },
+        ["<C-m>"] = { "scroll_documentation_up", "fallback" },
+        ["<C-k>"] = { "select_prev", "fallback" },
+        ["<C-j>"] = { "select_next", "fallback" },
+        -- TEST: This
+        ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+        ["<C-e>"] = { "cancel", "fallback" },
+        ['<C-l>'] = { "select_and_accept", "fallback" },
+        ["<C-g>"] = {
+          function(cmp)
+            if cmp.is_documentation_visible() then return cmp.hide_documentation()
+            else return cmp.show_documentation() end
+          end
         },
-        view = {
-          docs = {
-            auto_open = true
+      },
+      snippets = { preset = "luasnip" },
+      completion = {
+        accept = {
+          auto_brackets = {
+            enabled = true,
+          },
+        },
+        menu = {
+          border = "rounded",
+          draw = {
+            treesitter = { "lsp" },
+            columns = {
+              { "label", "label_description" }, { "kind_icon", gap = 1, "kind" }
+            }
           }
         },
-        performance = {
-          max_view_entries = 10
+        documentation = {
+          auto_show = true,
+          auto_show_delay_ms = 200,
+          window = {
+            border = "rounded"
+          }
         },
-        mapping = cmp.mapping.preset.insert({
-          ['<C-m>'] = cmp.mapping.scroll_docs(-2),
-          ['<C-n>'] = cmp.mapping.scroll_docs(2),
-          ['<C-j>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-          ['<C-k>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-          ['<C-Space>'] = cmp.mapping.complete(), -- bring up completion
-          ['<C-e>'] = cmp.mapping.abort(),
-          -- ['<C-l>'] = cmp.mapping.confirm({ select = true }),
-          ['<C-g>'] = function()
-            if cmp.visible_docs() then
-              cmp.close_docs()
-            else
-              cmp.open_docs()
-            end
-          end,
-          ['<Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.confirm({ select = true }) -- Set to `false` to only confirm explicitly selected items.
-              -- cmp.select_next_item()
-            elseif luasnip.expand_or_locally_jumpable() then
-              luasnip.expand_or_jump()
-            else
-              fallback()
-            end
-          end, { "i", "s" }),
-          ['<S-Tab>'] = cmp.mapping(function(fallback)
-            -- if cmp.visible() then
-            --   cmp.select_prev_item()
-            if luasnip.locally_jumpable(-1) then
-              luasnip.jump(-1)
-            else
-              fallback()
-            end
-          end, { "i", "s" }),
-        }),
-        sources = {
-          { name = "lazydev", group_index = 0 },
-          { name = "nvim_lsp" },
-          { name = "luasnip" },
-        }, {
-          { name = "buffer" },
-        },
-        formatting = {
-          format = require("lspkind").cmp_format({
-            before = require("tailwind-tools.cmp").lspkind_format,
-            -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
-            mode = 'symbol_text', -- show only symbol annotations
-            maxwidth = 50,
-            ellipsis_char = '...', -- when popup menu exceed maxwidth,
-            symbol_map = {
-              Method = "",
-              TypeParameter = "",
-            },
-          })
-        },
-      }
-      -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-      cmp.setup.cmdline({ '/', '?' }, {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = {
-          { name = 'buffer' }
+        ghost_text = {
+          enabled = true
         }
-      })
-      -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-      cmp.setup.cmdline(':', {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources({
-          { name = 'path' }
-        }, {
-          { name = 'cmdline' }
-        })
-      })
-    end
-  },
+      },
+      cmdline = {
+        completion = {
+          menu = {
+            auto_show = true
+          }
+        },
+        keymap = {
+          preset = "cmdline",
+          ["<Tab>"] = { "select_and_accept", "fallback" },
+          ["<C-k>"] = { "select_prev", "fallback" },
+          ["<C-j>"] = { "select_next", "fallback" },
+          ["<Up>"] = { "select_prev", "fallback" },
+          ["<Down>"] = { "select_next", "fallback" },
+        }
+      },
+      sources = {
+        default = { "lsp", "path", "snippets", "buffer" },
+        per_filetype = {
+          lua = { inherit_defaults = true, "lazydev" }
+        },
+        providers = {
+          lazydev = {
+            name = "LazyDev",
+            module = "lazydev.integrations.blink",
+            score_offset = 100
+          }
+        }
+      },
+      fuzzy = { implementation = "prefer_rust_with_warning" },
+
+      -- How do I do the following options in blink?
+      -- maxwidth = 50,
+      -- ellipsis_char = '...', -- when popup menu exceed maxwidth,
+      appearance = {
+        nerd_font_variant = "mono",
+        -- To setup tailwind-tools icons
+        -- https://github.com/onsails/lspkind.nvim#option-3-blinkcmp
+        -- https://github.com/luckasRanarison/tailwind-tools.nvim#nvim-cmp
+        kind_icons = {
+          Method = '󰆧', -- 󰊕
+          Function = '󰊕',
+          Constructor = '󰒓', -- 
+
+          Field = '󰜢',
+          Variable = '󰀫', -- 󰆦
+          Property = '󰖷',
+
+          Class = '󰠱',
+          Interface = '', -- 󱡠
+          Struct = '󰙅', -- 󱡠
+          Module = '󰅩', --  󰆦
+
+          Unit = '󰑭',
+          Value = '󰎠',
+          Enum = '', -- 󰦨
+          EnumMember = '', -- 󰦨
+
+          Keyword = '󰌋', -- 󰻾
+          Constant = '󰏿',
+
+          Snippet = '󱄽', -- 
+          Color = '󰏘',
+          File = '󰈔', -- 󰈙
+          Reference = '󰬲', -- 󰈇
+          Folder = '󰉋', -- 󰉋
+          Event = '󱐋', -- 
+          Operator = '󰪚', -- 󰆕
+          TypeParameter = '󰬛', -- 
+        }
+      }
+    },
+    opts_extend = { "sources.default" }
+  }
 }

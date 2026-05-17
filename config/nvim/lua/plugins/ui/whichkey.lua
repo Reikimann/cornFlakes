@@ -18,7 +18,7 @@ return {
       { "<leader>as", ":Telescope colorscheme<CR>", desc = "Switch Colorscheme" },
       { "<leader>l", group = "LSP" },
       { "<leader>ll", group = "Languages"},
-      { "<leader>li", ":LspInfo<cr>", desc = "Connected Language Servers" },
+      { "<leader>li", ":checkhealth vim.lsp<cr>", desc = "Connected Language Servers" },
       { "<leader>lk", "<cmd>lua vim.lsp.buf.signature_help()<cr>", desc = "Signature Help" },
       { "<leader>lw", "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", desc = "Add Workspace Folder" },
       { "<leader>lW", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>", desc = "Remove Workspace Folder" },

@@ -2,28 +2,16 @@ return {
   {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
-    cmd = { "LspInfo", "LspStart", "LspRestart" },
     dependencies = {
       { "folke/lazydev.nvim", ft = "lua" },
       -- "stevearc/conform.nvim" -- TODO: Setup conform formatting
       -- https://github.com/ericlovesmath/dotfiles/blob/master/.config/nvim/lua/plugins/lsp.lua
     },
     config = function()
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-      capabilities.textDocument.completion.completionItem.snippetSupport = true
-      -- suggested by nvim-ufo
-      -- Add additional capabilities supported by nvim-cmp
-      -- nvim hasn't added foldingRange to default capabilities, users must add it manually
-      capabilities.textDocument.foldingRange = {
-        dynamicRegistration = false,
-        lineFoldingOnly = true,
-      }
-
       vim.diagnostic.config({
         virtual_text = true,
         underline = true,
-        update_in_insert = true,
+        update_in_insert = false,
         severity_sort = false,
         signs = {
           text = {
@@ -77,7 +65,7 @@ return {
           on_attach = function (client, bufnr)
             local wk = require("which-key")
             wk.add({
-              { "<leader>llt", group = "Typst"}
+              { "<leader>llt", group = "Typst" }
             })
             vim.keymap.set("n", "<leader>lltp", function ()
               client:exec_cmd({
@@ -101,6 +89,7 @@ return {
       -- MDX-analyzer?
       -- vim.treesitter.language.register("markdown", "mdx")
 
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
       for _, language in ipairs(languages) do
         vim.lsp.config(language, vim.tbl_deep_extend(
           "force",
@@ -112,41 +101,76 @@ return {
     end,
   },
   {
-    "luckasRanarison/tailwind-tools.nvim",
-    name = "tailwind-tools",
-    build = ":UpdateRemotePlugins",
-    ft = {"html", "jsx", "tsx", "astro", "svelte", "vue", "templ"},
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-telescope/telescope.nvim", -- optional
-      "neovim/nvim-lspconfig", -- optional
-    },
-    keys = {
-      { "<leader>tc", ":TailwindConcealToggle<cr>", desc = "Conceal Tailwind" },
-    },
-    opts = {
-      server = {
-        override = true, -- setup the server from the plugin if true
-        settings = {}, -- shortcut for `settings.tailwindCSS`
-        on_attach = function(client, bufnr) end, -- callback triggered when the server attaches to a buffer
-      },
-      document_color = {
-        enabled = true, -- can be toggled by commands
-        kind = "inline", -- "inline" | "foreground" | "background"
-        inline_symbol = "󰝤 ", -- only used in inline mode
-        debounce = 200, -- in milliseconds, only applied in insert mode
-      },
-      conceal = {
-        enabled = false, -- NOTE: Resource intensive - is toggled by command
-        min_length = nil, -- only conceal classes exceeding the provided length
-        symbol = "󱏿", -- only a single character is allowed
-        highlight = { -- extmark highlight options, see :h 'highlight'
-          fg = "#38BDF8",
-        },
-      },
-      cmp = {
-        highlight = "foreground", -- color preview style, "foreground" | "background"
-      },
-    }
-  }
+    "roobert/tailwindcss-colorizer-cmp.nvim",
+  },
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   opts = {
+  --     servers = {
+  --       tailwindcss = {
+  --         -- exclude a filetype from the default_config
+  --         filetypes_exclude = { "markdown" },
+  --         -- add additional filetypes to the default_config
+  --         filetypes_include = {
+  --           "typescriptreact"
+  --         },
+  --       },
+  --     },
+  --     setup = {
+  --       tailwindcss = function(_, opts)
+  --         opts.filetypes = opts.filetypes or {}
+  --
+  --         -- Add default filetypes
+  --         vim.list_extend(opts.filetypes, vim.lsp.config.tailwindcss.filetypes)
+  --
+  --         -- Remove excluded filetypes
+  --         --- @param ft string
+  --         opts.filetypes = vim.tbl_filter(function(ft)
+  --           return not vim.tbl_contains(opts.filetypes_exclude or {}, ft)
+  --         end, opts.filetypes)
+  --
+  --         -- Add additional filetypes
+  --         vim.list_extend(opts.filetypes, opts.filetypes_include or {})
+  --       end,
+  --     },
+  --   },
+  -- }
+  -- {
+  --   "luckasRanarison/tailwind-tools.nvim",
+  --   name = "tailwind-tools",
+  --   build = ":UpdateRemotePlugins",
+  --   ft = {"html", "jsx", "tsx", "astro", "svelte", "vue", "templ"},
+  --   dependencies = {
+  --     "nvim-treesitter/nvim-treesitter",
+  --     "nvim-telescope/telescope.nvim", -- optional
+  --     "neovim/nvim-lspconfig", -- optional
+  --   },
+  --   keys = {
+  --     { "<leader>tc", ":TailwindConcealToggle<cr>", desc = "Conceal Tailwind" },
+  --   },
+  --   opts = {
+  --     server = {
+  --       override = true, -- setup the server from the plugin if true
+  --       settings = {}, -- shortcut for `settings.tailwindCSS`
+  --       on_attach = function(client, bufnr) end, -- callback triggered when the server attaches to a buffer
+  --     },
+  --     document_color = {
+  --       enabled = true, -- can be toggled by commands
+  --       kind = "inline", -- "inline" | "foreground" | "background"
+  --       inline_symbol = "󰝤 ", -- only used in inline mode
+  --       debounce = 200, -- in milliseconds, only applied in insert mode
+  --     },
+  --     conceal = {
+  --       enabled = false, -- NOTE: Resource intensive - is toggled by command
+  --       min_length = nil, -- only conceal classes exceeding the provided length
+  --       symbol = "󱏿", -- only a single character is allowed
+  --       highlight = { -- extmark highlight options, see :h 'highlight'
+  --         fg = "#38BDF8",
+  --       },
+  --     },
+  --     cmp = {
+  --       highlight = "foreground", -- color preview style, "foreground" | "background"
+  --     },
+  --   }
+  -- }
 }

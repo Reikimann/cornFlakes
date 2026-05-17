@@ -49,7 +49,15 @@
 - [ ] NixOS Stylix
 
 ### Nvim
-- [ ] Setup blink.cmp
+- [ ] Fix treesitter setup
+    - https://github.com/romus204/tree-sitter-manager.nvim
+        - https://github.com/Sherex/nixos-config/commit/917f39dc2fe6f6db963e975ee8a14459198d057f
+    - https://github.com/nvim-neorg/neorg/issues/1815
+- [ ] https://github.com/nvim-treesitter/nvim-treesitter-context
+- [ ] Nvim-ts-autotag uses deprecated apis, fix it
+    - https://github.com/windwp/nvim-ts-autotag
+    - https://neovim.io/doc/user/news-0.12/
+    - https://neovim.io/doc/user/treesitter/#treesitter-directive-offset
 - [ ] Make the paste button from custom keyboard work
 
 ### Emacs

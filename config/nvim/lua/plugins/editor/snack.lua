@@ -67,7 +67,7 @@ return {
         { section = "startup" },
       },
     },
-    indent = { enabled = true },
+    indent = { enabled = false },
     input = { enabled = true },
     -- picker = { enabled = true },
     notifier = { enabled = true },
